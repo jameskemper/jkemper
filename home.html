@@ -6,73 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.ttu.edu/centralized-stylesheet.css">
     <style>
-        html, body {
+        /* Make the body take full height */
+        body, html {
             height: 100%;
             margin: 0;
-            padding: 0;
-            background-color: #FFFFFF;
+        }
+
+        /* Make the main container flex and take full height */
+        #main-container {
             display: flex;
             flex-direction: column;
+            min-height: 100%;
         }
 
-        body, p {
-            font-family: Charter, serif;
-        }
-
-        #header, h1, h2, h3 {
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        #header {
-            background-color: #C00000;
-            padding: 10px;
-            color: #FFFFFF;
-            text-align: center;
-        }
-
+        /* Set the left margin and width for the main content */
         #main-content {
-            flex: 1 0 auto;
-            display: flex;
-            flex-direction: column;
+            margin-left: 15%;
+            width: 70%;
+            flex: 1;
         }
 
+        /* Define the content container */
         #content {
-            padding: 20px;
             display: flex;
-            align-items: stretch;
         }
 
-        #rightcolumn {
-            flex-grow: 1;
-            text-align: left;
-            padding-left: 20px;
+        /* Define styles for left and right columns */
+        #leftcolumn, #rightcolumn {
+            padding: 20px;
         }
 
+        /* Remove margin from h2 and h3 */
+        #rightcolumn h2, #rightcolumn h3 {
+            margin: 0;
+        }
+
+        /* Footer at the bottom */
         #footer {
-            background-color: #282828;
-            color: #FFFFFF;
-            padding: 10px;
             text-align: center;
-        }
-
-        h2, h3 {
-            margin: 0 0 5px;
-            color: #333333;
-        }
-
-        #body section {
-            padding-left: 10px;
-        }
-
-        .btnlink {
-            display: inline-block;
-            padding: 5px 10px;
-            text-align: center;
-            text-decoration: none;
-            background-color: #C00000;
-            color: #FFFFFF;
-            border-radius: 2px;
-            margin-top: 5px;
         }
 
         /* Responsive layout - makes the menu and the right column stack on top of each other */
@@ -80,8 +51,9 @@
             #content {
                 flex-direction: column;
             }
-            #rightcolumn {
-                padding-left: 0;
+            #main-content {
+                margin-left: 0;
+                width: 100%;
             }
         }
     </style>
@@ -89,55 +61,61 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <div id="header">
-        <a href="https://www.depts.ttu.edu/economics/" style="color: #FFFFFF; text-decoration: none;">
-            <strong>Department of Economics, Texas Tech University</strong>
-        </a>
-    </div>
+    <!-- Main Container -->
+    <div id="main-container">
 
-    <!-- Main Content -->
-    <div id="main-content">
-        <div id="content">
-            <img src="content/jkemper_headshot.jpg" width="252" height="378" alt="James Kemper"/>
-          <div id="rightcolumn">
-                <h2>James Kemper</h2>
-                <h3>Lecturer</h3>
+        <!-- Header -->
+        <div id="header">
+            <a href="https://www.depts.ttu.edu/economics/" style="color: #FFFFFF; text-decoration: none;">
+                <strong>Department of Economics, Texas Tech University</strong></a></div>
+
+        <!-- Main Content -->
+        <div id="main-content">
+            <div id="content">
                 
-                <p><strong>Email:</strong> <a href="mailto:james.kper@ttu.edu" class="mail">james.kemper@ttu.edu</a></p>
-                <p><strong>Phone:</strong> (806)834-7691</p>
-            <p><strong>Office:</strong> 244 Holden Hall</p>
-                <p>My name is James Kemper and I am Lecturer in the Economics Department at Texas Tech University. I am aslo an adjunct instructor at the Health Sciences Center. Before joining Texas Tech, I was a tenured Assistant Professor of Economics at South Plains College for eleven years.</p>
-							  	  
-				<p>Wreck'em!</p>
-			  
-			    <a href="content/jkemper_CV.pdf" title="CV" class="btnlink">View CV</a> 
+                <div id="leftcolumn">
+                    <img src="content/jkemper_headshot.png" width="189" height="284" alt="photo of James Kemper"/>
+                </div>
+                
+                <div id="rightcolumn">
+                  <h1>James Kemper</h1>
+                  <h2>Lecturer, Department of Economics</h2>
+                  <h3>College of Arts & Sciences, Texas Tech University</h3>  
+                  <p><strong>Email:</strong> <a href="mailto:james.kper@ttu.edu" class="mail">james.kemper@ttu.edu</a></p>
+                  <p><strong>Phone:</strong> (806)834-7691</p>
+                  <p><strong>Office:</strong> 244 Holden Hall</p>
+                  <p><strong>CV:</strong> <a href="content/jkemper_CV.pdf" title="PDF" class="link">View CV</a></p>
+                </div>
             </div>
+
+            <div id="body">
+                <section> 
+                    <h2>Teaching and Research Focus</h2>
+                    <p>&emsp;&emsp; Economic Principles, Computational and Statistical Economics, Health Economics</p>
+                </section>
+                <section>
+                    <h2>Education</h2>
+                    <ul>
+                        <li>M.S. in Finance and Economics, West Texas A&amp;M University, 2011</li>
+                        <li>B.B.A. in Management, West Texas A&M University, 2011</li>
+                    </ul>
+                </section>
+                <section>
+                  <h2>Teaching</h2>
+                    <ul>
+                        <li>ECO 2302 Principles of Macroeconomics</li>
+                        <li>ECO 2305 Principles of Economics</li>
+                        <li>ECO 23XX Excel for Economics (coming Spring 2024)</li>
+                    </ul>
+              </section>
+          </div>
+        </div>
+        
+        <!-- Footer -->
+        <div id="footer">
+            <p>Last updated on 7/7/2023.</p>
         </div>
 
-        <div id="body">
-            <section>
-                <ul><h3>Education</h3>
-                <ul>
-                    <li>M.S. in Finance and Economics, West Texas A&amp;M University, 2011</li>
-                    <li>B.B.A. in Management, West Texas A&M University, 2011</li>
-                </ul>
-            </section>
-            <section>
-              <ul><h3>Teaching</h3>
-                <ul>
-                    <li>ECO 2302 Principles of Macroeconomics</li>
-                    <li>ECO 2305 Principles of Economics</li>
-                    <li>ECO 23XX Excel for Economics (coming Spring 2024)</li>
-                </ul>
-          </section>
-      </div>
     </div>
-    
-    <!-- Footer -->
-    <div id="footer">
-        <p>Last updated on 7/6/2023.</p>
-    </div>
-
 </body>
 </html>
