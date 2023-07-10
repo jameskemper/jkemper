@@ -1,5 +1,7 @@
 # jkemper
 
+# TTU_faculty_website
+
 ## Overview
 This repository contains everything related to my faculty website at Texas Tech University.
 
@@ -7,6 +9,6 @@ This repository contains everything related to my faculty website at Texas Tech 
 This site is organized into the following  sections:
 
 - `/contact info/`: This section contains faculty contact information.
-- `/teaching/`: This section contains the courses taught at Texas Tech.
 -  `/CV/`: This section contains a PDF version of my curriculum vitae. 
-
+- `/education/`: This section contains education obtained.
+- `/teaching/`: This section contains the courses taught at Texas Tech.
