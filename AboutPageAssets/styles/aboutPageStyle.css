@@ -8,16 +8,11 @@ body {
     background-color: white;
     color: #333;
     line-height: 1.6;
-    padding: 0 2.275%;
+    padding: 0 5%%;
 }
 
 a {
-    color: #333;
     text-decoration: none;
-}
-
-a:hover {
-    color: #666;
 }
 
 img {
@@ -27,7 +22,7 @@ img {
 /* Header */
 
 header {
-    padding-top: 10px;
+    padding-top: 8px;
     padding-bottom: 1%;
     border-bottom: 1px solid #666;
     background-color: white;
@@ -57,7 +52,7 @@ header {
     display: flex;
     align-items: center;
     padding: 10px;
-	margin-bottom: 8px;
+    margin-bottom: 8px;
 	margin-top: 8px;
     border-bottom: 1px solid #666;
 }
