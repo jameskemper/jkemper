@@ -27,75 +27,91 @@ img {
 /* Header */
 
 header {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 1%;
     border-bottom: 1px solid #666;
     background-color: white;
 }
 
 .headerContent {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    text-align: center;
 }
 
-.profilePhoto {
-    flex-shrink: 0;
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-}
-
-.profileHeader {
-    text-align: left;
-}
-
-.profileHeader h1 {
-    font-size: 28px;
+.headerContent h1 {
+    font-size: 24px;
     font-weight: 700;
     color: #333;
-    margin-bottom: 10px;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
-.profileHeader h2,
-.profileHeader h3 {
+.headerContent h2 {
     font-size: 22px;
     font-weight: 500;
     color: #666;
-    margin-bottom: 10px;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
-.profileHeader p {
+.profileSection {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+	margin-bottom: 8px;
+	margin-top: 8px;
+    border-bottom: 1px solid #666;
+}
+
+.profilePhoto {
+    flex-shrink: auto;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+	padding-right: 20px;
+}
+
+.contactInfo {
+    text-align: left;
+}
+
+.contactInfo p {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+	margin-top: 0px;
 }
 
-/* Main Content */
+.welcomeSection {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #666;
+}
+
+.welcomeSection h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+.welcomeSection p {
+    font-size: 16px;
+    margin-bottom: 8px;
+	margin-top: 0px;
+}
 
 .mainContent {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 15px;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #666;
 }
 
 .mainContent h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 8px;
+	margin-top: 8px;
 }
 
 .mainContent p {
-    margin-bottom: 10px;
-}
-
-/* Footer */
-
-footer {
-    padding: 20px;
-    text-align: center;
-    background-color: white;
-    border-top: 1px solid #666;
-}
-
-footer p {
-    margin: 0;
+    font-size: 16px;
+    margin-bottom: 0px;
+	margin-top: 0px;
 }
