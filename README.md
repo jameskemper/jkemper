@@ -8,7 +8,7 @@ This repository contains everything related to my faculty website at Texas Tech 
 ## Site Structure
 This site is organized into the following  sections:
 
-- `/contact info/`: This section contains faculty contact information.
--  `/CV/`: This section contains a PDF version of my curriculum vitae. 
+- `/profile photo and contact info/`: This section contains a profile picture, faculty contact information, and a PDF version of my curriculum vitae.
+- `/welcome/`: This section is a short 
 - `/education/`: This section contains education obtained.
 - `/teaching/`: This section contains the courses taught at Texas Tech.
