@@ -1,9 +1,7 @@
 # jkemper
 
-# TTU_faculty_website
-
 ## Overview
-This repository contains everything related to my faculty website at Texas Tech University.
+This repository contains everything related to my TTU faculty website at Texas Tech University.
 
 ## Site Structure
 This site is organized into the following  sections:
