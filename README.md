@@ -9,5 +9,8 @@ The [home page](https://github.com/jameskemper/jkemper/blob/main/home.html) is o
 - `/profile photo and contact info/`: This section contains a profile picture, faculty contact information, and a PDF version of my curriculum vitae.
 - `/welcome/`: This section is a short 
 - `/education/`: This section contains education obtained.
-- `/teaching/`: This section contains the courses taught at Texas Tech.
+
+The [teaching page](https://github.com/jameskemper/jkemper/blob/main/teaching.html) contains the courses taught at Texas Tech and Texas Tech Health Sciences Center.
+
+Lastly, there will be a link to access my CV.
 
