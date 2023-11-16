@@ -1,7 +1,7 @@
 # jkemper
 
 ## Overview
-This repository contains everything related to my TTU faculty [website](https://www.myweb.ttu.edu/jkemper/) at Texas Tech University.
+This repository contains everything related to my TTU faculty [website](https://www.myweb.ttu.edu/jkemper/home.html) at Texas Tech University.
 
 ## Site Structure
 The [home page](https://github.com/jameskemper/jkemper/blob/main/home.html) is organized into the following sections:
