@@ -12,5 +12,5 @@ The [home page](https://github.com/jameskemper/jkemper/blob/main/home.html) is o
 
 The [teaching page](https://github.com/jameskemper/jkemper/blob/main/teaching.html) contains the courses taught at Texas Tech and Texas Tech Health Sciences Center.
 
-Lastly, there will be a link to access my CV.
+Lastly, there will be a link to access my [CV](https://github.com/jameskemper/jkemper/blob/main/James_Kemper_CV.pdf).
 
