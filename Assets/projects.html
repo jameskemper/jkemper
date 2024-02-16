@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <!-- Link to your external CSS file -->
+    <link href="styles/PageStyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Script to log access -->
+    <script>
+        // Function to send an AJAX request to log access
+        function logAccess() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/log_access', true); // Endpoint to log access on the server
+            xhr.send();
+        }
+
+        // Log access when the page loads
+        logAccess();
+    </script>
+
+    <!-- Your existing content here -->
+    <h1>Welcome to my website</h1>
+    <p>This is a sample webpage.</p>
+</body>
+</html>
