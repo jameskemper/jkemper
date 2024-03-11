@@ -28,30 +28,32 @@
         </section>
 
         <footer></footer>
+    <footer>Updated 1/27/2023</footer>
 
-        <script>
-            var isDarkMode = false;
-            var darkModeButton = document.getElementById('dark-mode-button');
-            var darkModeStyle = document.getElementById('dark-mode-style');
+<script>
+    var isDarkMode = false;
+    var darkModeButton = document.getElementById('dark-mode-button');
+    var darkModeStyle = document.getElementById('dark-mode-style');
 
-            darkModeButton.addEventListener('click', function() {
-                isDarkMode = !isDarkMode;
-                if (isDarkMode) {
-                    darkModeStyle.innerHTML = `
-                        body { background-color: #121212; color: #ffffff; }
-                        .pdfSection { background-color: #2a2a2a; } /* Slightly lighter background for the PDF section */
-                        header { background-color: #121212; }
-                        .headerContent h1, .headerContent h2, .headerContent h3 { color: #ffffff; }
-                    `;
-                    darkModeButton.textContent = 'Light Mode';
-                } else {
-                    darkModeStyle.innerHTML = '';
-                    darkModeButton.textContent = 'Dark Mode';
+    darkModeButton.addEventListener('click', function() {
+        isDarkMode = !isDarkMode;
+        if (isDarkMode) {
+            darkModeStyle.innerHTML = `
+                body, nav, .navLinks a, .headerContent, .welcomeSection, .mainContent, footer,
+                .contactInfo, .contactInfo a, a, button, h1, h2, h3 {
+                    background-color: #121212 !important; 
+                    color: #ffffff !important;
                 }
-            });
-        </script>
-
-    </div>
-</body>
-
-</html>
+                .headerContent h1, .headerContent h2, .headerContent h3 {
+                    color: #ffffff !important;
+                }
+                a { color: #4A90E2 !important; } 
+                button { border: 1px solid #ffffff !important; }
+            `;
+            darkModeButton.textContent = 'Light Mode';
+        } else {
+            darkModeStyle.innerHTML = '';
+            darkModeButton.textContent = 'Dark Mode';
+        }
+    });
+</script>

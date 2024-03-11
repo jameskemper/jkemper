@@ -3,67 +3,27 @@
 
 body {
     margin: 0 auto;
-    max-width: 1200px;
     font-family: 'Charter', 'Times New Roman', serif;
     background-color: white;
     color: #333;
     line-height: 1.6;
-    padding: 0 2.5%;
+    padding: 0 5%;
 }
 
 a {
     color: #cc0000; 
-    text-decoration: overline;
     text-decoration: underline;
 }
 
 img {
     max-width: 100%;
-}
-
-header {
-    padding-top: 8px;
-    padding-bottom: 1%;
-    border-bottom: 1px solid #666;
-    background-color: white;
-}
-
-.headerContent {
-    text-align: center;
-}
-
-.headerContent h1, .headerContent h2, .headerContent h3 {
-    font-family: 'Helvetica Neue', 'Arial', sans-serif;
-}
-
-.headerContent h1 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
-.headerContent h2 {
-    font-size: 20px;
-    font-weight: 500;
-    color: #666;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
-.headerContent h3 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #666;
-    margin-bottom: 18px;
-    margin-top: 0px;
+    height: auto;
 }
 
 nav {
     text-align: center;
     margin-top: 20px;
-    background-color: #white;
+    background-color: white;
 }
 
 .navLinks a {
@@ -72,30 +32,23 @@ nav {
     background-color: #cc0000;
     color: #ffffff; 
     font-weight: bold;
-    text-decoration: overline; 
     text-decoration: underline; 
     margin-right: 10px;
     margin-left: 10px; 
-    border-radius: 5px; 
-    align-items: center;
+    border-radius: 5px;
 }
-
 
 .profileSection {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
-    margin-bottom: 8px;
-    margin-top: 8px;
+    padding: 20px;
     border-bottom: 1px solid #666;
 }
 
 .profilePhoto {
-    flex-shrink: auto;
-    width: 200px;
-    height: 300px;
-    object-position: center;
-    object-fit: cover;
+    width: 40%; 
     padding-right: 20px;
 }
 
@@ -104,49 +57,40 @@ nav {
 }
 
 .contactInfo p {
-    font-size: 16px;
-    margin-bottom: 8px;
-    margin-top: 0px;
+    font-size: 1em;
 }
 
-.welcomeSection {
-    padding: 10px;
+.welcomeSection, .mainContent {
+    padding: 20px;
     text-align: left;
     border-bottom: 1px solid #666;
 }
 
-.welcomeSection h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    margin-top: 8px;
+.welcomeSection h3, .mainContent h3 {
+    font-size: 1.2em;
 }
 
-.welcomeSection p {
-    font-size: 16px;
-    margin-bottom: 8px;
-    margin-top: 0px;
-}
-
-.mainContent {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #666;
-}
-
-.mainContent h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    margin-top: 8px;
-}
-
-.mainContent p {
-    font-size: 16px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+.welcomeSection p, .mainContent ul {
+    font-size: 1em;
 }
 
 footer {
-    text-align: left;
+    text-align: center;
     padding: 20px;
-    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .profileSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navLinks a {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+
+    body, .contactInfo p, .welcomeSection p, .mainContent ul {
+        padding: 0 10px;
+    }
 }
