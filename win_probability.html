@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Win Probability Scatter Plot</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Loading Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> <!-- Loading PapaParse for CSV parsing -->
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .chart-container {
+    width: 60%;
+    height: 60%;
+  }
+</style>
+</head>
+<body>
+
+<div class="chart-container">
+  <canvas id="winProbabilityScatterPlot"></canvas>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const csvUrl = 'https://raw.githubusercontent.com/jameskemper/wreckem_model/main/Data/Predictions/predictions.csv'; // Your CSV URL
+    Papa.parse(csvUrl, {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const scatterData = results.data.map((row, index) => ({
+                x: index + 1, // Use the index as the x value, adding 1 to start from 1 instead of 0
+                y: parseFloat(row.percentage_sim_win) * 100, // Convert win probability to percentage for the y value
+                team: row.predicted_winner // Keep the team name for tooltips
+            })).filter(row => !isNaN(row.y)); // Filter out rows without a valid win probability
+
+            const ctx = document.getElementById('winProbabilityScatterPlot').getContext('2d');
+            const scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Win Probability',
+                        data: scatterData,
+                        backgroundColor: 'rgba(255, 99, 132, 1)',
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            title: {
+                              display: true,
+                              text: 'Entry Order'
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                              display: true,
+                              text: 'Win Probability (%)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    // Display the team name and probability on hover
+                                    return `${context.raw.team}: ${context.raw.y.toFixed(1)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
+  });
+</script>
+
+</body>
+</html>
