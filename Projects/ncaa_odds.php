@@ -30,7 +30,7 @@
     <tbody>
         <?php
         // Path to the NCAA predictions CSV file
-        $csvFile = "\\myweb.ttu.edu\users\jkemper\NCAA_predictions.csv";
+        $csvFile = ''\\myweb.ttu.edu\users\jkemper\Projects';
 
         // Read and display the CSV file data
         if (($handle = fopen($csvFile, "r")) !== FALSE) {
