@@ -196,4 +196,31 @@ document.addEventListener('DOMContentLoaded', function() {
         filterTable();
     });
 
-    teamFilter.addEventListener('
+    teamFilter.addEventListener('change', function() {
+        filterTable();
+    });
+
+    conferenceFilter.addEventListener('change', function() {
+        filterTable();
+    });
+
+    function filterTable() {
+        const selectedDate = dateFilter.value;
+        const selectedTeam = teamFilter.value;
+        const selectedConference = conferenceFilter.value;
+        const rows = tableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+            const isDateMatch = selectedDate === "" || row.getAttribute('data-date') === selectedDate;
+            const isTeamMatch = selectedTeam === "" || row.getAttribute('data-team') === selectedTeam || row.cells[1].textContent.includes(selectedTeam);
+            const isConferenceMatch = selectedConference === "" || row.getAttribute('data-conference') === selectedConference;
+            if (isDateMatch && isTeamMatch && isConferenceMatch) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
