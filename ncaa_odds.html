@@ -26,14 +26,14 @@ table {
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: center; /* Center align text */
+    text-align: center;
 }
 th {
     background-color: #d32f2f;
     color: white;
 }
 tr:nth-child(even) {
-    background-color: #E1E0E0; /* Lightly shade every other row */
+    background-color: #E1E0E0;
 }
 .progress-bar-container {
     background-color: #DAD0FF;
@@ -50,12 +50,32 @@ tr:nth-child(even) {
     text-align: center; 
     margin-bottom: 20px;
 }
+img.team-logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+.team-matchup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px; /* Adjust based on your preference */
+}
+.vs-text {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>
 </head>
 <body>
 <nav>
-    <div class="navLinks">
-        <a href="home.html">My Faculty Website</a>
+    <a href="https://www.myweb.ttu.edu/jkemper/about_NCAA_odds.html" class="active">About the Model</a>
+        </ul>
     </div>
 </nav>
 <h2>Kemper's NCAA Game Predictions</h2>
@@ -74,10 +94,10 @@ tr:nth-child(even) {
 <table id="predictionsTable">
     <thead>
         <tr>
-            <th>Games</th>
+            <th>Teams</th>
             <th>Conference</th>
+            <th>Predicted Winner</th>
             <th>Win Probability</th>
-            <th>The Model Predicts</th>
         </tr>
     </thead>
     <tbody>
@@ -94,6 +114,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const tableBody = document.getElementById('predictionsTable').getElementsByTagName('tbody')[0];
     const uniqueDates = new Set();
     const uniqueConferences = new Set();
+    const logoBaseURL = 'https://raw.githubusercontent.com/jameskemper/wreckem_model/main/NCAA_logos/';
+
+    function convertTeamNameForURL(name) {
+        let urlName = name.toLowerCase();
+
+        if (urlName.startsWith("st.")) {
+            urlName = "saint" + urlName.substring(3);
+        }
+
+        urlName = urlName.replace(/\bst\.$/, "state");
+        urlName = urlName.replace("a&m", "am");
+        urlName = urlName.replace(/-/g, '');
+        urlName = urlName.replace(/\s+/g, '').replace("'", "");
+
+        return urlName;
+    }
 
     Papa.parse(csvUrl, {
         download: true,
@@ -101,51 +137,51 @@ document.addEventListener('DOMContentLoaded', function() {
         complete: function(results) {
             results.data.forEach(function(row) {
                 if (row.date && row.team && row.oppteam && row.percentage_sim_win && row.teamconf) {
-                    uniqueDates.add(row.date); // Collect unique dates
-                    uniqueConferences.add(row.teamconf); // Collect unique conferences
+                    uniqueDates.add(row.date);
+                    uniqueConferences.add(row.teamconf);
+
+                    const teamLogoURL = `${logoBaseURL}${convertTeamNameForURL(row.team)}.png`;
+                    const oppTeamLogoURL = `${logoBaseURL}${convertTeamNameForURL(row.oppteam)}.png`;
+                    const predictedWinner = parseFloat(row.percentage_sim_win) >= 0.5 ? row.team : row.oppteam;
+                    const winProb = parseFloat(row.percentage_sim_win) * 100;
+                    const progressBarWidth = `${winProb}%`;
 
                     const tr = document.createElement('tr');
-                    tr.setAttribute('data-date', row.date); // Set data attribute for filtering by date
-                    tr.setAttribute('data-conference', row.teamconf); // Set data attribute for filtering by conference
-                    let winProb = parseFloat(row.percentage_sim_win) * 100;
-                    winProb = winProb >= 100 ? 99.9 : winProb.toFixed(1);
-                    const progressBarWidth = `${winProb}%`;
-                    tr.innerHTML = `<td>${row.team} vs ${row.oppteam}</td>
+                    tr.innerHTML = `<td>
+                                        <div class="team-matchup">
+                                            <img src="${teamLogoURL}" alt="${row.team}" class="team-logo">
+                                            <div class="vs-text">vs</div>
+                                            <img src="${oppTeamLogoURL}" alt="${row.oppteam}" class="team-logo">
+                                        </div>
+                                    </td>
                                     <td>${row.teamconf}</td>
+                                    <td>${predictedWinner}</td>
                                     <td>
                                         <div class="progress-bar-container">
                                             <div class="progress-bar" style="width: ${progressBarWidth};"></div>
                                         </div>
-                                        ${winProb}%
-                                    </td>
-                                    <td>${row.message}</td>`;
+                                        ${winProb.toFixed(1)}%
+                                    </td>`;
                     tableBody.appendChild(tr);
                 }
             });
 
-            // Populate date dropdown
             Array.from(uniqueDates).sort().forEach(date => {
                 const option = new Option(date, date);
                 dateFilter.add(option);
             });
 
-            // Populate conference dropdown in alphabetical order
             Array.from(uniqueConferences).sort().forEach(conference => {
                 const option = new Option(conference, conference);
                 conferenceFilter.add(option);
             });
-        },
-        error: function(err) {
-            console.error("Error loading CSV:", err);
         }
     });
 
-    // Filter table rows based on selected date
     dateFilter.addEventListener('change', function() {
         filterTable();
     });
 
-    // Filter table rows based on selected conference
     conferenceFilter.addEventListener('change', function() {
         filterTable();
     });
@@ -157,7 +193,11 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.forEach(row => {
             const isDateMatch = selectedDate === "" || row.getAttribute('data-date') === selectedDate;
             const isConferenceMatch = selectedConference === "" || row.getAttribute('data-conference') === selectedConference;
-            row.style.display = isDateMatch && isConferenceMatch ? "" : "none";
+            if (isDateMatch && isConferenceMatch) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
         });
     }
 });

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WRECKEM Model - About</title>
+    <link href="Assets/styles/PageStyleSheet.css" rel="stylesheet" type="text/css">
+    <!-- Load MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+    <nav>
+        <ul class="navLinks">
+            <a href="https://www.myweb.ttu.edu/jkemper/NCAA_odds.html" class="active">NCAA Predictions</a>
+            <a href="https://www.myweb.ttu.edu/jkemper">My Faculty Website</a>
+        </ul>
+    </nav>
+    <div class="headerContent">
+        <section class="welcomeSection">
+            <h1>About the WRECKEM Model</h1>
+            <p>This project combines my passion for March Madness with data analytics and is, hopefully, a neat educational tool for my students. The WRECKEM (weighted ratio efficiencies comparison model), named in honor of Texas Tech University, is designed to forecast outcomes of NCAA Men's Basketball games.</p>
+            <p>The model incorporates concepts from Luke Benz's YUSAG model, the ELO ranking system, and NCAA Net Rankings. It assesses the impact of a team and their opponent’s offensive and defensive efficiencies, game location, strength of schedule, and historical performance on the point differential for a game.</p>
+            <p>After calculating the various statistics, the model utilizes a straightforward weighted regression analysis:</p>
+            <!-- Use MathJax to display the regression equation -->
+            <p>$$ PD = \beta_{\text{Team}} X_{\text{AdjOffEff}} - \beta_{\text{Opp}} X_{\text{AdjDefEff}} + \beta_{\text{Loc}} X_{\text{Loc}} + \epsilon $$</p>
+            <ul>
+                <li><strong>PD</strong>: Point differential, defined as the difference in points scored by the two teams in a game.</li>
+                <li><strong>X<sub>AdjOffEff</sub></strong>: Adjusted offensive efficiency              
+<li><strong>X<sub>AdjOffEff</sub></strong>: Adjusted offensive efficiency of the team.</li>
+                <li><strong>X<sub>AdjDefEff</sub></strong>: Adjusted defensive efficiency of the team.</li>
+                <li><strong>X<sub>Loc</sub></strong>: The game location variable.</li>
+                <li><strong>β<sub>Team</sub></strong>: Coefficient quantifying the impact of the team's adjusted offensive efficiency.</li>
+                <li><strong>β<sub>Opp</sub></strong>: Coefficient quantifying the impact of the opposing team's adjusted defensive efficiency.</li>
+                <li><strong>β<sub>Loc</sub></strong>: Coefficient quantifying the impact of the game location.</li>
+                <li><strong>ε</strong>: The error term, capturing unobserved factors affecting the game's outcome.</li>
+            </ul>
+            <p>Using the regression results, the model runs hundreds of iterations for each game to account for the unpredictability inherent in sports. These simulations provide a probabilistic forecast for future outcomes.</p>
+        </section>
+    </div>
+    <footer>Updated 3/15/2024</footer>
+</body>
+</html>
