@@ -62,7 +62,7 @@ img.team-logo {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 120px; /* Adjust based on your preference */
+    height: 120px;
 }
 .vs-text {
     font-weight: bold;
@@ -75,8 +75,6 @@ img.team-logo {
 <body>
 <nav>
     <a href="https://www.myweb.ttu.edu/jkemper/about_NCAA_odds.html" class="active">About the Model</a>
-        </ul>
-    </div>
 </nav>
 <h2>Kemper's NCAA Game Predictions</h2>
 
@@ -84,6 +82,10 @@ img.team-logo {
     <label for="dateFilter">Select a Date:</label>
     <select id="dateFilter">
         <option value="">All Dates</option>
+    </select>
+    <label for="teamFilter">Select a Team:</label>
+    <select id="teamFilter">
+        <option value="">All Teams</option>
     </select>
     <label for="conferenceFilter">Select a Conference:</label>
     <select id="conferenceFilter">
@@ -94,6 +96,7 @@ img.team-logo {
 <table id="predictionsTable">
     <thead>
         <tr>
+            <th>Date</th>
             <th>Teams</th>
             <th>Conference</th>
             <th>Predicted Winner</th>
@@ -110,24 +113,24 @@ img.team-logo {
 document.addEventListener('DOMContentLoaded', function() {
     const csvUrl = 'https://raw.githubusercontent.com/jameskemper/wreckem_model/main/Data/Predictions/predictions.csv';
     const dateFilter = document.getElementById('dateFilter');
+    const teamFilter = document.getElementById('teamFilter');
     const conferenceFilter = document.getElementById('conferenceFilter');
     const tableBody = document.getElementById('predictionsTable').getElementsByTagName('tbody')[0];
     const uniqueDates = new Set();
+    const uniqueTeams = new Set();
     const uniqueConferences = new Set();
     const logoBaseURL = 'https://raw.githubusercontent.com/jameskemper/wreckem_model/main/NCAA_logos/';
 
     function convertTeamNameForURL(name) {
         let urlName = name.toLowerCase();
-
         if (urlName.startsWith("st.")) {
             urlName = "saint" + urlName.substring(3);
+        } else {
+            urlName = urlName.replace(/\bst\.$/, "state");
         }
-
-        urlName = urlName.replace(/\bst\.$/, "state");
         urlName = urlName.replace("a&m", "am");
         urlName = urlName.replace(/-/g, '');
         urlName = urlName.replace(/\s+/g, '').replace("'", "");
-
         return urlName;
     }
 
@@ -138,6 +141,8 @@ document.addEventListener('DOMContentLoaded', function() {
             results.data.forEach(function(row) {
                 if (row.date && row.team && row.oppteam && row.percentage_sim_win && row.teamconf) {
                     uniqueDates.add(row.date);
+                    uniqueTeams.add(row.team);
+                    uniqueTeams.add(row.oppteam);
                     uniqueConferences.add(row.teamconf);
 
                     const teamLogoURL = `${logoBaseURL}${convertTeamNameForURL(row.team)}.png`;
@@ -147,7 +152,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     const progressBarWidth = `${winProb}%`;
 
                     const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>
+                    tr.setAttribute('data-date', row.date);
+                    tr.setAttribute('data-team', row.team);
+                    tr.setAttribute('data-conference', row.teamconf);
+                    tr.innerHTML = `<td>${row.date}</td>
+                                    <td>
                                         <div class="team-matchup">
                                             <img src="${teamLogoURL}" alt="${row.team}" class="team-logo">
                                             <div class="vs-text">vs</div>
@@ -171,6 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 dateFilter.add(option);
             });
 
+            Array.from(uniqueTeams).sort().forEach(team => {
+                const option = new Option(team, team);
+                teamFilter.add(option);
+            });
+
             Array.from(uniqueConferences).sort().forEach(conference => {
                 const option = new Option(conference, conference);
                 conferenceFilter.add(option);
@@ -182,25 +196,4 @@ document.addEventListener('DOMContentLoaded', function() {
         filterTable();
     });
 
-    conferenceFilter.addEventListener('change', function() {
-        filterTable();
-    });
-
-    function filterTable() {
-        const selectedDate = dateFilter.value;
-        const selectedConference = conferenceFilter.value;
-        const rows = tableBody.querySelectorAll('tr');
-        rows.forEach(row => {
-            const isDateMatch = selectedDate === "" || row.getAttribute('data-date') === selectedDate;
-            const isConferenceMatch = selectedConference === "" || row.getAttribute('data-conference') === selectedConference;
-            if (isDateMatch && isConferenceMatch) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
-});
-</script>
-</body>
-</html>
+    teamFilter.addEventListener('
