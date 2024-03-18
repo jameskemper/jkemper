@@ -122,7 +122,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoBaseURL = 'https://raw.githubusercontent.com/jameskemper/wreckem_model/main/NCAA_logos/';
 
     function convertTeamNameForURL(name) {
-        return name.toLowerCase().replace(/\bst\.$/, "state").replace("a&m", "am").replace(/-/g, '').replace(/\s+/g, '').replace("'", "");
+        let urlName = name.toLowerCase();
+        if (urlName.startsWith("st.")) {
+            urlName = "saint" + urlName.substring(3);
+        } else {
+            urlName = urlName.replace(/\bst\.$/, "state");
+        }
+        urlName = urlName.replace("a&m", "am");
+        urlName = urlName.replace(/-/g, '');
+        urlName = urlName.replace(/\s+/g, '').replace("'", "");
+        return urlName;
     }
 
     Papa.parse(csvUrl, {
@@ -130,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         header: true,
         complete: function(results) {
             results.data.forEach(function(row) {
-                if (row.date && row.team && row.oppteam && row.winner && row.teamconf) {
+                if (row.date && row.team && row.oppteam && row.percentage_sim_win && row.teamconf) {
                     uniqueDates.add(row.date);
                     uniqueTeams.add(row.team);
                     uniqueTeams.add(row.oppteam);
@@ -138,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     const teamLogoURL = `${logoBaseURL}${convertTeamNameForURL(row.team)}.png`;
                     const oppTeamLogoURL = `${logoBaseURL}${convertTeamNameForURL(row.oppteam)}.png`;
+                    const predictedWinner = parseFloat(row.percentage_sim_win) >= 0.5 ? row.team : row.oppteam;
                     const winProb = parseFloat(row.percentage_sim_win) * 100;
                     const progressBarWidth = `${winProb}%`;
 
@@ -154,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         </div>
                                     </td>
                                     <td>${row.teamconf}</td>
-                                    <td>${row.winner}</td>
+                                    <td>${predictedWinner}</td>
                                     <td>
                                         <div class="progress-bar-container">
                                             <div class="progress-bar" style="width: ${progressBarWidth};"></div>
@@ -165,27 +175,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            uniqueDates.forEach(date => {
-                const option = document.createElement("option");
-                option.value = date;
-                option.text = date;
-                dateFilter.appendChild(option);
+            Array.from(uniqueDates).sort().forEach(date => {
+                const option = new Option(date, date);
+                dateFilter.add(option);
             });
 
-            uniqueTeams.forEach(team => {
-                const option = document.createElement("option");
-                option.value = team;
-                option.text = team;
-                teamFilter.appendChild(option);
+            Array.from(uniqueTeams).sort().forEach(team => {
+                const option = new Option(team, team);
+                teamFilter.add(option);
             });
 
-            uniqueConferences.forEach(conference => {
-                const option = document.createElement("option");
-                option.value = conference;
-                option.text = conference;
-                conferenceFilter.appendChild(option);
+            Array.from(uniqueConferences).sort().forEach(conference => {
+                const option = new Option(conference, conference);
+                conferenceFilter.add(option);
             });
         }
+    });
+
+    dateFilter.addEventListener('change', function() {
+        filterTable();
+    });
+
+    teamFilter.addEventListener('change', function() {
+        filterTable();
+    });
+
+    conferenceFilter.addEventListener('change', function() {
+        filterTable();
     });
 
     function filterTable() {
@@ -197,13 +213,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const isDateMatch = selectedDate === "" || row.getAttribute('data-date') === selectedDate;
             const isTeamMatch = selectedTeam === "" || row.getAttribute('data-team') === selectedTeam || row.cells[1].textContent.includes(selectedTeam);
             const isConferenceMatch = selectedConference === "" || row.getAttribute('data-conference') === selectedConference;
-            row.style.display = (isDateMatch && isTeamMatch && isConferenceMatch) ? "" : "none";
+            if (isDateMatch && isTeamMatch && isConferenceMatch) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
         });
     }
-
-    dateFilter.addEventListener('change', filterTable);
-    teamFilter.addEventListener('change', filterTable);
-    conferenceFilter.addEventListener('change', filterTable);
 });
 </script>
 </body>
