@@ -116,50 +116,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const teamFilter = document.getElementById('teamFilter');
     const conferenceFilter = document.getElementById('conferenceFilter');
     const tableBody = document.getElementById('predictionsTable').getElementsByTagName('tbody')[0];
-    const uniqueDates = new Set();
-    const uniqueTeams = new Set();
-    const uniqueConferences = new Set();
 
     Papa.parse(csvUrl, {
         download: true,
         header: true,
         complete: function(results) {
             results.data.forEach(function(row) {
-                if (row.date && row.team && row.oppteam && row.predicted_winner && row.teamconf) {
-                    uniqueDates.add(row.date);
-                    uniqueTeams.add(row.team);
-                    uniqueTeams.add(row.oppteam);
-                    uniqueConferences.add(row.teamconf);
+                const winProb = parseFloat(row.percentage_sim_win) * 100;
+                const progressBarWidth = `${winProb}%`;
 
-                    const winProb = parseFloat(row.percentage_sim_win) * 100;
-                    const progressBarWidth = `${winProb}%`;
-
-                    const tr = document.createElement('tr');
-                    tr.setAttribute('data-date', row.date);
-                    tr.setAttribute('data-team', row.team);
-                    tr.setAttribute('data-conference', row.teamconf);
-                    tr.innerHTML = `<td>${row.date}</td>
-                                    <td>${row.team} vs ${row.oppteam}</td>
-                                    <td>${row.teamconf}</td>
-                                    <td>${row.predicted_winner}</td>
-                                    <td>
-                                        <div class="progress-bar-container">
-                                            <div class="progress-bar" style="width: ${progressBarWidth};"></div>
-                                        </div>
-                                        ${winProb.toFixed(1)}%
-                                    </td>`;
-                    tableBody.appendChild(tr);
-                }
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${row.date}</td>
+                                <td>${row.team} vs ${row.oppteam}</td>
+                                <td>${row.teamconf}</td>
+                                <td>${row.predicted_winner}</td>
+                                <td>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: ${progressBarWidth};"></div>
+                                    </div>
+                                    ${winProb.toFixed(1)}%
+                                </td>`;
+                tableBody.appendChild(tr);
             });
+        }
+    });
+});
+</script>
 
-            uniqueDates.forEach(date => {
-                const option = document.createElement("option");
-                option.value = date;
-                option.text = date;
-                dateFilter.appendChild(option);
-            });
-
-            uniqueTeams.forEach(team => {
-                const option = document.createElement("option");
-                option.value = team;
-                option.text = team
+</body>
+</html>
