@@ -1,24 +1,31 @@
 <!doctype html>
 <html lang="en">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WRECKEM Model - About</title>
     <link href="Assets/styles/PageStyleSheet.css" rel="stylesheet" type="text/css">
-    <!-- Load MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']], // Ensure these are double escaped in JavaScript
+      displayMath: [['\\[', '\\]']]
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
     <nav>
         <ul class="navLinks">
@@ -29,23 +36,29 @@
     <div class="headerContent">
         <section class="welcomeSection">
             <h1>About the WRECKEM Model</h1>
-            <p>This project combines my passion for March Madness with data analytics and is, hopefully, a neat educational tool for my students. The WRECKEM (weighted ratio efficiencies comparison model), named in honor of Texas Tech University, is designed to forecast outcomes of NCAA Men's Basketball games.</p>
-            <p>The model incorporates concepts from Luke Benz's YUSAG model, the ELO ranking system, and NCAA Net Rankings. It assesses the impact of a team and their opponent’s offensive and defensive efficiencies, game location, strength of schedule, and historical performance on the point differential for a game.</p>
-            <p>After calculating the various statistics, the model utilizes a straightforward weighted regression analysis:</p>
-            <!-- Use MathJax to display the regression equation -->
-            <p>$$ PD = \beta_{\text{Team}} X_{\text{AdjOffEff}} - \beta_{\text{Opp}} X_{\text{AdjDefEff}} + \beta_{\text{Loc}} X_{\text{Loc}} + \epsilon $$</p>
-            <ul>
-                <li><strong>PD</strong>: Point differential, defined as the difference in points scored by the two teams in a game.</li>
-                <li><strong>X<sub>AdjOffEff</sub></strong>: Adjusted offensive efficiency              
-<li><strong>X<sub>AdjOffEff</sub></strong>: Adjusted offensive efficiency of the team.</li>
-                <li><strong>X<sub>AdjDefEff</sub></strong>: Adjusted defensive efficiency of the team.</li>
-                <li><strong>X<sub>Loc</sub></strong>: The game location variable.</li>
-                <li><strong>β<sub>Team</sub></strong>: Coefficient quantifying the impact of the team's adjusted offensive efficiency.</li>
-                <li><strong>β<sub>Opp</sub></strong>: Coefficient quantifying the impact of the opposing team's adjusted defensive efficiency.</li>
-                <li><strong>β<sub>Loc</sub></strong>: Coefficient quantifying the impact of the game location.</li>
-                <li><strong>ε</strong>: The error term, capturing unobserved factors affecting the game's outcome.</li>
-            </ul>
-            <p>Using the regression results, the model runs hundreds of iterations for each game to account for the unpredictability inherent in sports. These simulations provide a probabilistic forecast for future outcomes.</p>
+<p>This project merges a passion for March Madness with data analytics, aiming to serve as an educational tool. The WRECKEM Model (weighted ranking efficiencies compartive kinetics evaluation model), named in honor of Texas Tech University, forecasts outcomes of NCAA Men's Basketball games by leveraging advanced statistical analysis.</p>
+<p>The model draws on concepts from Luke Benz's <a href="https://lukebenz.com/post/hoops_methodology/" class="active">YUSAG model</a>, the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" class="active">Elo rating system</a>, and <a href="https://stats.ncaa.org/selection_rankings/nitty_gritties" class="active">NCAA Net Rankings</a>, grounded in simple OLS regression analysis. It is further enhanced by a sophisticated simulation process to accommodate the inherent variability in sports outcomes.</p>
+<p>The foundation of the model is a weighted regression analysis that estimates the point differential between competing teams. The regression equation is detailed as follows:</p>
+<p>\( \text{Point Differential} = \beta_0 + \beta_1 \times \text{Location} + \beta_2 \times \text{Adj Off} + \beta_3 \times \text{Adj Def} + \ldots + \epsilon \)</p>
+<p>Beyond core metrics, the model integrates quadrant win ratios to gauge a team's performance against different levels of competition. The NCAA categorizes games into four quadrants based on the opponent's ranking and the game's location:</p>
+<ul>
+    <li>Quadrant 1: Home games against teams ranked 1-30, neutral site games against teams ranked 1-50, and away games against teams ranked 1-75.</li>
+    <li>Quadrant 2: Home games against teams ranked 31-75, neutral site games against teams ranked 51-100, and away games against teams ranked 76-135.</li>
+    <li>Quadrants 3 and 4: These categories continue the pattern, encompassing games against progressively lower-ranked teams.</li>
+</ul>
+<p>The quadrant win ratio is determined by the following formula:</p>
+<p>\( \text{Quadrant Win Ratio} = \frac{\text{Number of Wins in Quadrant}}{\text{Total Games in Quadrant}} \)</p>
+<p>This metric sheds light on a team's effectiveness in securing victories against highly ranked opponents, significantly influencing the model's game outcome predictions.</p>
+<p>Game recency also plays a pivotal role, with weights assigned to games to highlight more recent performances:</p>
+<p>\( \text{Weight} = \frac{\text{Month} + (2024 - \text{Year})}{\text{Max Weight}} \)</p>
+<p>Leveraging regression outcomes, the model conducts 850 simulations for each game, addressing the unpredictability characteristic of sports. The standard deviation of the residuals from the regression model provides a measure of uncertainty, which is incorporated into each simulation These simulations yield a probabilistic forecast of future game results, offering insights into the likely outcomes based on current and historical data.&nbsp;</p>
+<p>This is the first version of the WRECKEM model and, hopefully, the project will continue to be updated and enhanced with more sophisticated statistical analysis (neural networks, LLM, etc.) in the future. &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;</p>
+
+
+
         </section>
     </div>
     <footer>Updated 3/15/2024</footer>
