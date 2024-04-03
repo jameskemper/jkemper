@@ -7,7 +7,7 @@ body {
     background-color: white;
     color: #333;
     line-height: 1.6;
-    padding: 0 5%;
+    padding: 0 10%;
 }
 
 a {
@@ -41,18 +41,15 @@ nav {
 .profileSection {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #666;
 }
 
-.profilePhoto { 
-    width: auto; 
-    height: auto; 
-    display: block;
-    margin: 0 auto; 
-    border-radius: 5%; 
+.profilePhoto {
+    width: 15%; 
+    padding-right: 20px;
 }
 
 .contactInfo {
@@ -91,7 +88,6 @@ footer {
     .navLinks a {
         padding: 8px;
         font-size: 0.8em;
-        align-content: center;
     }
 
     body, .contactInfo p, .welcomeSection p, .mainContent ul {
