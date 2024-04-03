@@ -83,7 +83,7 @@ img.team-logo {
     <select id="teamFilter">
         <option value="">All Teams</option>
     </select>
-    <label for="conferenceFilter">Select a Conference:</label>
+    <label for="conferenceFilter">or Select a Conference:</label>
     <select id="conferenceFilter">
         <option value="">All Conferences</option>
     </select>
@@ -202,16 +202,18 @@ function populateTable(data) {
     teamFilter.addEventListener('change', function() { filterData(); });
     conferenceFilter.addEventListener('change', function() { filterData(); });
 
-    function filterData() {
-        const teamValue = teamFilter.value;
-        const conferenceValue = conferenceFilter.value;
-        const filteredData = globalData.filter(row => {
-            const teamMatch = !teamValue || row.team === teamValue || row.oppteam === teamValue;
-            const conferenceMatch = !conferenceValue || row.teamconf === conferenceValue;
-            return teamMatch && conferenceMatch;
-        });
-        populateTable(filteredData);
-    }
+function filterData() {
+    const teamValue = teamFilter.value;
+    const conferenceValue = conferenceFilter.value;
+    const filteredData = globalData.filter(row => {
+        const teamMatch = !teamValue || row.team === teamValue || row.oppteam === teamValue;
+        // Adjusted to check conference for both teams
+        const conferenceMatch = !conferenceValue || row.teamconf === conferenceValue || row.oppteamconf === conferenceValue;
+        return teamMatch && conferenceMatch;
+    });
+    populateTable(filteredData);
+}
+
 });
 </script>
 

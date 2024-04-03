@@ -47,9 +47,12 @@ nav {
     border-bottom: 1px solid #666;
 }
 
-.profilePhoto {
-    width: 40%; 
-    padding-right: 20px;
+.profilePhoto { 
+    width: auto; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+    border-radius: 5%; 
 }
 
 .contactInfo {
@@ -88,9 +91,38 @@ footer {
     .navLinks a {
         padding: 8px;
         font-size: 0.8em;
+        align-content: center;
     }
 
     body, .contactInfo p, .welcomeSection p, .mainContent ul {
         padding: 0 10px;
     }
+}
+
+/* Additions for the NCAA Predictions Table */
+.predictions-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Charter', 'Times New Roman', serif; /* Ensuring font consistency */
+    color: #333; /* Text color */
+}
+
+.predictions-table th, .predictions-table td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd; /* Lighter border for a subtle look */
+}
+
+.predictions-table th {
+    background-color: #f2f2f2; /* Light grey background for headers */
+}
+
+/* Custom class adjustments */
+.winner {
+    font-weight: bold;
+    color: #cc0000; /* Link color for winners to highlight */
+}
+
+.probability {
+    color: green; /* No change here, but ensure it fits with your design */
 }

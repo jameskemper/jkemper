@@ -48,10 +48,10 @@
 </ul>
 <p>The quadrant win ratio is determined by the following formula:</p>
 <p>\( \text{Quadrant Win Ratio} = \frac{\text{Number of Wins in Quadrant}}{\text{Total Games in Quadrant}} \)</p>
-<p>This metric sheds light on a team's effectiveness in securing victories against highly ranked opponents, significantly influencing the model's game outcome predictions.</p>
+<p>Quadrant Win Ratio (QWR) provides a measurement of a team's ability to secure victories against highly ranked opponents. The granular approach of QWR provides a more robust assessment of the quality of wins a team has than the overall Strength of Schedule (SoS) for a team.</p>
 <p>Game recency also plays a pivotal role, with weights assigned to games to highlight more recent performances:</p>
 <p>\( \text{Weight} = \frac{\text{Month} + (2024 - \text{Year})}{\text{Max Weight}} \)</p>
-<p>Leveraging regression outcomes, the model conducts 850 simulations for each game, addressing the unpredictability characteristic of sports. The standard deviation of the residuals from the regression model provides a measure of uncertainty, which is incorporated into each simulation These simulations yield a probabilistic forecast of future game results, offering insights into the likely outcomes based on current and historical data.&nbsp;</p>
+<p>Using the weighted regression outcomes, the model conducts 850 simulations for each game, further addressing the unpredictability of sports.The standard deviation of the residuals from the regression model provides a measure of uncertainty, which is incorporated into each simulation. These simulations yield a probabilistic forecast of future game results, offering insights into the likely outcomes based on current and historical data.&nbsp;</p>
 <p>This is the first version of the WRECKEM model and, hopefully, the project will continue to be updated and enhanced with more sophisticated statistical analysis (neural networks, LLM, etc.) in the future. &nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
