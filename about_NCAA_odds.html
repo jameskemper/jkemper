@@ -29,13 +29,17 @@
 <body>
     <nav>
         <ul class="navLinks">
-            <a href="https://www.myweb.ttu.edu/jkemper/NCAA_odds.html" class="active">NCAA Predictions</a>
             <a href="https://www.myweb.ttu.edu/jkemper">My Faculty Website</a>
         </ul>
     </nav>
     <div class="headerContent">
         <section class="welcomeSection">
-            <h1>About the WRECKEM Model</h1>
+        <h1>How the model did during the 2024 NCAA tournament</h1>
+<p>This depends on how you measure success. The model correctly predicted 13 (81%) of the Sweet 16 teams. Unfortunately, things went downhill after the Sweet 16 round, and it was just above 60% for the entire tournament. 
+    
+Since this is the first iteration of the model, I am excited to see what will happen as more improvements are made. </p>
+
+        <h1>About the WRECKEM Model</h1>
 <p>This project merges a passion for March Madness with data analytics, aiming to serve as an educational tool. The WRECKEM Model (weighted ranking efficiencies compartive kinetics evaluation model), named in honor of Texas Tech University, forecasts outcomes of NCAA Men's Basketball games by leveraging advanced statistical analysis.</p>
 <p>The model draws on concepts from Luke Benz's <a href="https://lukebenz.com/post/hoops_methodology/" class="active">YUSAG model</a>, the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" class="active">Elo rating system</a>, and <a href="https://stats.ncaa.org/selection_rankings/nitty_gritties" class="active">NCAA Net Rankings</a>, grounded in simple OLS regression analysis. It is further enhanced by a sophisticated simulation process to accommodate the inherent variability in sports outcomes.</p>
 <p>The foundation of the model is a weighted regression analysis that estimates the point differential between competing teams. The regression equation is detailed as follows:</p>
@@ -52,7 +56,7 @@
 <p>Game recency also plays a pivotal role, with weights assigned to games to highlight more recent performances:</p>
 <p>\( \text{Weight} = \frac{\text{Month} + (2024 - \text{Year})}{\text{Max Weight}} \)</p>
 <p>Using the weighted regression outcomes, the model conducts 850 simulations for each game, further addressing the unpredictability of sports.The standard deviation of the residuals from the regression model provides a measure of uncertainty, which is incorporated into each simulation. These simulations yield a probabilistic forecast of future game results, offering insights into the likely outcomes based on current and historical data.&nbsp;</p>
-<p>This is the first version of the WRECKEM model and, hopefully, the project will continue to be updated and enhanced with more sophisticated statistical analysis (neural networks, LLM, etc.) in the future. &nbsp;</p>
+<p>This was the first version of the WRECKEM model and, hopefully, the project will continue to be updated and enhanced with more sophisticated statistical analysis (neural networks, LLM, etc.) in the future. &nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;&nbsp;</p>
@@ -61,6 +65,6 @@
 
         </section>
     </div>
-    <footer>Updated 3/15/2024</footer>
+    <footer>Updated 4/15/2024</footer>
 </body>
 </html>
