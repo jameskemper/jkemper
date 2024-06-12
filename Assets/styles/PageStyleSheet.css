@@ -3,7 +3,7 @@
 
 body {
     margin: 0 auto;
-    font-family: 'Charter', 'Times New Roman', serif;
+    font-family: 'Arial', 'Charter', serif;
     background-color: white;
     color: #333;
     line-height: 1.6;
@@ -79,6 +79,7 @@ footer {
     padding: 20px;
 }
 
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .profileSection {
         flex-direction: column;
@@ -99,26 +100,82 @@ footer {
 .predictions-table {
     border-collapse: collapse;
     width: 100%;
-    font-family: 'Charter', 'Times New Roman', serif; /* Ensuring font consistency */
-    color: #333; /* Text color */
+    font-family: 'Helvetica Neue', 'Charter', serif;
+    color: #333; 
 }
 
 .predictions-table th, .predictions-table td {
     text-align: left;
     padding: 8px;
-    border: 1px solid #ddd; /* Lighter border for a subtle look */
+    border: 1px solid #ddd; 
 }
 
 .predictions-table th {
-    background-color: #f2f2f2; /* Light grey background for headers */
+    background-color: #f2f2f2; 
 }
 
-/* Custom class adjustments */
 .winner {
     font-weight: bold;
-    color: #cc0000; /* Link color for winners to highlight */
+    color: #cc0000; 
 }
 
 .probability {
-    color: green; /* No change here, but ensure it fits with your design */
+    color: green; 
 }
+
+/* Additions for Introduction Section */
+.intro {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.intro img {
+    width: 150px;
+    border-radius: 50%;
+    margin: 10px 0;
+}
+
+.intro p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.intro a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Customizations for Visual Content */
+.project-summary {
+    font-size: 1em;
+    margin: 20px 0;
+}
+
+.project-summary img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.interactive-element {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.interactive-element a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
