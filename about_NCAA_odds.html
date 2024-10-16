@@ -29,17 +29,15 @@
 <body>
     <nav>
         <ul class="navLinks">
-            <a href="https://www.myweb.ttu.edu/jkemper">My Faculty Website</a>
+             <a href="https://www.myweb.ttu.edu/jkemper/projects.html">Projects</a> <a href="https://www.myweb.ttu.edu/jkemper">My Faculty Website</a>
         </ul>
     </nav>
     <div class="headerContent">
         <section class="welcomeSection">
         <h1>How the model did during the 2024 NCAA tournament</h1>
-<p>This depends on how you measure success. The model correctly predicted 13 (81%) of the Sweet 16 teams. Unfortunately, things went downhill after the Sweet 16 round, and it was just above 60% for the entire tournament. 
-    
-Since this is the first iteration of the model, I am excited to see what will happen as more improvements are made. </p>
-
-        <h1>About the WRECKEM Model</h1>
+        <p>This depends on how you measure success. The model correctly predicted 13 (81%) of the Sweet 16 teams. Unfortunately, things went downhill after the Sweet 16 round, and it was just above 65% for the entire tournament. However, that was ex-ante or before the tournament, when rerunning the model after each round of games, the model did much better at picking winners (aproximately 75% for the tournament). This is not too suprising given that the model is bayesian and puts higher wieghts on recent games.&nbsp;</p>
+        <p>Since this is the first iteration of the model, I am excited to see what will happen as more improvements are made. </p>
+<h1>About the WRECKEM Model</h1>
 <p>This project merges a passion for March Madness with data analytics, aiming to serve as an educational tool. The WRECKEM Model (weighted ranking efficiencies compartive kinetics evaluation model), named in honor of Texas Tech University, forecasts outcomes of NCAA Men's Basketball games by leveraging advanced statistical analysis.</p>
 <p>The model draws on concepts from Luke Benz's <a href="https://lukebenz.com/post/hoops_methodology/" class="active">YUSAG model</a>, the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" class="active">Elo rating system</a>, and <a href="https://stats.ncaa.org/selection_rankings/nitty_gritties" class="active">NCAA Net Rankings</a>, grounded in simple OLS regression analysis. It is further enhanced by a sophisticated simulation process to accommodate the inherent variability in sports outcomes.</p>
 <p>The foundation of the model is a weighted regression analysis that estimates the point differential between competing teams. The regression equation is detailed as follows:</p>
