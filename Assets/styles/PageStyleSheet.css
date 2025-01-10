@@ -97,8 +97,10 @@ nav {
     margin: 5px 0;
 }
 
+.welcomeSection, 
+
 /* Welcome and Main Content */
-.welcomeSection, .mainContent {
+.mainContent {
     padding-left: 20px;
 	padding-right: 20px;
 	pading-bottom: 0px;
