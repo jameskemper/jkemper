@@ -10,13 +10,13 @@ body {
 }
 
 a {
-    color: #CC0000; /* TTU Scarlet */
+    color: #CC0000; 
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #9D2235; /* TTU Dark Red */
+    color: #CC0000;
 }
 
 img {
@@ -29,25 +29,25 @@ nav {
     justify-content: center;
     gap: 20px;
     padding: 10px 0;
-    border-bottom: 1px solid #9D2235;
+    border-bottom: 1px solid #CC0000;
     background-color: F3F3F3;
     width: 100%;
 }
 
 .navLinks a {
     padding: 10px 15px;
-    color: #333333; /* Neutral text */
+    color: #333333; 
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .navLinks a:hover {
-    color: #CC0000; /* TTU Scarlet on hover */
+    color: #CC0000;
 }
 
 .navLinks a.active {
-    color: #9D2235; 
+    color: #CC0000; 
     border-bottom: 2px solid #CC0000; 
 }
 
@@ -56,31 +56,28 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px; /* Space between image and info */
+    gap: 20px;
     padding: 20px;
-    background-color: #F3F3F3;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 1200px; /* Centered on larger screens */
-    margin: 0 auto; /* Center align */
+    width: 90%;
+    margin: 0 auto; 
 }
 
 .profilePhoto {
-    max-width: 150px; /* Fixed size for consistency */
+    max-width: 150px; 
     height: auto;
     border-radius: 10px;
-    border: 2px solid #CC0000; /* TTU Scarlet */
+    border: 2px solid #CC0000; 
 }
 
 .contactInfo {
-    flex: 1; /* Allow the text to take remaining space */
+    flex: 1;
     text-align: left;
     font-size: 1rem;
 }
 
 .contactInfo h1 {
     font-size: 1.8rem;
-    color: #9D2235; /* TTU Dark Red */
+    color: #CC0000; 
     margin: 5px 0;
 }
 
@@ -92,7 +89,7 @@ nav {
 
 .contactInfo h3 {
     font-size: 1rem;
-    color: #555555;
+    color: #333333;
     margin: 5px 0;
 }
 
@@ -102,30 +99,33 @@ nav {
 
 /* Welcome and Main Content */
 .welcomeSection, .mainContent {
-    padding: 20px;
+    padding-left: 20px;
+	padding-right: 20px;
+	pading-bottom: 0px;
     text-align: left;
     background-color: #F3F3F3; 
-    width: 100%;
-    max-width: 1200px; /* Centered on larger screens */
-    margin: 0 auto;
+    width: 90%;
+    margin: auto;
 }
 
 .welcomeSection h3, .mainContent h3 {
-    font-size: 1.4em;
-    color: #CC0000; /* TTU Scarlet */
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333333;
 }
 
-.welcomeSection p, .mainContent ul {
+.welcomeSection p {
     font-size: 1em;
-    margin-bottom: 10px;
+}
+
+.mainContent ul {
+    font-size: 1em;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #9D2235; /* TTU Dark Red */
+	padding: 10px;
+    background-color: #CC0000; 
     color: #FFFFFF;
     font-size: 0.9em;
     width: 100%;
@@ -134,13 +134,13 @@ footer {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .profileSection {
-        flex-direction: column; /* Stack image and info vertically on small screens */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
     .profilePhoto {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .contactInfo {
@@ -148,7 +148,7 @@ footer {
     }
 
     .welcomeSection, .mainContent {
-        padding: 10px;
+        padding: 5px;
         max-width: 100%;
     }
 }
@@ -162,13 +162,13 @@ footer {
     margin: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     text-align: left;
-    width: calc(50% - 30px); /* Half-width cards with gap */
+    width: calc(50% - 30px);
     max-width: 400px;
     flex: 1;
 }
 
 .card h3 {
-    color: #9D2235; /* TTU Dark Red */
+    color: #9D2235; 
     font-size: 1.3em;
     margin-bottom: 10px;
 }

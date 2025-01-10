@@ -38,33 +38,35 @@
             </div>
         </section>
     </div>
-    <footer>Updated June 2024</footer>
-    <script>
-        var isDarkMode = false;
-        var darkModeButton = document.getElementById('dark-mode-button');
-        var darkModeStyle = document.getElementById('dark-mode-style');
-
-        darkModeButton.addEventListener('click', function() {
-            isDarkMode = !isDarkMode;
-            if (isDarkMode) {
-                darkModeStyle.innerHTML = `
-                    body, nav, .navLinks a, .headerContent, .welcomeSection, .mainContent, footer,
-                    .contactInfo, .contactInfo a, a, button, h1, h2, h3 {
-                        background-color: #121212 !important; 
-                        color: #ffffff !important;
-                    }
-                    .headerContent h1, .headerContent h2, .headerContent h3 {
-                        color: #ffffff !important;
-                    }
-                    a { color: #4A90E2 !important; } 
-                    button { border: 1px solid #ffffff !important; }
-                `;
-                darkModeButton.textContent = 'Light Mode';
-            } else {
-                darkModeStyle.innerHTML = '';
-                darkModeButton.textContent = 'Dark Mode';
-            }
-        });
-    </script>
+    <footer>Updated January 2025</footer>
 </body>
+	
+<script>
+    var isDarkMode = false;
+    var darkModeButton = document.getElementById('dark-mode-button');
+    var darkModeStyle = document.getElementById('dark-mode-style');
+
+    darkModeButton.addEventListener('click', function() {
+        isDarkMode = !isDarkMode;
+        if (isDarkMode) {
+            darkModeStyle.innerHTML = `
+                body, nav, .navLinks a, .headerContent, .welcomeSection, .mainContent, footer,
+                .contactInfo, .contactInfo a, a, button, h1, h2, h3 {
+                    background-color: #121212 !important; 
+                    color: #ffffff !important;
+                }
+                .headerContent h1, .headerContent h2, .headerContent h3 {
+                    color: #ffffff !important;
+                }
+                a { color: #4A90E2 !important; } 
+                button { border: 1px solid #ffffff !important; }
+            `;
+            darkModeButton.textContent = 'Light Mode';
+        } else {
+            darkModeStyle.innerHTML = '';
+            darkModeButton.textContent = 'Dark Mode';
+        }
+    });
+</script>
 </html>
+
