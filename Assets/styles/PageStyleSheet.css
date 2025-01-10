@@ -2,17 +2,21 @@
 /* Global Styles */
 
 body {
-    margin: 0 auto;
-    font-family: 'Arial', 'Charter', serif;
-    background-color: white;
-    color: #333;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: F3F3F3;
+    color: #333333;
     line-height: 1.6;
-    padding: 0 10%;
 }
 
 a {
-    color: #cc0000; 
+    color: #CC0000; /* TTU Scarlet */
     text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #9D2235; /* TTU Dark Red */
 }
 
 img {
@@ -21,161 +25,162 @@ img {
 }
 
 nav {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #9D2235;
     background-color: white;
+    width: 100%;
 }
 
 .navLinks a {
-    display: inline-block;
-    padding: 10px 15px; 
-    background-color: #cc0000;
-    color: #ffffff; 
+    padding: 10px 15px;
+    color: #333333; /* Neutral text */
     font-weight: bold;
-    text-decoration: underline; 
-    margin-right: 10px;
-    margin-left: 10px; 
-    border-radius: 5px;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.navLinks a:hover {
+    color: #CC0000; /* TTU Scarlet on hover */
+}
+
+.navLinks a.active {
+    color: #9D2235; /* TTU Dark Red for active link */
+    border-bottom: 2px solid #CC0000; /* Subtle underline for active */
+}
+
+/* Profile Section */
 .profileSection {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
+    justify-content: flex-start;
     align-items: center;
+    gap: 20px; /* Space between image and info */
     padding: 20px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #E6E6E6;
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1200px; /* Centered on larger screens */
+    margin: 0 auto; /* Center align */
 }
 
 .profilePhoto {
-    width: auto; 
-    padding-right: 20px;
+    max-width: 150px; /* Fixed size for consistency */
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #CC0000; /* TTU Scarlet */
 }
 
 .contactInfo {
+    flex: 1; /* Allow the text to take remaining space */
     text-align: left;
+    font-size: 1rem;
+}
+
+.contactInfo h1 {
+    font-size: 1.8rem;
+    color: #9D2235; /* TTU Dark Red */
+    margin: 5px 0;
+}
+
+.contactInfo h2 {
+    font-size: 1.2rem;
+    color: #333333;
+    margin: 5px 0;
+}
+
+.contactInfo h3 {
+    font-size: 1rem;
+    color: #555555;
+    margin: 5px 0;
 }
 
 .contactInfo p {
-    font-size: 1em;
+    margin: 5px 0;
 }
 
+/* Welcome and Main Content */
 .welcomeSection, .mainContent {
     padding: 20px;
     text-align: left;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #E6E6E6;
+    background-color: white; 
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1200px; /* Centered on larger screens */
+    margin: 0 auto;
 }
 
 .welcomeSection h3, .mainContent h3 {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    color: #CC0000; /* TTU Scarlet */
+    margin-bottom: 10px;
 }
 
 .welcomeSection p, .mainContent ul {
     font-size: 1em;
+    margin-bottom: 10px;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
+    background-color: #9D2235; /* TTU Dark Red */
+    color: #FFFFFF;
+    font-size: 0.9em;
+    width: 100%;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .profileSection {
-        flex-direction: column;
+        flex-direction: column; /* Stack image and info vertically on small screens */
         align-items: center;
+        text-align: center;
     }
 
-    .navLinks a {
-        padding: 8px;
-        font-size: 0.8em;
+    .profilePhoto {
+        margin-bottom: 15px;
     }
 
-    body, .contactInfo p, .welcomeSection p, .mainContent ul {
-        padding: 0 10px;
+    .contactInfo {
+        text-align: center;
+    }
+
+    .welcomeSection, .mainContent {
+        padding: 10px;
+        max-width: 100%;
     }
 }
 
-/* Additions for the NCAA Predictions Table */
-.predictions-table {
-    border-collapse: collapse;
-    width: 100%;
-    font-family: 'Helvetica Neue', 'Charter', serif;
-    color: #333; 
-}
-
-.predictions-table th, .predictions-table td {
+/* Additional Enhancements */
+.card {
+    background: #F3F3F3;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd; 
+    width: calc(50% - 30px); /* Half-width cards with gap */
+    max-width: 400px;
+    flex: 1;
 }
 
-.predictions-table th {
-    background-color: #f2f2f2; 
+.card h3 {
+    color: #9D2235; /* TTU Dark Red */
+    font-size: 1.3em;
+    margin-bottom: 10px;
 }
 
-.winner {
-    font-weight: bold;
-    color: #cc0000; 
+.card ul {
+    list-style: none;
+    padding: 0;
 }
 
-.probability {
-    color: green; 
+.card li {
+    margin-bottom: 5px;
 }
-
-/* Additions for Introduction Section */
-.intro {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-.intro img {
-    width: 150px;
-    border-radius: 50%;
-    margin: 10px 0;
-}
-
-.intro p {
-    font-size: 1.2em;
-    margin: 20px 0;
-}
-
-.intro a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #d9534f;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-/* Customizations for Visual Content */
-.project-summary {
-    font-size: 1em;
-    margin: 20px 0;
-}
-
-.project-summary img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    margin: 10px 0;
-}
-
-.interactive-element {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.interactive-element a {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-
