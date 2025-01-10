@@ -28,30 +28,28 @@ nav {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 20px 0; /* Match footer padding */
-    background-color: #9D2235; /* TTU Dark Red */
-    color: #FFFFFF; /* White text to match footer */
+    padding: 10px 0;
+    border-bottom: 1px solid #9D2235;
+    background-color: white;
     width: 100%;
-    border: none; /* Remove border to match footer */
 }
 
 .navLinks a {
     padding: 10px 15px;
-    color: #FFFFFF; /* White text to match footer */
+    color: #333333; /* Neutral text */
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .navLinks a:hover {
-    color: #F3F3F3; /* Slightly lighter white for hover effect */
+    color: #CC0000; /* TTU Scarlet on hover */
 }
 
 .navLinks a.active {
-    color: #F3F3F3; /* Same hover color for active link */
-    border-bottom: 2px solid #FFFFFF; /* Subtle underline for active link */
+    color: #9D2235; /* TTU Dark Red for active link */
+    border-bottom: 2px solid #CC0000; /* Subtle underline for active */
 }
-
 
 /* Profile Section */
 .profileSection {
