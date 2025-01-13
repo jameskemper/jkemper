@@ -30,7 +30,7 @@ nav {
     gap: 20px;
     padding: 10px 0;
     border-bottom: 1px solid #CC0000;
-    background-color: F3F3F3;
+    background-color: #F3F3F3;
     width: 100%;
 }
 
@@ -51,13 +51,16 @@ nav {
     border-bottom: 2px solid #CC0000; 
 }
 
+
 /* Profile Section */
 .profileSection {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+	padding-top: 20px;
+    padding-left: 40px;
+	padding-bottom: 20px;
     width: 90%;
     margin: 0 auto; 
 }
@@ -101,11 +104,11 @@ nav {
 
 /* Welcome and Main Content */
 .mainContent {
-    padding-left: 20px;
-	padding-right: 20px;
+    padding-left: 40px;
+	padding-right: 40px;
 	pading-bottom: 0px;
     text-align: left;
-    background-color: #F3F3F3; 
+    background-color: #F3F3F3;
     width: 90%;
     margin: auto;
 }
