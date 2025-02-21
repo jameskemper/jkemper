@@ -11,36 +11,70 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 h2 {
     color: #d32f2f;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 table {
     width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
 }
+
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
+
 th {
     background-color: #d32f2f;
     color: white;
 }
+
 tr:nth-child(even) {
     background-color: #E1E0E0;
+}
+
+img {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.nav {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.nav a {
+    color: #d32f2f;
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #1976d2;
 }
 </style>
 </head>
 <body>
-<nav>
+
+<nav class="nav">
     <a href="https://www.myweb.ttu.edu/jkemper/about_NCAA_odds.html" class="active">About the Model</a>
 </nav>
+
 <h2>Kemper's NCAA Game Predictions</h2>
 
 <table id="predictionsTable">
@@ -56,11 +90,16 @@ tr:nth-child(even) {
         <!-- Table rows will be dynamically generated here -->
     </tbody>
 </table>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const csvUrl = 'https://raw.githubusercontent.com/jameskemper/jkemper/refs/heads/main/wrekem_model/ncaa_predictions.csv';
+    const csvUrl = 'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/ncaa_predictions.csv';
     const tableBody = document.getElementById('predictionsTable').getElementsByTagName('tbody')[0];
+
+    function formatTeamName(teamName) {
+        return teamName.trim().toLowerCase().replace(/\s+/g, '_'); // Converts to lowercase & replaces spaces with underscores
+    }
 
     function populateTable(data) {
         tableBody.innerHTML = '';
@@ -68,11 +107,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!row.date || !row.awayteam || !row.hometeam || !row.predicted_winner) {
                 return;
             }
+
+            // Construct the correct raw logo URL
+            const formattedWinner = formatTeamName(row.predicted_winner);
+            const winnerLogo = `https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/NCAA_logos/${formattedWinner}.png`;
+
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.date}</td>
-                            <td>${row.awayteam}</td>
-                            <td>${row.hometeam}</td>
-                            <td>${row.predicted_winner}</td>`;
+            tr.innerHTML = `
+                <td>${row.date}</td>
+                <td>${row.awayteam}</td>
+                <td>${row.hometeam}</td>
+                <td>
+                    ${row.predicted_winner} 
+                    <img src="${winnerLogo}" alt="${row.predicted_winner} logo" onerror="this.style.display='none'">
+                </td>
+            `;
             tableBody.appendChild(tr);
         });
     }
