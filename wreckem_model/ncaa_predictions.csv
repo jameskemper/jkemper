@@ -1,19 +1,85 @@
 date,awayteam,hometeam,predicted_winner
-02/21/2025,Bowling Green,Toledo,Toledo
-02/21/2025,Canisius,Marist,Marist
-02/21/2025,Cleveland State,Detroit Mercy,Cleveland State
-02/21/2025,Columbia,Brown,Brown
-02/21/2025,Cornell,Yale,Yale
-02/21/2025,Dartmouth,Pennsylvania,Dartmouth
-02/21/2025,Dayton,Loyola Chicago,Dayton
-02/21/2025,Fairfield,Rider,Rider
-02/21/2025,Green Bay,Robert Morris,Robert Morris
-02/21/2025,Harvard,Princeton,Princeton
-02/21/2025,Manhattan,Iona,Iona
-02/21/2025,Marquette,Villanova,Marquette
-02/21/2025,Michigan State,Michigan,Michigan
-02/21/2025,Milwaukee,Youngstown State,Youngstown State
-02/21/2025,Niagara,Siena,Siena
-02/21/2025,Oakland,Purdue Fort Wayne,Purdue Fort Wayne
-02/21/2025,Sacred Heart,Merrimack,Merrimack
-02/21/2025,Saint Peter's,Mount St. Mary's,Mount St. Mary's
+02/22/2025,Akron,Ohio,Ohio
+02/22/2025,BYU,Arizona,Arizona
+02/22/2025,Baylor,Colorado,Baylor
+02/22/2025,Boise State,Nevada,Nevada
+02/22/2025,Buffalo,Ball State,Ball State
+02/22/2025,Butler,DePaul,Butler
+02/22/2025,Cal State Northridge,UC Davis,Cal State Northridge
+02/22/2025,California,Stanford,Stanford
+02/22/2025,Clemson,SMU,Clemson
+02/22/2025,Coastal Carolina,Troy,Troy
+02/22/2025,Colorado State,UNLV,UNLV
+02/22/2025,Columbia,Yale,Yale
+02/22/2025,Cornell,Brown,Brown
+02/22/2025,Dartmouth,Princeton,Princeton
+02/22/2025,Davidson,Fordham,Fordham
+02/22/2025,Duke,Illinois,Duke
+02/22/2025,Duquesne,St. Bonaventure,Duquesne
+02/22/2025,Florida,LSU,Florida
+02/22/2025,Florida A&M,Alabama State,Alabama State
+02/22/2025,Florida International,Liberty,Liberty
+02/22/2025,Florida State,Louisville,Louisville
+02/22/2025,Fresno State,Air Force,Fresno State
+02/22/2025,George Mason,VCU,VCU
+02/22/2025,Georgia,Auburn,Auburn
+02/22/2025,Georgia State,Old Dominion,Georgia State
+02/22/2025,Georgia Tech,Boston College,Boston College
+02/22/2025,Harvard,Pennsylvania,Pennsylvania
+02/22/2025,Hawai'i,UC San Diego,UC San Diego
+02/22/2025,Hofstra,Delaware,Hofstra
+02/22/2025,Howard,Morgan State,Morgan State
+02/22/2025,Illinois State,Missouri State,Missouri State
+02/22/2025,Indiana State,Belmont,Belmont
+02/22/2025,Iowa State,Houston,Houston
+02/22/2025,Kentucky,Alabama,Alabama
+02/22/2025,Lehigh,Lafayette,Lafayette
+02/22/2025,Long Island University,Le Moyne,Le Moyne
+02/22/2025,Longwood,UNC Asheville,UNC Asheville
+02/22/2025,Maine,Binghamton,Maine
+02/22/2025,Massachusetts,George Washington,George Washington
+02/22/2025,Mississippi State,Oklahoma,Mississippi State
+02/22/2025,Missouri,Arkansas,Missouri
+02/22/2025,Montana,Montana State,Montana State
+02/22/2025,Murray State,Bradley,Bradley
+02/22/2025,NJIT,UMBC,UMBC
+02/22/2025,New Mexico State,Kennesaw State,Kennesaw State
+02/22/2025,Norfolk State,Coppin State,Norfolk State
+02/22/2025,North Dakota State,North Dakota,North Dakota State
+02/22/2025,Northwestern State,New Orleans,Northwestern State
+02/22/2025,Oklahoma State,Kansas,Kansas
+02/22/2025,Oregon,Wisconsin,Wisconsin
+02/22/2025,Oregon State,San Diego,Oregon State
+02/22/2025,Penn State,Minnesota,Minnesota
+02/22/2025,Pittsburgh,Notre Dame,Pittsburgh
+02/22/2025,Portland,Pacific,Pacific
+02/22/2025,Portland State,Weber State,Portland State
+02/22/2025,Presbyterian,Radford,Radford
+02/22/2025,Rhode Island,Saint Louis,Saint Louis
+02/22/2025,Richmond,Saint Joseph's,Saint Joseph's
+02/22/2025,Sacramento State,Idaho State,Idaho State
+02/22/2025,San Diego State,Utah State,Utah State
+02/22/2025,San José State,Wyoming,San José State
+02/22/2025,Santa Clara,Washington State,Washington State
+02/22/2025,South Alabama,Texas State,South Alabama
+02/22/2025,South Carolina State,Delaware State,South Carolina State
+02/22/2025,TCU,Cincinnati,Cincinnati
+02/22/2025,Tarleton State,UT Arlington,Tarleton State
+02/22/2025,Tennessee,Texas A&M,Texas A&M
+02/22/2025,Tennessee State,Tennessee Tech,Tennessee Tech
+02/22/2025,Texas,South Carolina,Texas
+02/22/2025,The Citadel,Chattanooga,Chattanooga
+02/22/2025,Towson,Campbell,Towson
+02/22/2025,Tulsa,Rice,Rice
+02/22/2025,UC Riverside,Cal Poly,Cal Poly
+02/22/2025,UC Santa Barbara,Long Beach State,UC Santa Barbara
+02/22/2025,UMass Lowell,Vermont,UMass Lowell
+02/22/2025,UNC Greensboro,Mercer,UNC Greensboro
+02/22/2025,UTEP,Jacksonville State,UTEP
+02/22/2025,Utah Tech,Abilene Christian,Abilene Christian
+02/22/2025,VMI,Furman,Furman
+02/22/2025,Virginia,North Carolina,Virginia
+02/22/2025,Wagner,Chicago State,Chicago State
+02/22/2025,Washington,Iowa,Iowa
+02/22/2025,West Virginia,Texas Tech,Texas Tech
+02/22/2025,William & Mary,Elon,Elon
