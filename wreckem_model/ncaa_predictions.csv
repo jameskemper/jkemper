@@ -1,4 +1,5 @@
 date,awayteam,hometeam,predicted_winner
+<<<<<<< HEAD
 02/22/2025,Akron,Ohio,Akron
 02/22/2025,BYU,Arizona,Arizona
 02/22/2025,Baylor,Colorado,Baylor
@@ -83,3 +84,25 @@ date,awayteam,hometeam,predicted_winner
 02/22/2025,Washington,Iowa,Iowa
 02/22/2025,West Virginia,Texas Tech,Texas Tech
 02/22/2025,William & Mary,Elon,Elon
+=======
+02/23/2025,Arizona State,Kansas State,Kansas State
+02/23/2025,Canisius,Siena,Siena
+02/23/2025,Cleveland State,Oakland,Cleveland State
+02/23/2025,Georgetown,Creighton,Creighton
+02/23/2025,Green Bay,Youngstown State,Youngstown State
+02/23/2025,Holy Cross,Navy,Navy
+02/23/2025,Kansas City,South Dakota State,South Dakota State
+02/23/2025,Merrimack,Iona,Merrimack
+02/23/2025,Milwaukee,Robert Morris,Robert Morris
+02/23/2025,Niagara,Marist,Marist
+02/23/2025,Ohio State,UCLA,UCLA
+02/23/2025,Purdue,Indiana,Purdue
+02/23/2025,Quinnipiac,Manhattan,Quinnipiac
+02/23/2025,Rider,Mount St. Mary's,Mount St. Mary's
+02/23/2025,Sacred Heart,Saint Peter's,Saint Peter's
+02/23/2025,Temple,UAB,UAB
+02/23/2025,Tulane,Wichita State,Tulane
+02/23/2025,UTSA,East Carolina,East Carolina
+02/23/2025,Utah,UCF,UCF
+02/23/2025,Xavier,Seton Hall,Xavier
+>>>>>>> 41da653aa73da097668eaf21dbd217099608089c
