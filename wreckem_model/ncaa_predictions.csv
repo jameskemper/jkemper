@@ -1,26 +1,36 @@
 date,awayteam,hometeam,predicted_winner,percentage_sim_win
-02/25/2025,Akron,Ball State,Akron,.79306668
-02/25/2025,Baylor,Cincinnati,Cincinnati,.52700001
-02/25/2025,Colorado State,Air Force,Colorado State,.98000002
-02/25/2025,Florida,Georgia,Florida,.96626669
-02/25/2025,Georgia Tech,Pittsburgh,Pittsburgh,.87419999
-02/25/2025,Gonzaga,Santa Clara,Gonzaga,.53646666
-02/25/2025,Indiana State,Murray State,Murray State,.91479999
-02/25/2025,Iowa,Illinois,Illinois,.82093334
-02/25/2025,Iowa State,Oklahoma State,Iowa State,.98000002
-02/25/2025,Louisville,Virginia Tech,Louisville,.98000002
-02/25/2025,Mississippi State,Alabama,Alabama,.98000002
-02/25/2025,New Mexico,San Diego State,San Diego State,.78006667
-02/25/2025,Northwestern,Minnesota,Northwestern,.78413332
-02/25/2025,Old Dominion,Marshall,Marshall,.97293335
-02/25/2025,Providence,Marquette,Marquette,.97346669
-02/25/2025,Saint Louis,Davidson,Saint Louis,.72366667
-02/25/2025,South Carolina,Missouri,Missouri,.98000002
-02/25/2025,TCU,West Virginia,West Virginia,.75613332
-02/25/2025,Tennessee,LSU,Tennessee,.98000002
-02/25/2025,Toledo,Kent State,Kent State,.80106664
-02/25/2025,Troy,Texas State,Troy,.79093331
-02/25/2025,UNLV,San José State,UNLV,.5758
-02/25/2025,VCU,Richmond,VCU,.98000002
-02/25/2025,Washington,Wisconsin,Wisconsin,.98000002
-02/25/2025,Wyoming,Nevada,Nevada,.97066665
+02/26/2025,Arkansas State,Louisiana,Arkansas State,.94913334
+02/26/2025,BYU,Arizona State,BYU,.88073331
+02/26/2025,Belmont,Missouri State,Missouri State,.53140002
+02/26/2025,Boston College,Stanford,Stanford,.94606668
+02/26/2025,Bradley,Valparaiso,Bradley,.89406669
+02/26/2025,Charlotte,Tulane,Tulane,.98000002
+02/26/2025,Dayton,Rhode Island,Dayton,.63306665
+02/26/2025,DePaul,Creighton,Creighton,.98000002
+02/26/2025,Drake,Evansville,Drake,.98000002
+02/26/2025,Duquesne,La Salle,La Salle,.62866664
+02/26/2025,Fordham,George Mason,George Mason,.98000002
+02/26/2025,George Washington,Loyola Chicago,Loyola Chicago,.71953332
+02/26/2025,Georgia State,Coastal Carolina,Georgia State,.78753334
+02/26/2025,Holy Cross,Colgate,Colgate,.77266669
+02/26/2025,Kansas State,UCF,UCF,.74153334
+02/26/2025,Kentucky,Oklahoma,Oklahoma,.70926666
+02/26/2025,Michigan State,Maryland,Maryland,.9224667
+02/26/2025,Navy,American University,American University,.82006669
+02/26/2025,Notre Dame,Clemson,Clemson,.98000002
+02/26/2025,Penn State,Indiana,Indiana,.98000002
+02/26/2025,Presbyterian,UNC Asheville,UNC Asheville,.95066667
+02/26/2025,Rice,Memphis,Memphis,.98000002
+02/26/2025,SMU,California,SMU,.98000002
+02/26/2025,San Francisco,Oregon State,Oregon State,.81986666
+02/26/2025,South Carolina Upstate,High Point,High Point,.98000002
+02/26/2025,South Dakota,North Dakota State,North Dakota State,.93940002
+02/26/2025,St. Bonaventure,Saint Joseph's,Saint Joseph's,.54386669
+02/26/2025,Stetson,Jacksonville,Jacksonville,.98000002
+02/26/2025,Texas,Arkansas,Arkansas,.59979999
+02/26/2025,The Citadel,Furman,Furman,.98000002
+02/26/2025,Utah,Arizona,Arizona,.98000002
+02/26/2025,Utah State,Boise State,Boise State,.83793336
+02/26/2025,Vanderbilt,Texas A&M,Texas A&M,.98000002
+02/26/2025,Villanova,Seton Hall,Villanova,.98000002
+02/26/2025,Virginia,Wake Forest,Wake Forest,.95013332
