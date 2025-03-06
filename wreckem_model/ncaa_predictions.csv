@@ -1,23 +1,29 @@
 date,awayteam,hometeam,predicted_winner,percentage_sim_win
-3/5/2025,California,Louisville,Louisville,0.88459998
-3/5/2025,Chicago State,Long Island University,Long Island University,0.85593331
-3/5/2025,Clemson,Boston College,Clemson,0.63866669
-3/5/2025,Colorado,Texas Tech,Texas Tech,0.81919998
-3/5/2025,Davidson,Loyola Chicago,Loyola Chicago,0.78946668
-3/5/2025,DePaul,Providence,Providence,0.67013335
-3/5/2025,Florida,Alabama,Alabama,0.85093331
-3/5/2025,George Washington,Fordham,Fordham,0.58013332
-3/5/2025,Kansas State,Cincinnati,Cincinnati,0.80900002
-3/5/2025,La Salle,George Mason,George Mason,0.89906669
-3/5/2025,Louisiana,Old Dominion,Old Dominion,0.82840002
-3/5/2025,Maryland,Michigan,Michigan,0.83993334
-3/5/2025,Massachusetts,St. Bonaventure,St. Bonaventure,0.91933334
-3/5/2025,Missouri,Oklahoma,Oklahoma,0.69193333
-3/5/2025,Morehead State,Lindenwood,Lindenwood,0.90713334
-3/5/2025,Oklahoma State,UCF,UCF,0.84573334
-3/5/2025,Oral Roberts,Kansas City,Kansas City,0.87346667
-3/5/2025,Rhode Island,Saint Joseph's,Saint Joseph's,0.84706664
-3/5/2025,Stanford,Notre Dame,Notre Dame,0.78539997
-3/5/2025,Wagner,St. Francis (PA),St. Francis (PA),0.7798
-3/5/2025,Wisconsin,Minnesota,Minnesota,0.68766665
-3/5/2025,Xavier,Butler,Butler,0.6411333
+03/06/2025,Cal State Fullerton,Cal Poly,Cal Poly,.9066667
+03/06/2025,Cal State Northridge,UC Riverside,UC Riverside,.66986668
+03/06/2025,Canisius,Rider,Rider,.67299998
+03/06/2025,Charlotte,North Texas,North Texas,.96033335
+03/06/2025,Evansville,Murray State,Murray State,.85806668
+03/06/2025,Fairfield,Siena,Siena,.96546668
+03/06/2025,Lafayette,American University,American University,.81940001
+03/06/2025,Lindenwood,Tennessee State,Tennessee State,.89393336
+03/06/2025,Long Beach State,UC San Diego,UC San Diego,.98000002
+03/06/2025,Merrimack,Marist,Marist,.71899998
+03/06/2025,Michigan State,Iowa,Michigan State,.69853336
+03/06/2025,Missouri State,Illinois State,Illinois State,.89273334
+03/06/2025,Morgan State,Coppin State,Morgan State,.58593333
+03/06/2025,Mount St. Mary's,Quinnipiac,Quinnipiac,.79540002
+03/06/2025,New Mexico State,Louisiana Tech,Louisiana Tech,.72646666
+03/06/2025,Niagara,Saint Peter's,Saint Peter's,.72320002
+03/06/2025,Norfolk State,Howard,Norfolk State,.7007333
+03/06/2025,Oakland,Milwaukee,Milwaukee,.78560001
+03/06/2025,Old Dominion,Texas State,Texas State,.93226665
+03/06/2025,Purdue Fort Wayne,Youngstown State,Youngstown State,.72086668
+03/06/2025,Sacred Heart,Manhattan,Manhattan,.7798667
+03/06/2025,San Diego,Pacific,Pacific,.75706667
+03/06/2025,Tulane,East Carolina,East Carolina,.85093331
+03/06/2025,UC Irvine,UC Davis,UC Irvine,.58146667
+03/06/2025,Utah Tech,Grand Canyon,Grand Canyon,.9734
+03/06/2025,Utah Valley,Abilene Christian,Abilene Christian,.77766669
+03/06/2025,Wichita State,Rice,Rice,.67093331
+03/06/2025,Wright State,Robert Morris,Robert Morris,.76020002
