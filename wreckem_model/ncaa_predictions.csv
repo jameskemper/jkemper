@@ -1,77 +1,9 @@
 date,awayteam,hometeam,predicted_winner,percentage_sim_win
-03/08/2025,Air Force,Utah State,Utah State,.90399998
-03/08/2025,Alabama,Auburn,Auburn,.82946664
-03/08/2025,Arizona,Kansas,Kansas,.85373336
-03/08/2025,Belmont,Drake,Drake,.86720002
-03/08/2025,Boston College,Pittsburgh,Pittsburgh,.87833333
-03/08/2025,Butler,Creighton,Creighton,.84753335
-03/08/2025,Cal Poly,Long Beach State,Cal Poly,.50613332
-03/08/2025,California,Notre Dame,Notre Dame,.8028
-03/08/2025,Canisius,Saint Peter's,Saint Peter's,.86546665
-03/08/2025,Cincinnati,Oklahoma State,Cincinnati,.63800001
-03/08/2025,Columbia,Cornell,Cornell,.9224667
-03/08/2025,Dartmouth,Harvard,Harvard,.60173333
-03/08/2025,Delaware,Campbell,Campbell,.89060003
-03/08/2025,Duke,North Carolina,Duke,.74479997
-03/08/2025,Duquesne,Saint Louis,Saint Louis,.77093333
-03/08/2025,Elon,Drexel,Drexel,.84813333
-03/08/2025,Fordham,Rhode Island,Rhode Island,.92546666
-03/08/2025,Fresno State,San José State,San José State,.77819997
-03/08/2025,Furman,Samford,Samford,.74486667
-03/08/2025,George Mason,Richmond,George Mason,.63306665
-03/08/2025,Georgetown,DePaul,DePaul,.65606666
-03/08/2025,Georgia Tech,Wake Forest,Wake Forest,.86973333
-03/08/2025,Grand Canyon,Abilene Christian,Grand Canyon,.74106669
-03/08/2025,Hampton,Northeastern,Northeastern,.82533336
-03/08/2025,Hawai'i,Cal State Northridge,Cal State Northridge,.92680001
-03/08/2025,Hofstra,Monmouth,Monmouth,.7640667
-03/08/2025,Houston,Baylor,Houston,.67386669
-03/08/2025,Iowa State,Kansas State,Iowa State,.6512
-03/08/2025,Kennesaw State,Jacksonville State,Jacksonville State,.86159998
-03/08/2025,Kentucky,Missouri,Missouri,.88880002
-03/08/2025,Loyola Chicago,Massachusetts,Massachusetts,.67053336
-03/08/2025,Marist,Mount St. Mary's,Mount St. Mary's,.8592
-03/08/2025,Marshall,Arkansas State,Arkansas State,.87173331
-03/08/2025,Mercer,Chattanooga,Chattanooga,.93626666
-03/08/2025,Mississippi State,Arkansas,Arkansas,.86860001
-03/08/2025,Nevada,San Diego State,San Diego State,.82293332
-03/08/2025,New Hampshire,Vermont,Vermont,.88200003
-03/08/2025,Niagara,Rider,Rider,.75066668
-03/08/2025,Northwestern,Maryland,Maryland,.78486669
-03/08/2025,Ohio State,Indiana,Indiana,.79813331
-03/08/2025,Oklahoma,Texas,Texas,.8872667
-03/08/2025,Old Dominion,Troy,Troy,.91780001
-03/08/2025,Penn State,Wisconsin,Wisconsin,.85946667
-03/08/2025,Pennsylvania,Princeton,Princeton,.84293336
-03/08/2025,Pepperdine,Oregon State,Oregon State,.93773335
-03/08/2025,Providence,Xavier,Xavier,.88626665
-03/08/2025,Quinnipiac,Fairfield,Quinnipiac,.52713335
-03/08/2025,Radford,High Point,High Point,.85119998
-03/08/2025,SMU,Florida State,SMU,.56239998
-03/08/2025,Sacramento State,Weber State,Weber State,.87080002
-03/08/2025,Sacred Heart,Iona,Iona,.88453335
-03/08/2025,Saint Joseph's,La Salle,Saint Joseph's,.54320002
-03/08/2025,Siena,Manhattan,Manhattan,.82786667
-03/08/2025,South Carolina,Tennessee,Tennessee,.94160002
-03/08/2025,St. Bonaventure,Davidson,Davidson,.70340002
-03/08/2025,St. Francis (PA),Long Island University,Long Island University,.84813333
-03/08/2025,Stanford,Louisville,Louisville,.79126668
-03/08/2025,TCU,Colorado,Colorado,.77206665
-03/08/2025,Texas A&M,LSU,Texas A&M,.76319999
-03/08/2025,Texas Tech,Arizona State,Texas Tech,.78506666
-03/08/2025,UC Irvine,UC Santa Barbara,UC Irvine,.51046669
-03/08/2025,UC Riverside,Cal State Fullerton,Cal State Fullerton,.59653336
-03/08/2025,UC San Diego,UC Davis,UC San Diego,.64673334
-03/08/2025,UCF,West Virginia,West Virginia,.73753333
-03/08/2025,UMBC,Bryant,Bryant,.89053333
-03/08/2025,UMass Lowell,Maine,Maine,.78446668
-03/08/2025,UTEP,Louisiana Tech,Louisiana Tech,.81186664
-03/08/2025,Utah,BYU,BYU,.79793334
-03/08/2025,Utah Valley,Tarleton State,Utah Valley,.6882
-03/08/2025,VMI,UNC Greensboro,UNC Greensboro,.92713332
-03/08/2025,Valparaiso,Bradley,Bradley,.90613335
-03/08/2025,Vanderbilt,Georgia,Georgia,.89566666
-03/08/2025,Virginia,Syracuse,Syracuse,.75880003
-03/08/2025,Virginia Tech,Clemson,Clemson,.85680002
-03/08/2025,Winthrop,UNC Asheville,UNC Asheville,.74620003
-03/08/2025,Yale,Brown,Yale,.72039998
+03/10/2025,Arkansas State,Troy,Troy,.70246667
+03/10/2025,Delaware,Towson,Towson,.95039999
+03/10/2025,Idaho,Portland State,Portland State,.91360003
+03/10/2025,Montana State,Idaho State,Idaho State,.82386667
+03/10/2025,Oakland,Robert Morris,Robert Morris,.79433334
+03/10/2025,San Francisco,Gonzaga,Gonzaga,.85166669
+03/10/2025,Wofford,Furman,Furman,.78973335
+03/10/2025,Youngstown State,Cleveland State,Cleveland State,.75773335
