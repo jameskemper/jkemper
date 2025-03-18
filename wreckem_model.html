@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bracket Data Visualization</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-light: #4895ef;
+      --dark: #333;
+      --gray-dark: #555;
+      --gray: #888;
+      --gray-light: #ddd;
+      --light: #f8f9fa;
+      --success: #4cc9f0;
+      --warning: #f8961e;
+      --danger: #f94144;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--dark);
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: var(--dark);
+    }
+    
+    h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+    
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .button {
+      padding: 8px 16px;
+      background-color: var(--light);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      color: var(--dark);
+    }
+    
+    .button:hover {
+      background-color: #e9ecef;
+    }
+    
+    .button.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .search-container {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 40px;
+      border: 1px solid var(--gray-light);
+      border-radius: 6px;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+    
+    .clear-button {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray);
+    }
+    
+    .clear-button:hover {
+      color: var(--gray-dark);
+    }
+    
+    .data-info {
+      background-color: var(--light);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray-dark);
+    }
+    
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 24px;
+      border-radius: 6px;
+      border: 1px solid var(--gray-light);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th {
+      background-color: var(--light);
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 16px;
+      color: var(--gray-dark);
+      border-bottom: 2px solid var(--gray-light);
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+    
+    th:hover {
+      background-color: #e9ecef;
+    }
+    
+    th.sorted:after {
+      content: "↑";
+      margin-left: 8px;
+      font-size: 14px;
+    }
+    
+    th.sorted.desc:after {
+      content: "↓";
+    }
+    
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-light);
+      color: var(--gray-dark);
+    }
+    
+    tr:hover td {
+      background-color: #f8f9fa;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+    }
+    
+    .loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      flex-direction: column;
+    }
+    
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border-left-color: var(--primary);
+      animation: spin 1s linear infinite;
+      margin-bottom: 16px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .error-container {
+      background-color: #ffebee;
+      border: 1px solid #ffcdd2;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 24px;
+      color: #c62828;
+    }
+    
+    .chart-container {
+      height: 400px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .chart-controls {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .chart-control {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .chart-control label {
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: var(--gray-dark);
+    }
+    
+    .chart-control select {
+      padding: 8px 12px;
+      border: 1px solid var(--gray-light);
+      border-radius: 4px;
+      background-color: white;
+    }
+    
+    .chart {
+      flex-grow: 1;
+      width: 100%;
+      border: 1px solid var(--gray-light);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      
+      .flex-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bracket Data Visualization</h1>
+    
+    <div class="flex-container">
+      <div>
+        <h2>Round Selection</h2>
+        <div class="button-group" id="round-selector">
+          <button class="button active" data-round="0">Initial</button>
+          <button class="button" data-round="1">Round 1</button>
+          <button class="button" data-round="2">Round 2</button>
+          <button class="button" data-round="3">Round 3</button>
+          <button class="button" data-round="4">Round 4</button>
+          <button class="button" data-round="5">Round 5</button>
+          <button class="button" data-round="6">Round 6</button>
+        </div>
+      </div>
+      
+      <div>
+        <h2>View Type</h2>
+        <div class="button-group" id="view-selector">
+          <button class="button active" data-view="table">Table View</button>
+          <button class="button" data-view="bar">Bar Chart</button>
+          <button class="button" data-view="line">Line Chart</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="search-container">
+      <div class="search-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <input type="text" id="search-input" class="search-input" placeholder="Search data...">
+      <button id="clear-search" class="clear-button" style="display: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div id="content-area">
+      <!-- Content will be loaded here -->
+    </div>
+    
+    <div class="footer">
+      <div id="data-source">Data Source: Local Sample Data</div>
+      <div>Last updated: <span id="timestamp"></span></div>
+    </div>
+  </div>
+  
+  <script>
+    // Sample data for all rounds
+    const roundData = {
+      0: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 0.92, Region: "West", Overall_Rank: 1 },
+        { Team: "Baylor", Seed: 1, Win_Prob: 0.89, Region: "South", Overall_Rank: 2 },
+        { Team: "Michigan", Seed: 1, Win_Prob: 0.87, Region: "East", Overall_Rank: 3 },
+        { Team: "Illinois", Seed: 1, Win_Prob: 0.85, Region: "Midwest", Overall_Rank: 4 },
+        { Team: "Iowa", Seed: 2, Win_Prob: 0.82, Region: "West", Overall_Rank: 5 },
+        { Team: "Ohio State", Seed: 2, Win_Prob: 0.81, Region: "South", Overall_Rank: 6 },
+        { Team: "Alabama", Seed: 2, Win_Prob: 0.80, Region: "East", Overall_Rank: 7 },
+        { Team: "Houston", Seed: 2, Win_Prob: 0.78, Region: "Midwest", Overall_Rank: 8 },
+        { Team: "Arkansas", Seed: 3, Win_Prob: 0.75, Region: "South", Overall_Rank: 9 },
+        { Team: "West Virginia", Seed: 3, Win_Prob: 0.74, Region: "Midwest", Overall_Rank: 10 },
+        { Team: "Texas", Seed: 3, Win_Prob: 0.73, Region: "East", Overall_Rank: 11 },
+        { Team: "Kansas", Seed: 3, Win_Prob: 0.72, Region: "West", Overall_Rank: 12 },
+        { Team: "Florida State", Seed: 4, Win_Prob: 0.70, Region: "East", Overall_Rank: 13 },
+        { Team: "Virginia", Seed: 4, Win_Prob: 0.69, Region: "West", Overall_Rank: 14 },
+        { Team: "Purdue", Seed: 4, Win_Prob: 0.68, Region: "South", Overall_Rank: 15 },
+        { Team: "Oklahoma State", Seed: 4, Win_Prob: 0.67, Region: "Midwest", Overall_Rank: 16 }
+      ],
+      1: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 0.94, Region: "West", Overall_Rank: 1 },
+        { Team: "Baylor", Seed: 1, Win_Prob: 0.90, Region: "South", Overall_Rank: 2 },
+        { Team: "Michigan", Seed: 1, Win_Prob: 0.88, Region: "East", Overall_Rank: 3 },
+        { Team: "Illinois", Seed: 1, Win_Prob: 0.87, Region: "Midwest", Overall_Rank: 4 },
+        { Team: "Iowa", Seed: 2, Win_Prob: 0.84, Region: "West", Overall_Rank: 5 },
+        { Team: "Alabama", Seed: 2, Win_Prob: 0.83, Region: "East", Overall_Rank: 6 },
+        { Team: "Houston", Seed: 2, Win_Prob: 0.82, Region: "Midwest", Overall_Rank: 7 },
+        { Team: "Ohio State", Seed: 2, Win_Prob: 0.80, Region: "South", Overall_Rank: 8 }
+      ],
+      2: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 0.95, Region: "West", Overall_Rank: 1 },
+        { Team: "Baylor", Seed: 1, Win_Prob: 0.92, Region: "South", Overall_Rank: 2 },
+        { Team: "Michigan", Seed: 1, Win_Prob: 0.89, Region: "East", Overall_Rank: 3 },
+        { Team: "Houston", Seed: 2, Win_Prob: 0.85, Region: "Midwest", Overall_Rank: 4 }
+      ],
+      3: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 0.96, Region: "West", Overall_Rank: 1 },
+        { Team: "Baylor", Seed: 1, Win_Prob: 0.93, Region: "South", Overall_Rank: 2 }
+      ],
+      4: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 0.97, Region: "Champion", Overall_Rank: 1 }
+      ],
+      5: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 1.00, Region: "Champion", Overall_Rank: 1 }
+      ],
+      6: [
+        { Team: "Gonzaga", Seed: 1, Win_Prob: 1.00, Region: "Champion", Overall_Rank: 1 }
+      ]
+    };
+    
+    // App state
+    let currentRound = 0;
+    let currentView = 'table';
+    let sortColumn = null;
+    let sortDirection = 'asc';
+    let searchTerm = '';
+    let chartValueColumn = 'Win_Prob';
+    let chartLabelColumn = 'Team';
+    
+    // Elements
+    const contentArea = document.getElementById('content-area');
+    const timestampEl = document.getElementById('timestamp');
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search');
+    
+    // Initialize timestamp
+    timestampEl.textContent = new Date().toLocaleString();
+    
+    // Event Listeners
+    document.getElementById('round-selector').addEventListener('click', (e) => {
+      if (e.target.classList.contains('button')) {
+        const roundButtons = document.querySelectorAll('#round-selector .button');
+        roundButtons.forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        currentRound = parseInt(e.target.dataset.round);
+        renderContent();
+      }
+    });
+    
+    document.getElementById('view-selector').addEventListener('click', (e) => {
+      if (e.target.classList.contains('button')) {
+        const viewButtons = document.querySelectorAll('#view-selector .button');
+        viewButtons.forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        currentView = e.target.dataset.view;
+        renderContent();
+      }
+    });
+    
+    searchInput.addEventListener('input', (e) => {
+      searchTerm = e.target.value;
+      clearSearchBtn.style.display = searchTerm ? 'block' : 'none';
+      renderContent();
+    });
+    
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchTerm = '';
+      clearSearchBtn.style.display = 'none';
+      renderContent();
+    });
+    
+    // Data manipulation functions
+    function getFilteredData() {
+      if (!searchTerm.trim()) return roundData[currentRound];
+      
+      return roundData[currentRound].filter(item => 
+        Object.values(item).some(value => 
+          value !== null && 
+          value !== undefined && 
+          value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
+    
+    function getSortedData() {
+      if (!sortColumn) return getFilteredData();
+      
+      return [...getFilteredData()].sort((a, b) => {
+        if (a[sortColumn] === null || a[sortColumn] === undefined) return 1;
+        if (b[sortColumn] === null || b[sortColumn] === undefined) return -1;
+        
+        if (typeof a[sortColumn] === 'string') {
+          if (sortDirection === 'asc') {
+            return a[sortColumn].localeCompare(b[sortColumn]);
+          }
+          return b[sortColumn].localeCompare(a[sortColumn]);
+        } else {
+          if (sortDirection === 'asc') {
+            return a[sortColumn] - b[sortColumn];
+          }
+          return b[sortColumn] - a[sortColumn];
+        }
+      });
+    }
+    
+    function getColumnNames() {
+      if (!roundData[currentRound] || roundData[currentRound].length === 0) return [];
+      return Object.keys(roundData[currentRound][0]);
+    }
+    
+    function getNumericalColumns() {
+      if (!roundData[currentRound] || roundData[currentRound].length === 0) return [];
+      return Object.keys(roundData[currentRound][0])
+        .filter(key => typeof roundData[currentRound][0][key] === 'number');
+    }
+    
+    function getStringColumns() {
+      if (!roundData[currentRound] || roundData[currentRound].length === 0) return [];
+      return Object.keys(roundData[currentRound][0])
+        .filter(key => typeof roundData[currentRound][0][key] === 'string');
+    }
+    
+    // Render functions
+    function renderTableView() {
+      const columns = getColumnNames();
+      const data = getSortedData();
+      
+      if (columns.length === 0) {
+        return `<p>No columns available in the data</p>`;
+      }
+      
+      if (data.length === 0) {
+        return `<p>No data matches your filter criteria</p>`;
+      }
+      
+      let html = `
+        <div class="data-info">
+          <div>Round: ${currentRound === 0 ? 'Initial' : currentRound}</div>
+          <div>Displaying ${data.length} of ${roundData[currentRound].length} entries</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+      `;
+      
+      // Table headers
+      columns.forEach(column => {
+        const isSorted = sortColumn === column;
+        const sortClass = isSorted ? `sorted ${sortDirection === 'desc' ? 'desc' : ''}` : '';
+        
+        html += `
+          <th class="${sortClass}" data-column="${column}">
+            ${column.replace('_', ' ')}
+          </th>
+        `;
+      });
+      
+      html += `
+              </tr>
+            </thead>
+            <tbody>
+      `;
+      
+      // Table rows
+      data.forEach(row => {
+        html += `<tr>`;
+        columns.forEach(column => {
+          let value = row[column];
+          if (value !== null && value !== undefined) {
+            if (typeof value === 'number') {
+              // Format numbers
+              value = column === 'Win_Prob' ? value.toFixed(2) : value;
+            }
+          } else {
+            value = '—';
+          }
+          html += `<td>${value}</td>`;
+        });
+        html += `</tr>`;
+      });
+      
+      html += `
+            </tbody>
+          </table>
+        </div>
+      `;
+      
+      return html;
+    }
+    
+    function renderBarChart() {
+      const numericalColumns = getNumericalColumns();
+      const columns = getColumnNames();
+      
+      if (numericalColumns.length === 0) {
+        return `<p>No numerical data to display</p>`;
+      }
+      
+      // Chart controls
+      let html = `
+        <div class="chart-controls">
+          <div class="chart-control">
+            <label for="value-column">Value Column:</label>
+            <select id="value-column">
