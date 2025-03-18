@@ -1,17 +1,17 @@
 awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
-BYU,Wisconsin,East,6,3,Wisconsin,.67299998
-UC San Diego,Texas A&M,South,12,4,Texas A&M,.56599998
-Clemson,Purdue,Midwest,5,4,Clemson,.542
-Colorado State,Maryland,West,12,4,Maryland,.59500003
-UConn,Florida,West,8,1,Florida,.88700002
-Gonzaga,Houston,Midwest,8,1,Houston,.87
-Kansas,St. John's,West,7,2,St. John's,.64499998
-Louisville,Auburn,South,8,1,Auburn,.90399998
-Marquette,Michigan State,South,7,2,Michigan State,.727
-Mississippi State,Duke,East,8,1,Duke,.95300001
-Ole Miss,Iowa State,South,6,3,Iowa State,.61500001
-Missouri,Texas Tech,West,6,3,Texas Tech,.60900003
-Oregon,Arizona,East,5,4,Arizona,.63300002
-Utah State,Tennessee,Midwest,10,2,Tennessee,.66799998
-Xavier,Kentucky,Midwest,11,3,Xavier,.51800001
-St. Mary's,Alabama,East,7,2,Alabama,.97500002
+Arizona,Wisconsin,East,4,3,Arizona,.56099999
+BYU,Alabama,East,6,2,Alabama,.91000003
+Clemson,Houston,Midwest,5,1,Houston,.87699997
+UConn,Kansas,West,8,7,Kansas,.57599998
+Gonzaga,UCLA,Midwest,8,7,Gonzaga,.71799999
+Illinois,Tennessee,Midwest,6,2,Tennessee,.92799997
+Louisville,Marquette,South,8,7,Louisville,.62
+Maryland,Texas Tech,West,4,3,Texas Tech,.64700001
+Memphis,Florida,West,5,1,Florida,.90899998
+Michigan,Auburn,South,5,1,Auburn,.89300001
+Mississippi State,St. Mary's,East,8,7,St. Mary's,.97500002
+Ole Miss,Michigan State,South,6,2,Michigan State,.76499999
+Missouri,St. John's,West,6,2,St. John's,.68800002
+Oregon,Duke,East,5,1,Duke,.93599999
+Purdue,Kentucky,Midwest,4,3,Kentucky,.50800002
+Texas A&M,Iowa State,South,4,3,Iowa State,.70499998
