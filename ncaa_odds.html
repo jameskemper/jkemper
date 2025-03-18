@@ -15,6 +15,14 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: auto;
     }
     h1 {
       text-align: center;
@@ -94,8 +102,11 @@
 </head>
 <body>
   <div class="container">
+    <img src="Assets/images/TTU ECO logo transparent.png" alt="TTU ECO Logo" class="logo">
+    
     <h1>WRECKEM Model Bracket Predictions</h1>
-    <h2>Tournament Win Probability Analysis</h2>
+    <h2>2025 Men's NCAA Tournament <br>
+      Win Probability Analysis</h2>
     
     <div class="round-info">
       <strong>Round: <span id="current-round-display">First Four</span></strong>
@@ -105,8 +116,8 @@
       <h3>Round Selection</h3>
       <div class="buttons" id="round-buttons">
         <button class="active" data-round="0">First Four</button>
-        <button data-round="1">Round 1</button>
-        <button data-round="2">Round 2</button>
+        <button data-round="1">Round of 64</button>
+        <button data-round="2">Round of 32</button>
         <button data-round="3">Sweet 16</button>
         <button data-round="4">Elite 8</button>
         <button data-round="5">Final 4</button>
