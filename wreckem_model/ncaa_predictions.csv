@@ -1,29 +1,17 @@
 date,awayteam,hometeam,predicted_winner,percentage_sim_win
-03/06/2025,Cal State Fullerton,Cal Poly,Cal Poly,.9066667
-03/06/2025,Cal State Northridge,UC Riverside,UC Riverside,.66986668
-03/06/2025,Canisius,Rider,Rider,.67299998
-03/06/2025,Charlotte,North Texas,North Texas,.96033335
-03/06/2025,Evansville,Murray State,Murray State,.85806668
-03/06/2025,Fairfield,Siena,Siena,.96546668
-03/06/2025,Lafayette,American University,American University,.81940001
-03/06/2025,Lindenwood,Tennessee State,Tennessee State,.89393336
-03/06/2025,Long Beach State,UC San Diego,UC San Diego,.98000002
-03/06/2025,Merrimack,Marist,Marist,.71899998
-03/06/2025,Michigan State,Iowa,Michigan State,.69853336
-03/06/2025,Missouri State,Illinois State,Illinois State,.89273334
-03/06/2025,Morgan State,Coppin State,Morgan State,.58593333
-03/06/2025,Mount St. Mary's,Quinnipiac,Quinnipiac,.79540002
-03/06/2025,New Mexico State,Louisiana Tech,Louisiana Tech,.72646666
-03/06/2025,Niagara,Saint Peter's,Saint Peter's,.72320002
-03/06/2025,Norfolk State,Howard,Norfolk State,.7007333
-03/06/2025,Oakland,Milwaukee,Milwaukee,.78560001
-03/06/2025,Old Dominion,Texas State,Texas State,.93226665
-03/06/2025,Purdue Fort Wayne,Youngstown State,Youngstown State,.72086668
-03/06/2025,Sacred Heart,Manhattan,Manhattan,.7798667
-03/06/2025,San Diego,Pacific,Pacific,.75706667
-03/06/2025,Tulane,East Carolina,East Carolina,.85093331
-03/06/2025,UC Irvine,UC Davis,UC Irvine,.58146667
-03/06/2025,Utah Tech,Grand Canyon,Grand Canyon,.9734
-03/06/2025,Utah Valley,Abilene Christian,Abilene Christian,.77766669
-03/06/2025,Wichita State,Rice,Rice,.67093331
-03/06/2025,Wright State,Robert Morris,Robert Morris,.76020002
+03/15/2025,Alabama State,Jackson State,Jackson State,.86706668
+03/15/2025,Alabama,Florida,Florida,.91153336
+03/15/2025,UAB,North Texas,North Texas,.66393334
+03/15/2025,UC Irvine,UC San Diego,UC San Diego,.86879998
+03/15/2025,Dartmouth,Cornell,Cornell,.76153332
+03/15/2025,Jacksonville State,Liberty,Liberty,.9224
+03/15/2025,Louisville,Duke,Duke,.98000002
+03/15/2025,Loyola Chicago,VCU,VCU,.98000002
+03/15/2025,Michigan,Maryland,Maryland,.98000002
+03/15/2025,Mount St. Mary's,Iona,Mount St. Mary's,.67559999
+03/15/2025,Princeton,Yale,Yale,.98000002
+03/15/2025,Saint Joseph's,George Mason,George Mason,.71219999
+03/15/2025,Tennessee,Auburn,Auburn,.98000002
+03/15/2025,Tulane,Memphis,Memphis,.96960002
+03/15/2025,Wisconsin,Michigan State,Michigan State,.90799999
+03/15/2025,Grand Canyon,Utah Valley,Utah Valley,.96399999
