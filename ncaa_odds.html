@@ -98,13 +98,13 @@
     <h2>Tournament Win Probability Analysis</h2>
     
     <div class="round-info">
-      <strong>Round: <span id="current-round-display">Initial</span></strong>
+      <strong>Round: <span id="current-round-display">First Four</span></strong>
     </div>
     
     <div>
       <h3>Round Selection</h3>
       <div class="buttons" id="round-buttons">
-        <button class="active" data-round="0">Initial</button>
+        <button class="active" data-round="0">First Four</button>
         <button data-round="1">Round 1</button>
         <button data-round="2">Round 2</button>
         <button data-round="3">Sweet 16</button>
@@ -164,7 +164,7 @@
     let sortColumn = null;
     let sortDirection = 'asc';
     
-    // Initialize
+    // First Fourize
     document.addEventListener('DOMContentLoaded', () => {
       renderTable(currentRound);
       addEventListeners();
@@ -184,7 +184,7 @@
           // Update current round
           currentRound = parseInt(e.target.dataset.round);
           document.getElementById('current-round-display').textContent = 
-            currentRound === 0 ? 'Initial' : `Round ${currentRound}`;
+            currentRound === 0 ? 'First Four' : `Round ${currentRound}`;
           
           // Render table
           renderTable(currentRound);
