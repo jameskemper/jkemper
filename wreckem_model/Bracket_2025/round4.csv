@@ -1,5 +1,9 @@
 awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
-Alabama,Duke,East,2,1,Duke,.91399997
-Michigan State,Auburn,South,2,1,Auburn,.65200001
-Tennessee,Houston,Midwest,2,1,Houston,.59299999
-Texas Tech,Florida,West,3,1,Florida,.78500003
+Alabama,Duke,East,2,1,Alabama,0
+Auburn,Michigan State,South,1,2,Auburn,0
+Duke,Alabama,East,1,2,Duke,0
+Florida,Texas Tech,West,1,3,Florida,0
+Houston,Tennessee,Midwest,1,2,Houston,0
+Michigan State,Auburn,South,2,1,Michigan State,0
+Tennessee,Houston,Midwest,2,1,Tennessee,0
+Texas Tech,Florida,West,3,1,Texas Tech,0

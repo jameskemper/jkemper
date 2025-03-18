@@ -1,5 +1,5 @@
-awayteam,hometeam,winner,winning_prob
-Mount St. Mary's,American University,Mount St. Mary's,.66399997
-North Carolina,San Diego State,North Carolina,.50300002
-St. Francis (PA),Alabama State,Alabama State,.53500003
-Xavier,Texas,Xavier,.60600001
+awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
+Mount St. Mary's,American University,East,16,16,Mount St. Mary's,.523
+North Carolina,San Diego State,West,11,11,North Carolina,.56400001
+Xavier,Texas,Midwest,11,11,Xavier,.59899998
+Saint Francis,Alabama State,South,16,16,Alabama State,.97500002
