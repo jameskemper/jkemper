@@ -80,6 +80,10 @@
       border-radius: 4px;
       font-size: 0.9em;
     }
+    .winner {
+      font-weight: bold;
+      color: #cc0000;
+    }
     .footer {
       margin-top: 30px;
       text-align: center;
@@ -118,40 +122,40 @@
   </div>
 
   <script>
-    // Sample data for all rounds with matchup information
+    // Sample data for all rounds with revised matchup information
     const bracketData = {
       0: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 0.92, Region: "West", Rating: 95.6, Matchup: "vs. (16) Norfolk St." },
-        { Team: "Baylor", Seed: 1, WinProb: 0.89, Region: "South", Rating: 93.8, Matchup: "vs. (16) Hartford" },
-        { Team: "Michigan", Seed: 1, WinProb: 0.87, Region: "East", Rating: 92.1, Matchup: "vs. (16) Texas Southern" },
-        { Team: "Illinois", Seed: 1, WinProb: 0.85, Region: "Midwest", Rating: 91.4, Matchup: "vs. (16) Drexel" },
-        { Team: "Iowa", Seed: 2, WinProb: 0.82, Region: "West", Rating: 90.6, Matchup: "vs. (15) Grand Canyon" },
-        { Team: "Ohio State", Seed: 2, WinProb: 0.81, Region: "South", Rating: 89.8, Matchup: "vs. (15) Oral Roberts" },
-        { Team: "Alabama", Seed: 2, WinProb: 0.80, Region: "East", Rating: 89.2, Matchup: "vs. (15) Iona" },
-        { Team: "Houston", Seed: 2, WinProb: 0.78, Region: "Midwest", Rating: 88.5, Matchup: "vs. (15) Cleveland St." }
+        { Matchup: "(1) Gonzaga vs. (16) Norfolk St.", Region: "West", Winner: "Gonzaga", WinProb: 0.92 },
+        { Matchup: "(1) Baylor vs. (16) Hartford", Region: "South", Winner: "Baylor", WinProb: 0.89 },
+        { Matchup: "(1) Michigan vs. (16) Texas Southern", Region: "East", Winner: "Michigan", WinProb: 0.87 },
+        { Matchup: "(1) Illinois vs. (16) Drexel", Region: "Midwest", Winner: "Illinois", WinProb: 0.85 },
+        { Matchup: "(2) Iowa vs. (15) Grand Canyon", Region: "West", Winner: "Iowa", WinProb: 0.82 },
+        { Matchup: "(2) Ohio State vs. (15) Oral Roberts", Region: "South", Winner: "Ohio State", WinProb: 0.81 },
+        { Matchup: "(2) Alabama vs. (15) Iona", Region: "East", Winner: "Alabama", WinProb: 0.80 },
+        { Matchup: "(2) Houston vs. (15) Cleveland St.", Region: "Midwest", Winner: "Houston", WinProb: 0.78 }
       ],
       1: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 0.94, Region: "West", Rating: 96.2, Matchup: "vs. (8) Oklahoma" },
-        { Team: "Baylor", Seed: 1, WinProb: 0.90, Region: "South", Rating: 94.5, Matchup: "vs. (9) Wisconsin" },
-        { Team: "Michigan", Seed: 1, WinProb: 0.88, Region: "East", Rating: 93.0, Matchup: "vs. (8) LSU" },
-        { Team: "Illinois", Seed: 1, WinProb: 0.86, Region: "Midwest", Rating: 92.1, Matchup: "vs. (8) Loyola Chicago" }
+        { Matchup: "(1) Gonzaga vs. (8) Oklahoma", Region: "West", Winner: "Gonzaga", WinProb: 0.94 },
+        { Matchup: "(1) Baylor vs. (9) Wisconsin", Region: "South", Winner: "Baylor", WinProb: 0.90 },
+        { Matchup: "(1) Michigan vs. (8) LSU", Region: "East", Winner: "Michigan", WinProb: 0.88 },
+        { Matchup: "(1) Illinois vs. (8) Loyola Chicago", Region: "Midwest", Winner: "Illinois", WinProb: 0.86 }
       ],
       2: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 0.95, Region: "West", Rating: 96.8, Matchup: "vs. (5) Creighton" },
-        { Team: "Baylor", Seed: 1, WinProb: 0.92, Region: "South", Rating: 95.2, Matchup: "vs. (5) Villanova" }
+        { Matchup: "(1) Gonzaga vs. (5) Creighton", Region: "West", Winner: "Gonzaga", WinProb: 0.95 },
+        { Matchup: "(1) Baylor vs. (5) Villanova", Region: "South", Winner: "Baylor", WinProb: 0.92 }
       ],
       3: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 0.96, Region: "West", Rating: 97.3, Matchup: "vs. (6) USC" },
-        { Team: "Baylor", Seed: 1, WinProb: 0.93, Region: "South", Rating: 95.9, Matchup: "vs. (3) Arkansas" }
+        { Matchup: "(1) Gonzaga vs. (6) USC", Region: "West", Winner: "Gonzaga", WinProb: 0.96 },
+        { Matchup: "(1) Baylor vs. (3) Arkansas", Region: "South", Winner: "Baylor", WinProb: 0.93 }
       ],
       4: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 0.97, Region: "Final Four", Rating: 97.8, Matchup: "vs. (11) UCLA" }
+        { Matchup: "(1) Gonzaga vs. (11) UCLA", Region: "Final Four", Winner: "Gonzaga", WinProb: 0.97 }
       ],
       5: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 0.98, Region: "Final", Rating: 98.2, Matchup: "vs. (1) Baylor" }
+        { Matchup: "(1) Gonzaga vs. (1) Baylor", Region: "Final", Winner: "Gonzaga", WinProb: 0.98 }
       ],
       6: [
-        { Team: "Gonzaga", Seed: 1, WinProb: 1.00, Region: "Champion", Rating: 98.6, Matchup: "CHAMPION" }
+        { Matchup: "CHAMPIONSHIP GAME", Region: "Champion", Winner: "Gonzaga", WinProb: 1.00 }
       ]
     };
     
@@ -227,8 +231,8 @@
         });
       }
       
-      // Get columns - customize column order
-      const columnOrder = ['Team', 'Seed', 'Region', 'WinProb', 'Rating', 'Matchup'];
+      // Define column order
+      const columnOrder = ['Matchup', 'Region', 'Winner', 'WinProb'];
       
       // Build table HTML
       let html = `
@@ -237,21 +241,19 @@
             <tr>
       `;
       
-      // Add headers
+      // Add headers with customized display names
       columnOrder.forEach(col => {
-        if (data[0].hasOwnProperty(col)) {
-          const isSorted = sortColumn === col;
-          const arrow = isSorted 
-            ? (sortDirection === 'asc' ? ' ↑' : ' ↓') 
-            : '';
-          
-          let displayName = col;
-          // Customize column display names
-          if (col === 'WinProb') displayName = 'Win Probability';
-          if (col === 'Rating') displayName = 'WRECKEM Rating';
-          
-          html += `<th data-column="${col}">${displayName}${arrow}</th>`;
-        }
+        const isSorted = sortColumn === col;
+        const arrow = isSorted 
+          ? (sortDirection === 'asc' ? ' ↑' : ' ↓') 
+          : '';
+        
+        let displayName = col;
+        // Customize column display names
+        if (col === 'WinProb') displayName = 'Win Probability';
+        if (col === 'Winner') displayName = 'Predicted Winner';
+        
+        html += `<th data-column="${col}">${displayName}${arrow}</th>`;
       });
       
       html += `
@@ -264,23 +266,19 @@
       displayData.forEach(row => {
         html += '<tr>';
         columnOrder.forEach(col => {
-          if (row.hasOwnProperty(col)) {
-            let value = row[col];
-            
-            // Format values
-            if (typeof value === 'number') {
-              if (col === 'WinProb') {
-                value = (value * 100).toFixed(1) + '%';
-              } else if (col === 'Rating') {
-                value = value.toFixed(1);
-              }
-            }
-            
-            if (col === 'Matchup') {
-              html += `<td><span class="matchup">${value}</span></td>`;
-            } else {
-              html += `<td>${value}</td>`;
-            }
+          let value = row[col];
+          
+          // Format values
+          if (col === 'WinProb' && typeof value === 'number') {
+            value = (value * 100).toFixed(1) + '%';
+          }
+          
+          if (col === 'Matchup') {
+            html += `<td><span class="matchup">${value}</span></td>`;
+          } else if (col === 'Winner') {
+            html += `<td><span class="winner">${value}</span></td>`;
+          } else {
+            html += `<td>${value}</td>`;
           }
         });
         html += '</tr>';
