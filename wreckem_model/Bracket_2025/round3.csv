@@ -1,9 +1,9 @@
 awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
 Arizona,Duke,East,4,1,Duke,0.941695
-Wisconsin,Alabama,East,3,2,Alabama,0.729877
-Purdue,Houston,Midwest,4,1,Houston,0.932642
-Illinois,Tennessee,Midwest,6,2,Tennessee,0.866458
+Alabama,Wisconsin,East,2,3,Alabama,0.597245
+Clemson,Houston,Midwest,5,1,Houston,0.931119
+Tennessee,Illinois,Midwest,2,6,Tennessee,0.780743
 Texas A&M,Auburn,South,4,1,Auburn,0.92372
-Iowa State,Michigan State,South,3,2,Michigan State,0.668188
+Michigan State,Iowa State,South,2,3,Michigan State,0.524979
 Maryland,Florida,West,4,1,Florida,0.90025
 Kansas,Texas Tech,West,7,3,Texas Tech,0.779026
