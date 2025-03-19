@@ -1,0 +1,17 @@
+awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
+Baylor,Duke,East,9,1,Duke,0.95
+Oregon,Arizona,East,5,4,Arizona,0.805025
+VCU,Wisconsin,East,11,3,Wisconsin,0.80969
+St. Mary's,Alabama,East,7,2,Alabama,0.95
+Gonzaga,Houston,Midwest,8,1,Houston,0.873249
+Clemson,Purdue,Midwest,5,4,Purdue,0.568565
+Illinois,Kentucky,Midwest,6,3,Illinois,0.55
+UCLA,Tennessee,Midwest,7,2,Tennessee,0.902911
+Louisville,Auburn,South,8,1,Auburn,0.941475
+Michigan,Texas A&M,South,5,4,Texas A&M,0.679179
+North Carolina,Iowa State,South,11,3,Iowa State,0.767099
+Marquette,Michigan State,South,7,2,Michigan State,0.765307
+UConn,Florida,West,8,1,Florida,0.95
+Memphis,Maryland,West,5,4,Maryland,0.926763
+Missouri,Texas Tech,West,6,3,Texas Tech,0.737691
+Kansas,St. John's,West,7,2,Kansas,0.55

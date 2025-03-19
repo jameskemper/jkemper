@@ -1,0 +1,33 @@
+awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
+Mount St. Mary's,Duke,East,16,1,Duke,0.95
+Baylor,Mississippi State,East,9,8,Baylor,0.756208
+Liberty,Oregon,East,12,5,Oregon,0.835346
+Akron,Arizona,East,13,4,Arizona,0.95
+VCU,BYU,East,11,6,VCU,0.55
+Montana,Wisconsin,East,14,3,Wisconsin,0.95
+Vanderbilt,St. Mary's,East,10,7,St. Mary's,0.566602
+Robert Morris,Alabama,East,15,2,Alabama,0.95
+SIU-Edwardsville,Houston,Midwest,16,1,Houston,0.95
+Georgia,Gonzaga,Midwest,9,8,Gonzaga,0.868299
+McNeese State,Clemson,Midwest,12,5,Clemson,0.95
+High Point,Purdue,Midwest,13,4,Purdue,0.95
+Xavier,Illinois,Midwest,11,6,Illinois,0.82977
+Troy,Kentucky,Midwest,14,3,Kentucky,0.95
+Utah State,UCLA,Midwest,10,7,UCLA,0.934502
+Wofford,Tennessee,Midwest,15,2,Tennessee,0.95
+Alabama State,Auburn,South,16,1,Auburn,0.95
+Creighton,Louisville,South,9,8,Louisville,0.748382
+UC San Diego,Michigan,South,12,5,Michigan,0.712591
+Yale,Texas A&M,South,13,4,Texas A&M,0.949117
+North Carolina,Ole Miss,South,11,6,North Carolina,0.55
+Lipscomb,Iowa State,South,14,3,Iowa State,0.95
+New Mexico,Marquette,South,10,7,Marquette,0.759876
+Bryant,Michigan State,South,15,2,Michigan State,0.95
+Norfolk State,Florida,West,16,1,Florida,0.95
+Oklahoma,UConn,West,9,8,UConn,0.621989
+Colorado State,Memphis,West,12,5,Memphis,0.893595
+Grand Canyon,Maryland,West,13,4,Maryland,0.95
+Drake,Missouri,West,11,6,Missouri,0.912934
+UNC-Wilmington,Texas Tech,West,14,3,Texas Tech,0.95
+Arkansas,Kansas,West,10,7,Kansas,0.804396
+Omaha,St. John's,West,15,2,St. John's,0.95
