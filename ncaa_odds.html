@@ -98,6 +98,20 @@
       color: #666;
       font-size: 0.9em;
     }
+    .correct {
+      color: white;
+      background-color: #28a745;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .wrong {
+      color: white;
+      background-color: #dc3545;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -128,7 +142,7 @@
     <div id="table-container"></div>
     
     <div class="footer">
-      WRECKEM Model Predictions - Generated on <span id="timestamp"></span>
+      WRECKEM Model predictions were generated on 3/19/2025
     </div>
   </div>
 
@@ -136,37 +150,37 @@
     // Sample data for all rounds with revised matchup information
     const bracketData = {
       0: [
-        { Matchup: "(1) Gonzaga vs. (16) Norfolk St.", Region: "West", Winner: "Gonzaga", WinProb: 0.92 },
-        { Matchup: "(1) Baylor vs. (16) Hartford", Region: "South", Winner: "Baylor", WinProb: 0.89 },
-        { Matchup: "(1) Michigan vs. (16) Texas Southern", Region: "East", Winner: "Michigan", WinProb: 0.87 },
-        { Matchup: "(1) Illinois vs. (16) Drexel", Region: "Midwest", Winner: "Illinois", WinProb: 0.85 },
-        { Matchup: "(2) Iowa vs. (15) Grand Canyon", Region: "West", Winner: "Iowa", WinProb: 0.82 },
-        { Matchup: "(2) Ohio State vs. (15) Oral Roberts", Region: "South", Winner: "Ohio State", WinProb: 0.81 },
-        { Matchup: "(2) Alabama vs. (15) Iona", Region: "East", Winner: "Alabama", WinProb: 0.80 },
-        { Matchup: "(2) Houston vs. (15) Cleveland St.", Region: "Midwest", Winner: "Houston", WinProb: 0.78 }
+        { Matchup: "(1) Gonzaga vs. (16) Norfolk St.", Region: "West", Winner: "Gonzaga", WinProb: 0.92, Status: "Correct" },
+        { Matchup: "(1) Baylor vs. (16) Hartford", Region: "South", Winner: "Baylor", WinProb: 0.89, Status: "Correct" },
+        { Matchup: "(1) Michigan vs. (16) Texas Southern", Region: "East", Winner: "Michigan", WinProb: 0.87, Status: "Correct" },
+        { Matchup: "(1) Illinois vs. (16) Drexel", Region: "Midwest", Winner: "Illinois", WinProb: 0.85, Status: "Correct" },
+        { Matchup: "(2) Iowa vs. (15) Grand Canyon", Region: "West", Winner: "Iowa", WinProb: 0.82, Status: "Correct" },
+        { Matchup: "(2) Ohio State vs. (15) Oral Roberts", Region: "South", Winner: "Ohio State", WinProb: 0.81, Status: "Correct" },
+        { Matchup: "(2) Alabama vs. (15) Iona", Region: "East", Winner: "Alabama", WinProb: 0.80, Status: "Correct" },
+        { Matchup: "(2) Houston vs. (15) Cleveland St.", Region: "Midwest", Winner: "Houston", WinProb: 0.78, Status: "Correct" }
       ],
       1: [
-        { Matchup: "(1) Gonzaga vs. (8) Oklahoma", Region: "West", Winner: "Gonzaga", WinProb: 0.94 },
-        { Matchup: "(1) Baylor vs. (9) Wisconsin", Region: "South", Winner: "Baylor", WinProb: 0.90 },
-        { Matchup: "(1) Michigan vs. (8) LSU", Region: "East", Winner: "Michigan", WinProb: 0.88 },
-        { Matchup: "(1) Illinois vs. (8) Loyola Chicago", Region: "Midwest", Winner: "Illinois", WinProb: 0.86 }
+        { Matchup: "(1) Gonzaga vs. (8) Oklahoma", Region: "West", Winner: "Gonzaga", WinProb: 0.94, Status: "Correct" },
+        { Matchup: "(1) Baylor vs. (9) Wisconsin", Region: "South", Winner: "Baylor", WinProb: 0.90, Status: "Correct" },
+        { Matchup: "(1) Michigan vs. (8) LSU", Region: "East", Winner: "Michigan", WinProb: 0.88, Status: "Correct" },
+        { Matchup: "(1) Illinois vs. (8) Loyola Chicago", Region: "Midwest", Winner: "Illinois", WinProb: 0.86, Status: "Correct" }
       ],
       2: [
-        { Matchup: "(1) Gonzaga vs. (5) Creighton", Region: "West", Winner: "Gonzaga", WinProb: 0.95 },
-        { Matchup: "(1) Baylor vs. (5) Villanova", Region: "South", Winner: "Baylor", WinProb: 0.92 }
+        { Matchup: "(1) Gonzaga vs. (5) Creighton", Region: "West", Winner: "Gonzaga", WinProb: 0.95, Status: "" },
+        { Matchup: "(1) Baylor vs. (5) Villanova", Region: "South", Winner: "Baylor", WinProb: 0.92, Status: "" }
       ],
       3: [
-        { Matchup: "(1) Gonzaga vs. (6) USC", Region: "West", Winner: "Gonzaga", WinProb: 0.96 },
-        { Matchup: "(1) Baylor vs. (3) Arkansas", Region: "South", Winner: "Baylor", WinProb: 0.93 }
+        { Matchup: "(1) Gonzaga vs. (6) USC", Region: "West", Winner: "Gonzaga", WinProb: 0.96, Status: "" },
+        { Matchup: "(1) Baylor vs. (3) Arkansas", Region: "South", Winner: "Baylor", WinProb: 0.93, Status: "" }
       ],
       4: [
-        { Matchup: "(1) Gonzaga vs. (11) UCLA", Region: "Final Four", Winner: "Gonzaga", WinProb: 0.97 }
+        { Matchup: "(1) Gonzaga vs. (11) UCLA", Region: "Final Four", Winner: "Gonzaga", WinProb: 0.97, Status: "" }
       ],
       5: [
-        { Matchup: "(1) Gonzaga vs. (1) Baylor", Region: "Final", Winner: "Gonzaga", WinProb: 0.98 }
+        { Matchup: "(1) Gonzaga vs. (1) Baylor", Region: "Final", Winner: "Gonzaga", WinProb: 0.98, Status: "" }
       ],
       6: [
-        { Matchup: "CHAMPIONSHIP GAME", Region: "Champion", Winner: "Gonzaga", WinProb: 1.00 }
+        { Matchup: "CHAMPIONSHIP GAME", Region: "Champion", Winner: "Gonzaga", WinProb: 1.00, Status: "" }
       ]
     };
     
@@ -175,11 +189,10 @@
     let sortColumn = null;
     let sortDirection = 'asc';
     
-    // First Fourize
+    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
       renderTable(currentRound);
       addEventListeners();
-      document.getElementById('timestamp').textContent = new Date().toLocaleDateString();
     });
     
     function addEventListeners() {
@@ -217,6 +230,31 @@
           renderTable(currentRound);
         }
       });
+      
+      // Add event listener for status cell clicking
+      document.getElementById('table-container').addEventListener('click', (e) => {
+        if (e.target.classList.contains('status-cell')) {
+          const rowIndex = e.target.dataset.rowIndex;
+          toggleStatus(rowIndex);
+        }
+      });
+    }
+    
+    function toggleStatus(rowIndex) {
+      const data = bracketData[currentRound];
+      if (!data || !data[rowIndex]) return;
+      
+      const matchup = data[rowIndex];
+      
+      if (matchup.Status === "Correct") {
+        matchup.Status = "Wrong";
+      } else if (matchup.Status === "Wrong") {
+        matchup.Status = "";
+      } else {
+        matchup.Status = "Correct";
+      }
+      
+      renderTable(currentRound);
     }
     
     function renderTable(round) {
@@ -242,8 +280,8 @@
         });
       }
       
-      // Define column order
-      const columnOrder = ['Matchup', 'Region', 'Winner', 'WinProb'];
+      // Define column order with Status added
+      const columnOrder = ['Matchup', 'Region', 'Winner', 'WinProb', 'Status'];
       
       // Build table HTML
       let html = `
@@ -263,6 +301,7 @@
         // Customize column display names
         if (col === 'WinProb') displayName = 'Win Probability';
         if (col === 'Winner') displayName = 'Predicted Winner';
+        if (col === 'Status') displayName = 'Prediction Status';
         
         html += `<th data-column="${col}">${displayName}${arrow}</th>`;
       });
@@ -274,7 +313,7 @@
       `;
       
       // Add rows
-      displayData.forEach(row => {
+      displayData.forEach((row, rowIndex) => {
         html += '<tr>';
         columnOrder.forEach(col => {
           let value = row[col];
@@ -288,6 +327,15 @@
             html += `<td><span class="matchup">${value}</span></td>`;
           } else if (col === 'Winner') {
             html += `<td><span class="winner">${value}</span></td>`;
+          } else if (col === 'Status') {
+            let statusClass = '';
+            if (value === 'Correct') {
+              statusClass = 'correct';
+            } else if (value === 'Wrong') {
+              statusClass = 'wrong';
+            }
+            
+            html += `<td><span class="status-cell ${statusClass}" data-row-index="${rowIndex}">${value}</span></td>`;
           } else {
             html += `<td>${value}</td>`;
           }
