@@ -98,18 +98,13 @@
       color: #666;
       font-size: 0.9em;
     }
-    .correct {
-      color: white;
-      background-color: #28a745;
-      padding: 4px 8px;
-      border-radius: 4px;
+    /* More specific status styling */
+    .status-cell.correct {
+      color: green;
       font-weight: bold;
     }
-    .wrong {
-      color: white;
-      background-color: #dc3545;
-      padding: 4px 8px;
-      border-radius: 4px;
+    .status-cell.wrong {
+      color: red;
       font-weight: bold;
     }
   </style>
@@ -123,13 +118,13 @@
       Win Probability Analysis</h2>
     
     <div class="round-info">
-      <strong>Round: <span id="current-round-display">First Round</span></strong>
+      <strong>Round: <span id="current-round-display">First Four</span></strong>
     </div>
     
     <div>
       <h3>Round Selection</h3>
       <div class="buttons" id="round-buttons">
-        <button class="active" data-round="0">First Round</button>
+        <button class="active" data-round="0">First Four</button>
         <button data-round="1">Round of 64</button>
         <button data-round="2">Round of 32</button>
         <button data-round="3">Sweet 16</button>
@@ -171,18 +166,18 @@
       renderTable(parsedData);
     }
 
-    // Updated parseCSV to check for a status column (if added) and trim whitespace.
+    // Parse CSV data and trim each value.
     function parseCSV(csvData) {
       const rows = csvData.split('\n').slice(1);
       return rows.filter(row => row.trim() !== "").map(row => {
         const columns = row.split(',');
         return {
-          AwayTeam: columns[0],
-          HomeTeam: columns[1],
-          AwaySeed: columns[3],
-          HomeSeed: columns[4],
-          Winner: columns[5],
-          // If the CSV now includes a status column (as the 8th column), use it; otherwise, default to an empty string.
+          AwayTeam: columns[0].trim(),
+          HomeTeam: columns[1].trim(),
+          AwaySeed: columns[3].trim(),
+          HomeSeed: columns[4].trim(),
+          Winner: columns[5].trim(),
+          // Use the CSV's status column if available (8th column), otherwise default to an empty string.
           Status: columns.length >= 8 ? columns[7].trim() : ''
         };
       });
@@ -199,10 +194,10 @@
           <thead>
             <tr>
               <th>Away Team</th>
-              <th>Home Team</th>
               <th>Away Seed</th>
+              <th>Home Team</th>
               <th>Home Seed</th>
-              <th>Winner</th>
+              <th>Predicted Winner</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -210,20 +205,23 @@
       `;
 
       data.forEach((matchup, index) => {
+        let statusText = matchup.Status;
         let statusClass = "";
-        if (matchup.Status === "Correct") {
+        if (statusText.toLowerCase() === "correct") {
           statusClass = "correct";
-        } else if (matchup.Status === "Wrong") {
+          statusText = "Correct"; // normalize display text
+        } else if (statusText.toLowerCase() === "wrong") {
           statusClass = "wrong";
+          statusText = "Wrong";
         }
         html += `
           <tr>
             <td>${matchup.AwayTeam}</td>
-            <td>${matchup.HomeTeam}</td>
             <td>${matchup.AwaySeed}</td>
+            <td>${matchup.HomeTeam}</td>
             <td>${matchup.HomeSeed}</td>
             <td>${matchup.Winner}</td>
-            <td><span class="status-cell ${statusClass}" data-index="${index}" onclick="toggleStatus(${index})">${matchup.Status}</span></td>
+            <td><span class="status-cell ${statusClass}" data-index="${index}" onclick="toggleStatus(${index})">${statusText}</span></td>
           </tr>
         `;
       });
@@ -251,16 +249,16 @@
       });
     }
 
-    // Toggle the status for manual updates. This function updates the visual state;
-    // if you're persisting changes, you'll need additional code to save the change.
+    // Toggle status and update visual styling.
     function toggleStatus(index) {
       const table = document.querySelector('table');
       const statusCell = table.rows[index + 1].cells[5].querySelector('.status-cell');
-      if (statusCell.innerText === 'Correct') {
+      let currentStatus = statusCell.innerText.trim().toLowerCase();
+      if (currentStatus === 'correct') {
         statusCell.innerText = 'Wrong';
         statusCell.classList.remove('correct');
         statusCell.classList.add('wrong');
-      } else if (statusCell.innerText === 'Wrong') {
+      } else if (currentStatus === 'wrong') {
         statusCell.innerText = '';
         statusCell.classList.remove('wrong');
       } else {
