@@ -65,7 +65,7 @@
     }
     th, td {
       padding: 10px;
-      text-align: center; /* Center the text */
+      text-align: center;
       border-bottom: 1px solid #ddd;
     }
     th {
@@ -171,6 +171,7 @@
       renderTable(parsedData);
     }
 
+    // Updated parseCSV to check for a status column (if added) and trim whitespace.
     function parseCSV(csvData) {
       const rows = csvData.split('\n').slice(1);
       return rows.filter(row => row.trim() !== "").map(row => {
@@ -181,7 +182,8 @@
           AwaySeed: columns[3],
           HomeSeed: columns[4],
           Winner: columns[5],
-          Status: '' // Empty initially, for manual update
+          // If the CSV now includes a status column (as the 8th column), use it; otherwise, default to an empty string.
+          Status: columns.length >= 8 ? columns[7].trim() : ''
         };
       });
     }
@@ -208,6 +210,12 @@
       `;
 
       data.forEach((matchup, index) => {
+        let statusClass = "";
+        if (matchup.Status === "Correct") {
+          statusClass = "correct";
+        } else if (matchup.Status === "Wrong") {
+          statusClass = "wrong";
+        }
         html += `
           <tr>
             <td>${matchup.AwayTeam}</td>
@@ -215,7 +223,7 @@
             <td>${matchup.AwaySeed}</td>
             <td>${matchup.HomeSeed}</td>
             <td>${matchup.Winner}</td>
-            <td><span class="status-cell" data-index="${index}" onclick="toggleStatus(${index})">${matchup.Status}</span></td>
+            <td><span class="status-cell ${statusClass}" data-index="${index}" onclick="toggleStatus(${index})">${matchup.Status}</span></td>
           </tr>
         `;
       });
@@ -243,6 +251,8 @@
       });
     }
 
+    // Toggle the status for manual updates. This function updates the visual state;
+    // if you're persisting changes, you'll need additional code to save the change.
     function toggleStatus(index) {
       const table = document.querySelector('table');
       const statusCell = table.rows[index + 1].cells[5].querySelector('.status-cell');
