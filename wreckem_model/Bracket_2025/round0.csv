@@ -1,5 +1,5 @@
-awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
-Mount St. Mary's,American University,East,16,16,Mount St. Mary's,0.58273333
-Xavier,Texas,Midwest,11,11,Xavier,0.57593334
-Saint Francis,Alabama State,South,16,16,Alabama State,0.97500002
-North Carolina,San Diego State,West,11,11,North Carolina,0.52326667
+awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob,status
+Mount St. Mary's,American University,East,16,16,Mount St. Mary's,0.58273333,correct
+Xavier,Texas,Midwest,11,11,Xavier,0.57593334,correct
+Saint Francis,Alabama State,South,16,16,Alabama State,0.97500002,correct
+North Carolina,San Diego State,West,11,11,North Carolina,0.52326667,correct

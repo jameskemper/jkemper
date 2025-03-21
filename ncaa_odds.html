@@ -65,7 +65,7 @@
     }
     th, td {
       padding: 10px;
-      text-align: left;
+      text-align: center; /* Center the text */
       border-bottom: 1px solid #ddd;
     }
     th {
@@ -123,13 +123,13 @@
       Win Probability Analysis</h2>
     
     <div class="round-info">
-      <strong>Round: <span id="current-round-display">First Four</span></strong>
+      <strong>Round: <span id="current-round-display">First Round</span></strong>
     </div>
     
     <div>
       <h3>Round Selection</h3>
       <div class="buttons" id="round-buttons">
-        <button class="active" data-round="0">First Four</button>
+        <button class="active" data-round="0">First Round</button>
         <button data-round="1">Round of 64</button>
         <button data-round="2">Round of 32</button>
         <button data-round="3">Sweet 16</button>
@@ -147,205 +147,116 @@
   </div>
 
   <script>
-    // Sample data for all rounds with revised matchup information (WinProb removed)
-    const bracketData = {
-      0: [
-        { Matchup: "(1) Gonzaga vs. (16) Norfolk St.", Region: "West", Winner: "Gonzaga", Status: "Correct" },
-        { Matchup: "(1) Baylor vs. (16) Hartford", Region: "South", Winner: "Baylor", Status: "Correct" },
-        { Matchup: "(1) Michigan vs. (16) Texas Southern", Region: "East", Winner: "Michigan", Status: "Correct" },
-        { Matchup: "(1) Illinois vs. (16) Drexel", Region: "Midwest", Winner: "Illinois", Status: "Correct" },
-        { Matchup: "(2) Iowa vs. (15) Grand Canyon", Region: "West", Winner: "Iowa", Status: "Correct" },
-        { Matchup: "(2) Ohio State vs. (15) Oral Roberts", Region: "South", Winner: "Ohio State", Status: "Correct" },
-        { Matchup: "(2) Alabama vs. (15) Iona", Region: "East", Winner: "Alabama", Status: "Correct" },
-        { Matchup: "(2) Houston vs. (15) Cleveland St.", Region: "Midwest", Winner: "Houston", Status: "Correct" }
-      ],
-      1: [
-        { Matchup: "(1) Gonzaga vs. (8) Oklahoma", Region: "West", Winner: "Gonzaga", Status: "Correct" },
-        { Matchup: "(1) Baylor vs. (9) Wisconsin", Region: "South", Winner: "Baylor", Status: "Correct" },
-        { Matchup: "(1) Michigan vs. (8) LSU", Region: "East", Winner: "Michigan", Status: "Correct" },
-        { Matchup: "(1) Illinois vs. (8) Loyola Chicago", Region: "Midwest", Winner: "Illinois", Status: "Correct" }
-      ],
-      2: [
-        { Matchup: "(1) Gonzaga vs. (5) Creighton", Region: "West", Winner: "Gonzaga", Status: "" },
-        { Matchup: "(1) Baylor vs. (5) Villanova", Region: "South", Winner: "Baylor", Status: "" }
-      ],
-      3: [
-        { Matchup: "(1) Gonzaga vs. (6) USC", Region: "West", Winner: "Gonzaga", Status: "" },
-        { Matchup: "(1) Baylor vs. (3) Arkansas", Region: "South", Winner: "Baylor", Status: "" }
-      ],
-      4: [
-        { Matchup: "(1) Gonzaga vs. (11) UCLA", Region: "Final Four", Winner: "Gonzaga", Status: "" }
-      ],
-      5: [
-        { Matchup: "(1) Gonzaga vs. (1) Baylor", Region: "Final", Winner: "Gonzaga", Status: "" }
-      ],
-      6: [
-        { Matchup: "CHAMPIONSHIP GAME", Region: "Champion", Winner: "Gonzaga", Status: "" }
-      ]
-    };
-    
-    // Track current round
+    const roundFiles = [
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round0.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round1.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round2.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round3.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round4.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round5.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round6.csv',
+    ];
+
     let currentRound = 0;
-    let sortColumn = null;
-    let sortDirection = 'asc';
-    
-    // Initialize
+
     document.addEventListener('DOMContentLoaded', () => {
-      renderTable(currentRound);
-      addEventListeners();
+      loadData(currentRound);
+      setupRoundButtons();
     });
-    
-    function addEventListeners() {
-      // Round selection buttons
+
+    async function loadData(round) {
+      const response = await fetch(roundFiles[round]);
+      const csvData = await response.text();
+      const parsedData = parseCSV(csvData);
+      renderTable(parsedData);
+    }
+
+    function parseCSV(csvData) {
+      const rows = csvData.split('\n').slice(1);
+      return rows.filter(row => row.trim() !== "").map(row => {
+        const columns = row.split(',');
+        return {
+          AwayTeam: columns[0],
+          HomeTeam: columns[1],
+          AwaySeed: columns[3],
+          HomeSeed: columns[4],
+          Winner: columns[5],
+          Status: '' // Empty initially, for manual update
+        };
+      });
+    }
+
+    function renderTable(data) {
+      if (data.length === 0) {
+        document.getElementById('table-container').innerHTML = '<p>No data available for this round</p>';
+        return;
+      }
+
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th>Away Team</th>
+              <th>Home Team</th>
+              <th>Away Seed</th>
+              <th>Home Seed</th>
+              <th>Winner</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      data.forEach((matchup, index) => {
+        html += `
+          <tr>
+            <td>${matchup.AwayTeam}</td>
+            <td>${matchup.HomeTeam}</td>
+            <td>${matchup.AwaySeed}</td>
+            <td>${matchup.HomeSeed}</td>
+            <td>${matchup.Winner}</td>
+            <td><span class="status-cell" data-index="${index}" onclick="toggleStatus(${index})">${matchup.Status}</span></td>
+          </tr>
+        `;
+      });
+
+      html += `
+          </tbody>
+        </table>
+      `;
+      document.getElementById('table-container').innerHTML = html;
+    }
+
+    function setupRoundButtons() {
       document.getElementById('round-buttons').addEventListener('click', (e) => {
         if (e.target.tagName === 'BUTTON') {
-          // Update active button
           document.querySelectorAll('#round-buttons button').forEach(btn => {
             btn.classList.remove('active');
           });
           e.target.classList.add('active');
           
-          // Update current round
           currentRound = parseInt(e.target.dataset.round);
-          document.getElementById('current-round-display').textContent = 
-            currentRound === 0 ? 'First Four' : `Round ${currentRound}`;
+          document.getElementById('current-round-display').textContent = `Round ${currentRound}`;
           
-          // Render table
-          renderTable(currentRound);
-        }
-      });
-      
-      // Handle table header clicks for sorting
-      document.getElementById('table-container').addEventListener('click', (e) => {
-        if (e.target.tagName === 'TH' && e.target.dataset.column) {
-          const column = e.target.dataset.column;
-          
-          if (sortColumn === column) {
-            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-          } else {
-            sortColumn = column;
-            sortDirection = 'asc';
-          }
-          
-          renderTable(currentRound);
-        }
-      });
-      
-      // Add event listener for status cell clicking
-      document.getElementById('table-container').addEventListener('click', (e) => {
-        if (e.target.classList.contains('status-cell')) {
-          const rowIndex = e.target.dataset.rowIndex;
-          toggleStatus(rowIndex);
+          loadData(currentRound);
         }
       });
     }
-    
-    function toggleStatus(rowIndex) {
-      const data = bracketData[currentRound];
-      if (!data || !data[rowIndex]) return;
-      
-      const matchup = data[rowIndex];
-      
-      if (matchup.Status === "Correct") {
-        matchup.Status = "Wrong";
-      } else if (matchup.Status === "Wrong") {
-        matchup.Status = "";
+
+    function toggleStatus(index) {
+      const table = document.querySelector('table');
+      const statusCell = table.rows[index + 1].cells[5].querySelector('.status-cell');
+      if (statusCell.innerText === 'Correct') {
+        statusCell.innerText = 'Wrong';
+        statusCell.classList.remove('correct');
+        statusCell.classList.add('wrong');
+      } else if (statusCell.innerText === 'Wrong') {
+        statusCell.innerText = '';
+        statusCell.classList.remove('wrong');
       } else {
-        matchup.Status = "Correct";
+        statusCell.innerText = 'Correct';
+        statusCell.classList.add('correct');
       }
-      
-      renderTable(currentRound);
-    }
-    
-    function renderTable(round) {
-      const data = bracketData[round] || [];
-      
-      if (data.length === 0) {
-        document.getElementById('table-container').innerHTML = '<p>No data available for this round</p>';
-        return;
-      }
-      
-      // Sort data if needed
-      let displayData = [...data];
-      if (sortColumn) {
-        displayData.sort((a, b) => {
-          if (typeof a[sortColumn] === 'string') {
-            const comp = a[sortColumn].localeCompare(b[sortColumn]);
-            return sortDirection === 'asc' ? comp : -comp;
-          } else {
-            return sortDirection === 'asc' 
-              ? a[sortColumn] - b[sortColumn] 
-              : b[sortColumn] - a[sortColumn];
-          }
-        });
-      }
-      
-      // Define column order with Status added (WinProb removed)
-      const columnOrder = ['Matchup', 'Region', 'Winner', 'Status'];
-      
-      // Build table HTML
-      let html = `
-        <table>
-          <thead>
-            <tr>
-      `;
-      
-      // Add headers with customized display names
-      columnOrder.forEach(col => {
-        const isSorted = sortColumn === col;
-        const arrow = isSorted 
-          ? (sortDirection === 'asc' ? ' ↑' : ' ↓') 
-          : '';
-        
-        let displayName = col;
-        // Customize column display names
-        if (col === 'WinProb') displayName = 'Win Probability';
-        if (col === 'Winner') displayName = 'Predicted Winner';
-        if (col === 'Status') displayName = 'Prediction Status';
-        
-        html += `<th data-column="${col}">${displayName}${arrow}</th>`;
-      });
-      
-      html += `
-            </tr>
-          </thead>
-          <tbody>
-      `;
-      
-      // Add rows
-      displayData.forEach((row, rowIndex) => {
-        html += '<tr>';
-        columnOrder.forEach(col => {
-          let value = row[col];
-          
-          // Removed WinProb formatting
-          
-          if (col === 'Matchup') {
-            html += `<td><span class="matchup">${value}</span></td>`;
-          } else if (col === 'Winner') {
-            html += `<td><span class="winner">${value}</span></td>`;
-          } else if (col === 'Status') {
-            let statusClass = '';
-            if (value === 'Correct') {
-              statusClass = 'correct';
-            } else if (value === 'Wrong') {
-              statusClass = 'wrong';
-            }
-            
-            html += `<td><span class="status-cell ${statusClass}" data-row-index="${rowIndex}">${value}</span></td>`;
-          } else {
-            html += `<td>${value}</td>`;
-          }
-        });
-        html += '</tr>';
-      });
-      
-      html += `
-          </tbody>
-        </table>
-      `;
-      
-      document.getElementById('table-container').innerHTML = html;
     }
   </script>
 </body>
