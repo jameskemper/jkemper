@@ -1,33 +1,33 @@
 awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob,status
-Mount St. Mary's,Duke,East,16,1,Duke,0.95,
-Robert Morris,Alabama,East,15,2,Alabama,0.95,
+Mount St. Mary's,Duke,East,16,1,Duke,0.95,correct
+Robert Morris,Alabama,East,15,2,Alabama,0.95,correct
 Montana,Wisconsin,East,14,3,Wisconsin,0.95,correct
-Akron,Arizona,East,13,4,Arizona,0.95,
-Liberty,Oregon,East,12,5,Oregon,0.84,
+Akron,Arizona,East,13,4,Arizona,0.95,correct
+Liberty,Oregon,East,12,5,Oregon,0.84,correct
 VCU,BYU,East,11,6,VCU,0.55,wrong
-Vanderbilt,St. Mary's,East,10,7,St. Mary's,0.57,
-Baylor,Mississippi State,East,9,8,Baylor,0.76,
-SIU-Edwardsville,Houston,Midwest,16,1,Houston,0.95,
+Vanderbilt,St. Mary's,East,10,7,St. Mary's,0.57,wrong
+Baylor,Mississippi State,East,9,8,Baylor,0.76,correct
+SIU-Edwardsville,Houston,Midwest,16,1,Houston,0.95,correct
 Wofford,Tennessee,Midwest,15,2,Tennessee,0.95,correct
-Troy,Kentucky,Midwest,14,3,Kentucky,0.95,
+Troy,Kentucky,Midwest,14,3,Kentucky,0.95,wrong
 High Point,Purdue,Midwest,13,4,Purdue,0.95,correct
-McNeese State,Clemson,Midwest,12,5,Clemson,0.95,
-Xavier,Illinois,Midwest,11,6,Illinois,0.83,
+McNeese State,Clemson,Midwest,12,5,Clemson,0.95,wrong
+Xavier,Illinois,Midwest,11,6,Illinois,0.83,correct
 Utah State,UCLA,Midwest,10,7,UCLA,0.93,correct
 Georgia,Gonzaga,Midwest,9,8,Gonzaga,0.87,correct
 Alabama State,Auburn,South,16,1,Auburn,0.95,correct
-Bryant,Michigan State,South,15,2,Michigan State,0.95,
-Lipscomb,Iowa State,South,14,3,Iowa State,0.95,
-Yale,Texas A&M,South,13,4,Texas A&M,0.95,
+Bryant,Michigan State,South,15,2,Michigan State,0.95,correct
+Lipscomb,Iowa State,South,14,3,Iowa State,0.95,correct
+Yale,Texas A&M,South,13,4,Texas A&M,0.95,correct
 UC San Diego,Michigan,South,12,5,Michigan,0.71,correct
-North Carolina,Ole Miss,South,11,6,North Carolina,0.55,
-New Mexico,Marquette,South,10,7,Marquette,0.76,
+North Carolina,Ole Miss,South,11,6,North Carolina,0.55,correct
+New Mexico,Marquette,South,10,7,Marquette,0.76,wrong
 Creighton,Louisville,South,9,8,Louisville,0.75,wrong
-Norfolk State,Florida,West,16,1,Florida,0.95,
+Norfolk State,Florida,West,16,1,Florida,0.95,correct
 Omaha,St. John's,West,15,2,St. John's,0.95,correct
-UNC-Wilmington,Texas Tech,West,14,3,Texas Tech,0.95,
-Grand Canyon,Maryland,West,13,4,Maryland,0.95,
-Colorado State,Memphis,West,12,5,Memphis,0.89,
+UNC-Wilmington,Texas Tech,West,14,3,Texas Tech,0.95,correct
+Grand Canyon,Maryland,West,13,4,Maryland,0.95,correct
+Colorado State,Memphis,West,12,5,Memphis,0.89,wrong
 Drake,Missouri,West,11,6,Missouri,0.91,wrong
 Arkansas,Kansas,West,10,7,Kansas,0.8,wrong
-Oklahoma,UConn,West,9,8,UConn,0.62,
+Oklahoma,UConn,West,9,8,UConn,0.62,wrong
