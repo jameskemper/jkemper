@@ -1,35 +1,35 @@
-date,awayteam,hometeam,predicted_winner,percentage_sim_win
-03/12/2025,Butler,Providence,Butler,.83939999
-03/12/2025,Cal Poly,UC Davis,UC Davis,.81086665
-03/12/2025,Fresno State,Nevada,Nevada,.98000002
-03/12/2025,California,Stanford,Stanford,.96133333
-03/12/2025,UCF,Kansas,Kansas,.98000002
-03/12/2025,Cincinnati,Iowa State,Iowa State,.98000002
-03/12/2025,Colorado,West Virginia,West Virginia,.90179998
-03/12/2025,Coppin State,South Carolina State,South Carolina State,.98000002
-03/12/2025,DePaul,Georgetown,Georgetown,.65026665
-03/12/2025,Florida A&M,Jackson State,Jackson State,.95840001
-03/12/2025,Florida International,Jacksonville State,Jacksonville State,.96740001
-03/12/2025,Fordham,Rhode Island,Rhode Island,.95666665
-03/12/2025,Iowa,Ohio State,Ohio State,.95586669
-03/12/2025,Kansas State,Baylor,Baylor,.8609333
-03/12/2025,La Salle,Massachusetts,Massachusetts,.86000001
-03/12/2025,LSU,Mississippi State,Mississippi State,.98000002
-03/12/2025,Charlotte,Rice,Rice,.98000002
-03/12/2025,Northwestern,Minnesota,Northwestern,.93086666
-03/12/2025,Notre Dame,North Carolina,North Carolina,.81666666
-03/12/2025,Oklahoma,Georgia,Georgia,.97286665
-03/12/2025,Richmond,Davidson,Davidson,.94779998
-03/12/2025,Rider,Quinnipiac,Quinnipiac,.96806669
-03/12/2025,Sacred Heart,Merrimack,Merrimack,.9525333
-03/12/2025,Seton Hall,Villanova,Villanova,.98000002
-03/12/2025,South Carolina,Arkansas,Arkansas,.91306669
-03/12/2025,Syracuse,SMU,SMU,.96586668
-03/12/2025,UT Arlington,Grand Canyon,Grand Canyon,.98000002
-03/12/2025,Texas,Vanderbilt,Vanderbilt,.6444
-03/12/2025,UTEP,Liberty,Liberty,.82440001
-03/12/2025,Air Force,UNLV,UNLV,.98000002
-03/12/2025,Navy,American University,American University,.75326669
-03/12/2025,Virginia,Georgia Tech,Georgia Tech,.80573332
-03/12/2025,Wyoming,San José State,San José State,.82333332
-03/12/2025,Utah Tech,Utah Valley,Utah Valley,.98000002
+date,awayteam,hometeam,hometeamid,awayteamid,awayteamscore,hometeamscore,homeconference,awayconference,homeconfid,awayconfid
+3/12/2025,Butler,Providence,556,87,,,Big East,Big East,Big East,Big East
+3/12/2025,Cal Poly,UC Davis,108,90,,,Big West,Big West,Big West,Big West
+3/12/2025,Fresno State,Nevada,466,96,,,Mountain West,Mountain West,Mountain West,Mountain West
+3/12/2025,California,Stanford,674,107,,,ACC,ACC,ACC,ACC
+3/12/2025,UCF,Kansas,328,128,,,Big 12,Big 12,Big 12,Big 12
+3/12/2025,Cincinnati,Iowa State,311,140,,,Big 12,Big 12,Big 12,Big 12
+3/12/2025,Colorado,West Virginia,768,157,,,Big 12,Big 12,Big 12,Big 12
+3/12/2025,Coppin State,South Carolina State,647,165,,,MEAC,MEAC,MEAC,MEAC
+3/12/2025,DePaul,Georgetown,251,176,,,Big East,Big East,Big East,Big East
+3/12/2025,Florida A&M,Jackson State,314,228,,,SWAC,SWAC,SWAC,SWAC
+3/12/2025,Florida International,Jacksonville State,315,231,,,CUSA,CUSA,CUSA,CUSA
+3/12/2025,Fordham,Rhode Island,572,236,,,Atlantic 10,Atlantic 10,Atlantic 10,Atlantic 10
+3/12/2025,Iowa,Ohio State,518,312,,,Big Ten,Big Ten,Big Ten,Big Ten
+3/12/2025,Kansas State,Baylor,51,327,,,Big 12,Big 12,Big 12,Big 12
+3/12/2025,La Salle,Massachusetts,400,340,,,Atlantic 10,Atlantic 10,Atlantic 10,Atlantic 10
+3/12/2025,LSU,Mississippi State,430,365,,,SEC,SEC,SEC,SEC
+3/12/2025,Charlotte,Rice,574,458,,,The American,The American,The American,The American
+3/12/2025,Northwestern,Minnesota,428,509,,,Big Ten,Big Ten,Big Ten,Big Ten
+3/12/2025,Notre Dame,North Carolina,457,513,,,ACC,ACC,ACC,ACC
+3/12/2025,Oklahoma,Georgia,257,522,,,SEC,SEC,SEC,SEC
+3/12/2025,Richmond,Davidson,173,575,,,Atlantic 10,Atlantic 10,Atlantic 10,Atlantic 10
+3/12/2025,Rider,Quinnipiac,562,576,,,MAAC,MAAC,MAAC,MAAC
+3/12/2025,Sacred Heart,Merrimack,410,590,,,MAAC,MAAC,MAAC,MAAC
+3/12/2025,Seton Hall,Villanova,739,635,,,Big East,Big East,Big East,Big East
+3/12/2025,South Carolina,Arkansas,31,648,,,SEC,SEC,SEC,SEC
+3/12/2025,Syracuse,SMU,663,688,,,ACC,ACC,ACC,ACC
+3/12/2025,UT Arlington,Grand Canyon,1104,702,,,WAC,WAC,WAC,WAC
+3/12/2025,Texas,Vanderbilt,736,703,,,SEC,SEC,SEC,SEC
+3/12/2025,UTEP,Liberty,355,704,,,CUSA,CUSA,CUSA,CUSA
+3/12/2025,Air Force,UNLV,465,721,,,Mountain West,Mountain West,Mountain West,Mountain West
+3/12/2025,Navy,American University,23,726,,,Patriot,Patriot,Patriot,Patriot
+3/12/2025,Virginia,Georgia Tech,255,746,,,ACC,ACC,ACC,ACC
+3/12/2025,Wyoming,San José State,630,811,,,Mountain West,Mountain West,Mountain West,Mountain West
+3/12/2025,Utah Tech,Utah Valley,30024,30095,,,WAC,WAC,WAC,WAC
