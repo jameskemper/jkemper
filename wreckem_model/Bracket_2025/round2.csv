@@ -1,28 +1,17 @@
-awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob,status,,,,,,,,,,,,
-Baylor,Duke,East,9,1,Duke,0.95,correct,,,,,,,,,,,,
-Arizona,Oregon,East,4,5,Arizona,0.693812,correct,,,,,,,,,,,,
-Alabama,St. Mary's,East,2,7,Alabama,0.92287,correct,,,,,,,,,,,,
-Wisconsin,VCU,East,3,11,Wisconsin,0.700147,wrong,,,,,,,,,,,,
-Gonzaga,Houston,Midwest,8,1,Houston,0.873249,correct,,,,,,,,,,,,
-Purdue,Clemson,Midwest,4,5,Clemson,0.580299,wrong,,,,,,,,,,,,
-Kentucky,Illinois,Midwest,3,6,Illinois,0.55,correct,,,,,,,,,,,,
-Tennessee,UCLA,Midwest,2,7,Tennessee,0.83617,correct,,,,,,,,,,,,
-Louisville,Auburn,South,8,1,Auburn,0.941475,correct,,,,,,,,,,,,
-Texas A&M,Michigan,South,4,5,Texas A&M,0.53743,wrong,,,,,,,,,,,,
-Michigan State,Marquette,South,2,7,Michigan State,0.641527,correct,,,,,,,,,,,,
-Iowa State,North Carolina,South,3,11,Iowa State,0.643824,wrong,,,,,,,,,,,,
-UConn,Florida,West,8,1,Florida,0.95,correct,,,,,,,,,,,,
-Maryland,Memphis,West,4,5,Maryland,0.874132,correct,,,,,,,,,,,,
-Texas Tech,Missouri,West,3,6,Texas Tech,0.606828,correct,,,,,,,,,,,,
-St. John's,Kansas,West,2,7,Kansas,0.55,wrong,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
+awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob,status
+Baylor,Duke,East,9,1,Duke,0.95,correct
+Arizona,Oregon,East,4,5,Arizona,0.693812,correct
+Alabama,St. Mary's,East,2,7,Alabama,0.92287,correct
+Wisconsin,VCU,East,3,11,Wisconsin,0.700147,wrong
+Gonzaga,Houston,Midwest,8,1,Houston,0.873249,correct
+Purdue,Clemson,Midwest,4,5,Clemson,0.580299,wrong
+Kentucky,Illinois,Midwest,3,6,Illinois,0.55,correct
+Tennessee,UCLA,Midwest,2,7,Tennessee,0.83617,correct
+Louisville,Auburn,South,8,1,Auburn,0.941475,correct
+Texas A&M,Michigan,South,4,5,Texas A&M,0.53743,wrong
+Michigan State,Marquette,South,2,7,Michigan State,0.641527,correct
+Iowa State,North Carolina,South,3,11,Iowa State,0.643824,wrong
+UConn,Florida,West,8,1,Florida,0.95,correct
+Maryland,Memphis,West,4,5,Maryland,0.874132,correct
+Texas Tech,Missouri,West,3,6,Texas Tech,0.606828,correct
+St. John's,Kansas,West,2,7,Kansas,0.55,wrong
