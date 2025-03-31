@@ -1,9 +1,9 @@
-awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob
-Arizona,Duke,East,4,1,Duke,0.941695
-Alabama,Wisconsin,East,2,3,Alabama,0.597245
-Clemson,Houston,Midwest,5,1,Houston,0.931119
-Tennessee,Illinois,Midwest,2,6,Tennessee,0.780743
-Texas A&M,Auburn,South,4,1,Auburn,0.92372
-Michigan State,Iowa State,South,2,3,Michigan State,0.524979
-Maryland,Florida,West,4,1,Florida,0.90025
-Kansas,Texas Tech,West,7,3,Texas Tech,0.779026
+awayteam,hometeam,group,awayseed,homeseed,winner,winning_prob,status
+Arizona,Duke,East,4,1,Duke,0.941695,correct
+Alabama,Wisconsin,East,2,3,Alabama,0.597245,correct
+Clemson,Houston,Midwest,5,1,Houston,0.931119,correct
+Tennessee,Illinois,Midwest,2,6,Tennessee,0.780743,correct
+Texas A&M,Auburn,South,4,1,Auburn,0.92372,correct
+Michigan State,Iowa State,South,2,3,Michigan State,0.524979,correct
+Maryland,Florida,West,4,1,Florida,0.90025,correct
+Kansas,Texas Tech,West,7,3,Texas Tech,0.779026,correct
