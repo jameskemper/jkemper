@@ -1,83 +1,369 @@
-<!doctype html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>James Kemper - TTU faculty website </title>
-    <script src="https://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
-    <link href="Assets/styles/PageStyleSheet.css" rel="stylesheet" type="text/css">
-    <style id="dark-mode-style"></style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>James Kemper | Teaching | Texas Tech University</title>
+    <style>
+        :root {
+            --primary-color: #cc0000;
+            --secondary-color: #000000;
+            --accent-color: #f5f5f5;
+            --text-color: #333333;
+            --link-color: #cc0000;
+            --link-hover: #990000;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .navLinks {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navLinks a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+
+        .navLinks a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width var(--transition-speed);
+        }
+
+        .navLinks a:hover:after, .navLinks a.active:after {
+            width: 100%;
+        }
+
+        .navLinks a.active {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: color var(--transition-speed);
+        }
+
+        /* Profile Section */
+        .profileSection {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profilePhoto {
+            width: 200px;
+            height: auto;
+            border-radius: 15px;
+            object-fit: contain;
+            border: 4px solid var(--primary-color);
+            transition: border-color var(--transition-speed);
+        }
+
+        .contactInfo h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .contactInfo h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .contactInfo h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .contactGrid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px 15px;
+            align-items: center;
+        }
+
+        .contactGrid p {
+            margin: 0;
+        }
+        
+        .contactGrid a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+        
+        .contactGrid a:hover {
+            color: var(--link-hover);
+        }
+
+        /* Teaching Content */
+        .teachingContent {
+            padding: 40px 0;
+        }
+
+        .teachingContent h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .institution {
+            margin-bottom: 40px;
+        }
+
+        .institution h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .courseList {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .course {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .course:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .courseCode {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --text-color: #f5f5f5;
+            --link-color: #ff6666;
+            --link-hover: #ff8080;
+            --accent-color: #333333;
+            background-color: #121212;
+        }
+
+        body.dark-mode .contactInfo h3, 
+        body.dark-mode .institution h3 {
+            color: #dddddd;
+        }
+
+        body.dark-mode .teachingContent h2 {
+            border-bottom-color: #333333;
+        }
+
+        body.dark-mode .course {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode footer {
+            color: #999;
+            border-top-color: #333333;
+        }
+        
+        body.dark-mode .profileSection {
+            border-bottom-color: #333333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profileSection {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .contactGrid {
+                justify-content: center;
+            }
+            
+            .courseList {
+                grid-template-columns: 1fr;
+            }
+            
+            .navLinks {
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <ul class="navLinks">
-            <a href="home.html" class="active">Home</a>
-            <a href="teaching.html">Teaching</a> 
-            <a href="James_Kemper_CV.pdf">CV</a> 
+        <div class="navLinks">
+            <a href="index.html">Home</a>
+            <a href="teaching.html" class="active">Teaching</a>
+            <a href="James_Kemper_CV.pdf">CV</a>
             <a href="projects.html">Projects</a>
-        </ul>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
     </nav>
-      <button id="dark-mode-button" style="position: absolute; top: 10px; right: 10px;">Dark Mode</button>
-  <div class="headerContent">
 
-<!-- Header Content -->
-<section class="profileSection">
-  <img class="profilePhoto" src="Assets/images/head_shot_full.png" alt="James Kemper"/>
-    <div class="contactInfo">
-        <h1>James Kemper</h1>
-        <h2>Lecturer, Department of Economics</h2>
-        <h3>Texas Tech University</h3>
-        <p><strong> Phone:</strong>  (806)834-7691</p>
-        <p><strong>Email:</strong> <a href="mailto:james.kemper@ttu.edu">james.kemper@ttu.edu</a></p>
-        <p><strong>Office:</strong> 244 Holden Hall</p>
+    <!-- Profile Section -->
+    <section class="profileSection">
+        <img class="profilePhoto" src="Assets/images/head_shot_full.png" alt="James Kemper" />
+        <div class="contactInfo">
+            <h1>James Kemper</h1>
+            <h2>Lecturer, Department of Economics</h2>
+            <h3>Texas Tech University</h3>
+            <div class="contactGrid">
+                <p><strong>Phone:</strong></p>
+                <p>(806) 834-7691</p>
+                <p><strong>Email:</strong></p>
+                <p><a href="mailto:james.kemper@ttu.edu">james.kemper@ttu.edu</a></p>
+                <p><strong>Office:</strong></p>
+                <p>244 Holden Hall</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Content -->
+    <section class="teachingContent">
+        <h2>Teaching</h2>
         
-    </div>
-</section>
-<section class="mainContent">
-    <h2>&nbsp;Teaching:</h2>
-    <h3>&nbsp;&nbsp;Texas Tech University</h3>
-    <ul>
-        <li>ECO 2301, Principles of Economics II (Microeconomics)&nbsp;</li>
-        <li>ECO 2302, Principles of Economics II (Macroeconomics)</li>
-<li>ECO 2305, Principles of Economics</li>
-        <li>ECO 3361, Microsoft Excel for Economists</li>
-        <li>ECO 4300, Economic Research</li>
-    </ul> 
-    <h3>&nbsp;&nbsp;Texas Tech University Health Sciences Center</h3>
-    <ul>
-      <li>HPHM 4334, Health Economics and Policy</li>
-      <li>HPHM 5313, Healthcare Economics and Policy&nbsp; &nbsp;</li>
-    </ul>
-</section>
+        <div class="institution">
+            <h3>Texas Tech University</h3>
+            <div class="courseList">
+                <div class="course">
+                    <span class="courseCode">ECO 2301</span>
+                    <span class="courseName">Principles of Economics II (Microeconomics)</span>
+                </div>
+                <div class="course">
+                    <span class="courseCode">ECO 2302</span>
+                    <span class="courseName">Principles of Economics II (Macroeconomics)</span>
+                </div>
+                <div class="course">
+                    <span class="courseCode">ECO 2305</span>
+                    <span class="courseName">Principles of Economics</span>
+                </div>
+                <div class="course">
+                    <span class="courseCode">ECO 3361</span>
+                    <span class="courseName">Microsoft Excel for Economists</span>
+                </div>
+                <div class="course">
+                    <span class="courseCode">ECO 4300</span>
+                    <span class="courseName">Economic Research</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="institution">
+            <h3>Texas Tech University Health Sciences Center</h3>
+            <div class="courseList">
+                <div class="course">
+                    <span class="courseCode">HPHM 4334</span>
+                    <span class="courseName">Health Economics and Policy</span>
+                </div>
+                <div class="course">
+                    <span class="courseCode">HPHM 5313</span>
+                    <span class="courseName">Healthcare Economics and Policy</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>Updated Jan 2025</footer>
+    <footer>© James Kemper | Updated April 2025</footer>
 
-<script>
-    var isDarkMode = false;
-    var darkModeButton = document.getElementById('dark-mode-button');
-    var darkModeStyle = document.getElementById('dark-mode-style');
-
-    darkModeButton.addEventListener('click', function() {
-        isDarkMode = !isDarkMode;
-        if (isDarkMode) {
-            darkModeStyle.innerHTML = `
-                body, nav, .navLinks a, .headerContent, .welcomeSection, .mainContent, footer,
-                .contactInfo, .contactInfo a, a, button, h1, h2, h3 {
-                    background-color: #121212 !important; 
-                    color: #ffffff !important;
-                }
-                .headerContent h1, .headerContent h2, .headerContent h3 {
-                    color: #ffffff !important;
-                }
-                a { color: #4A90E2 !important; } 
-                button { border: 1px solid #ffffff !important; }
-            `;
-            darkModeButton.textContent = 'Light Mode';
-        } else {
-            darkModeStyle.innerHTML = '';
-            darkModeButton.textContent = 'Dark Mode';
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            updateToggleIcon(true);
         }
-    });
-</script>
+        
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            updateToggleIcon(isDarkMode);
+        });
+        
+        function updateToggleIcon(isDarkMode) {
+            if (isDarkMode) {
+                themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+            } else {
+                themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+            }
+        }
+    </script>
+</body>
 </html>

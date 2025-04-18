@@ -1,183 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NCAA Game Predictions</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-/* General Styling */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Header */
-h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-}
-
-/* Navigation Bar */
-.nav {
-    margin-top: 20px;
-    font-size: 16px;
-    padding: 10px;
-    text-align: center;
-}
-
-.nav a {
-    color: #ff9800;
-    text-decoration: none;
-    margin: 0 15px;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    font-weight: 500;
-}
-
-.nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-/* Table Styling */
-table {
-    width: 90%;
-    max-width: 1000px;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
-}
-
-th {
-    background: rgba(255, 255, 255, 0.2);
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
-
-td {
-    background: rgba(255, 255, 255, 0.05);
-    transition: background 0.3s ease-in-out;
-}
-
-/* Hover effect */
-tr:hover td {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-/* Team Logos */
-img {
-    width: 40px;
-    height: auto;
-    vertical-align: middle;
-    margin-left: 10px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out;
-}
-
-img:hover {
-    transform: scale(1.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  <title>WRECKEM Model Bracket Predictions</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 120px;
+      height: auto;
+    }
+    h1, h2 {
+      text-align: center;
+      margin: 0;
+    }
+    h1 {
+      color: #222;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #555;
+      margin-bottom: 30px;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+    /* Round Info and Accuracy */
+    .round-info {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #e9ecef;
+      border-radius: 5px;
+    }
+    .round-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.1em;
+      color: #333;
+    }
+    .round-header span {
+      margin-left: 20px;
+    }
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      padding: 8px 16px;
+      background: #f8f9fa;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 0.95em;
+    }
+    button:hover {
+      background: #e2e6ea;
+    }
+    button.active {
+      background: #cc0000;
+      color: #fff;
+      border-color: #cc0000;
+    }
+    /* Table Styles */
     table {
-        width: 95%;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
-    
     th, td {
-        padding: 8px;
-        font-size: 0.9rem;
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
     }
-}
-</style>
+    th {
+      background-color: #e9ecef;
+      color: #333;
+      font-weight: bold;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    tbody tr:hover {
+      background-color: #f1f3f5;
+    }
+    /* Status styling */
+    .status-cell.correct {
+      color: green;
+      font-weight: bold;
+    }
+    .status-cell.wrong {
+      color: red;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <img src="Assets/images/TTU ECO logo transparent.png" alt="TTU ECO Logo" class="logo">
+    
+    <h1>WRECKEM Model Bracket Predictions</h1>
+    <h2>2025 Men's NCAA Tournament<br>Win Probability Analysis</h2>
+    
+    <div class="round-info">
+      <div class="round-header">
+        <strong>Round:</strong><span id="current-round-display">Round 1</span> 
+       <strong> &nbsp; &nbsp;Accuracy:</strong> <span id="accuracy-display"></span>
+      </div>
+    </div>
+    
+    <div>
+      <h3 style="text-align: center;">Round Selection</h3>
+      <div class="buttons" id="round-buttons">
+        <button class="active" data-round="0">First Four</button>
+        <button data-round="1">Round of 64</button>
+        <button data-round="2">Round of 32</button>
+        <button data-round="3">Sweet 16</button>
+        <button data-round="4">Elite 8</button>
+        <button data-round="5">Final 4</button>
+        <button data-round="6">Championship</button>
+      </div>
+    </div>
+    
+    <div id="table-container"></div>
+    
+    <div class="footer">
+      WRECKEM Model predictions were generated on 3/19/2025
+    </div>
+  </div>
 
+  <script>
+    const roundFiles = [
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round0.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round1.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round2.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round3.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round4.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round5.csv',
+      'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/Bracket_2025/round6.csv',
+    ];
 
-<h2>Kemper's NCAA Game Predictions</h2>
+    let currentRound = 0;
 
-<!-- Prediction Table -->
-<table id="predictionsTable">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Away Team</th>
-            <th>Home Team</th>
-            <th>Predicted Winner</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Table rows will be dynamically generated here -->
-    </tbody>
-</table>
-
-<!-- JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const csvUrl = 'https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/ncaa_predictions.csv';
-    const tableBody = document.getElementById('predictionsTable').getElementsByTagName('tbody')[0];
-
-    function formatTeamName(teamName) {
-        return teamName.trim().toLowerCase().replace(/\s+/g, '_'); 
-    }
-
-    function populateTable(data) {
-        tableBody.innerHTML = '';
-        data.forEach(function(row) {
-            if (!row.date || !row.awayteam || !row.hometeam || !row.predicted_winner) {
-                return;
-            }
-
-            const formattedWinner = formatTeamName(row.predicted_winner);
-            const winnerLogo = `https://raw.githubusercontent.com/jameskemper/jkemper/main/wreckem_model/NCAA_logos/${formattedWinner}.png`;
-
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.date}</td>
-                <td>${row.awayteam}</td>
-                <td>${row.hometeam}</td>
-                <td>
-                    ${row.predicted_winner} 
-                    <img src="${winnerLogo}" alt="${row.predicted_winner} logo" onerror="this.style.display='none'">
-                </td>
-            `;
-            tableBody.appendChild(tr);
-        });
-    }
-
-    Papa.parse(csvUrl, {
-        download: true,
-        header: true,
-        complete: function(results) {
-            populateTable(results.data);
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      loadData(currentRound);
+      setupRoundButtons();
     });
-});
-</script>
 
+    async function loadData(round) {
+      const response = await fetch(roundFiles[round]);
+      const csvData = await response.text();
+      const parsedData = parseCSV(csvData);
+      renderTable(parsedData);
+      updateAccuracy(parsedData);
+    }
+
+    // Parse CSV data and trim each value.
+    function parseCSV(csvData) {
+      const rows = csvData.split('\n').slice(1);
+      return rows.filter(row => row.trim() !== "").map(row => {
+        const columns = row.split(',');
+        return {
+          AwayTeam: columns[0].trim(),
+          HomeTeam: columns[1].trim(),
+          AwaySeed: columns[3].trim(),
+          HomeSeed: columns[4].trim(),
+          Winner: columns[5].trim(),
+          // Use the CSV's status column if available (8th column), otherwise default to an empty string.
+          Status: columns.length >= 8 ? columns[7].trim() : ''
+        };
+      });
+    }
+
+    function renderTable(data) {
+      if (data.length === 0) {
+        document.getElementById('table-container').innerHTML = '<p style="text-align:center;">No data available for this round</p>';
+        return;
+      }
+
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th>Away Team</th>
+              <th>Away Seed</th>
+              <th>Home Team</th>
+              <th>Home Seed</th>
+              <th>Predicted Winner</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      data.forEach((matchup, index) => {
+        let statusText = matchup.Status;
+        let statusClass = "";
+        if (statusText.toLowerCase() === "correct") {
+          statusClass = "correct";
+          statusText = "Correct"; // Normalize display text.
+        } else if (statusText.toLowerCase() === "wrong") {
+          statusClass = "wrong";
+          statusText = "Wrong";
+        }
+        html += `
+          <tr>
+            <td>${matchup.AwayTeam}</td>
+            <td>${matchup.AwaySeed}</td>
+            <td>${matchup.HomeTeam}</td>
+            <td>${matchup.HomeSeed}</td>
+            <td>${matchup.Winner}</td>
+            <td><span class="status-cell ${statusClass}" data-index="${index}" onclick="toggleStatus(${index})">${statusText}</span></td>
+          </tr>
+        `;
+      });
+
+      html += `
+          </tbody>
+        </table>
+      `;
+      document.getElementById('table-container').innerHTML = html;
+    }
+
+    function setupRoundButtons() {
+      document.getElementById('round-buttons').addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+          document.querySelectorAll('#round-buttons button').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          e.target.classList.add('active');
+          
+          currentRound = parseInt(e.target.dataset.round);
+          document.getElementById('current-round-display').textContent = 
+            currentRound === 0 ? 'First Round' : `Round ${currentRound}`;
+          
+          loadData(currentRound);
+        }
+      });
+    }
+
+    // Compute accuracy percentage (Correct / (Correct + Wrong)).
+    function computeAccuracy(data) {
+      let total = 0;
+      let correctCount = 0;
+      data.forEach(matchup => {
+        const status = matchup.Status.trim().toLowerCase();
+        if (status === 'correct' || status === 'wrong') {
+          total++;
+          if (status === 'correct') {
+            correctCount++;
+          }
+        }
+      });
+      return total > 0 ? ((correctCount / total) * 100).toFixed(2) + '%' : 'N/A';
+    }
+
+    // Update the accuracy display.
+    function updateAccuracy(data) {
+      const accuracy = computeAccuracy(data);
+      document.getElementById('accuracy-display').innerText = `${accuracy}`;
+    }
+
+    // Toggle status and update visual styling.
+    function toggleStatus(index) {
+      const table = document.querySelector('table');
+      const statusCell = table.rows[index + 1].cells[5].querySelector('.status-cell');
+      let currentStatus = statusCell.innerText.trim().toLowerCase();
+      if (currentStatus === 'correct') {
+        statusCell.innerText = 'Wrong';
+        statusCell.classList.remove('correct');
+        statusCell.classList.add('wrong');
+      } else if (currentStatus === 'wrong') {
+        statusCell.innerText = '';
+        statusCell.classList.remove('wrong');
+      } else {
+        statusCell.innerText = 'Correct';
+        statusCell.classList.add('correct');
+      }
+      // After toggling, update the overall accuracy display.
+      // Re-parse the current table data from the DOM for simplicity.
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      let data = rows.map((row, i) => {
+        const cells = row.cells;
+        return {
+          Status: cells[5].innerText.trim()
+        };
+      });
+      updateAccuracy(data);
+    }
+  </script>
 </body>
 </html>

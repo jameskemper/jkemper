@@ -1,72 +1,502 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVNRS3K2SP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-ZVNRS3K2SP');
-    </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>James Kemper - TTU faculty website - Projects</title>
-    <script src="https://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
-    <link href="Assets/styles/PageStyleSheet.css" rel="stylesheet" type="text/css">
-    <style id="dark-mode-style"></style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>James Kemper | Projects | Texas Tech University</title>
+    <style>
+        :root {
+            --primary-color: #cc0000;
+            --secondary-color: #000000;
+            --accent-color: #f5f5f5;
+            --text-color: #333333;
+            --link-color: #cc0000;
+            --link-hover: #990000;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .navLinks {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navLinks a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+
+        .navLinks a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width var(--transition-speed);
+        }
+
+        .navLinks a:hover:after, .navLinks a.active:after {
+            width: 100%;
+        }
+
+        .navLinks a.active {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: color var(--transition-speed);
+        }
+
+        /* Projects Section */
+        .projectsSection {
+            padding: 40px 0;
+        }
+
+        .projectsSection h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .projectItem {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .projectItem:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .projectItem h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .projectItem p {
+            margin-bottom: 15px;
+        }
+
+        .projectItem a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-speed);
+        }
+
+        .projectItem a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e6e6e6;
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            color: #555;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .tagNew {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .researchFindings {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .researchFindings h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .researchFindings ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .researchFindings ul li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .researchFindings ul li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Tag Filter */
+        .tagFilterContainer {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tagFilterContainer h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .tagFilter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filterTag {
+            display: inline-block;
+            background-color: #e6e6e6;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            color: #555;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            user-select: none;
+        }
+
+        .filterTag:hover {
+            background-color: #d9d9d9;
+        }
+
+        .filterTag.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .filterTag.active:hover {
+            background-color: var(--link-hover);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --text-color: #f5f5f5;
+            --link-color: #ff6666;
+            --link-hover: #ff8080;
+            --accent-color: #333333;
+            background-color: #121212;
+        }
+
+        body.dark-mode .projectsSection h2 {
+            border-bottom-color: #333333;
+        }
+
+        body.dark-mode .projectItem {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .tag {
+            background-color: #333333;
+            color: #ddd;
+        }
+
+        body.dark-mode .tagNew {
+            background-color: #aa0000;
+            color: white;
+        }
+
+        body.dark-mode .researchFindings {
+            background-color: #252525;
+        }
+
+        body.dark-mode .tagFilterContainer {
+            background-color: #1a1a1a;
+        }
+
+        body.dark-mode .filterTag {
+            background-color: #333333;
+            color: #ddd;
+        }
+
+        body.dark-mode .filterTag:hover {
+            background-color: #444444;
+        }
+
+        body.dark-mode footer {
+            color: #999;
+            border-top-color: #333333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navLinks {
+                gap: 15px;
+            }
+            
+            .projectItem {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <ul class="navLinks">
-            <a href="home.html" class="active">Home</a>
-            <a href="teaching.html">Teaching</a> 
-            <a href="James_Kemper_CV.pdf">CV</a> 
-            <a href="projects.html">Projects</a>
-        </ul>
+        <div class="navLinks">
+            <a href="index.html">Home</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="James_Kemper_CV.pdf">CV</a>
+            <a href="projects.html" class="active">Projects</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
     </nav>
-<button id="dark-mode-button" style="position: absolute; top: 10px; right: 10px;">Dark Mode</button>
-    <div class="headerContent">
-        <!-- Projects Section -->
-        <section class="projectsSection">
-            <h2>Current and Past Projects</h2>
-            <div class="projectItem">
-                <ul>
-                <li><h3>NCAA Basketball Game Outcome Prediction Model</h3>
-                <ul><p>The <a href="https://www.myweb.ttu.edu/jkemper/about_NCAA_odds.html">WRECKEM Model</a>, named in honor of Texas Tech University, forecasts outcomes of NCAA Men's Basketball games by leveraging advanced statistical analysis. This project merges a passion I have for sports with data analytics, while serving as an educational tool.</p>
+
+    <!-- Projects Section -->
+    <section class="projectsSection">
+        <h2>Current and Past Projects</h2>
+        
+        <!-- Tag Filter -->
+        <div class="tagFilterContainer">
+            <h3>Filter by Topic:</h3>
+            <div class="tagFilter" id="tagFilter">
+                <!-- Tags will be populated by JavaScript -->
             </div>
-        </section>
-    </div>
-    <footer>Updated January 2025</footer>
-</body>
-	
-<script>
-    var isDarkMode = false;
-    var darkModeButton = document.getElementById('dark-mode-button');
-    var darkModeStyle = document.getElementById('dark-mode-style');
+        </div>
+        
+        <div class="projectItem">
+            <h3>NIL Impact on College Football: Analysis Across Power 5 and Non-Power 5 Conferences</h3>
+            <p>Since the NCAA allowed athletes to profit from their Name, Image, and Likeness (NIL) in 2021, our research team has been examining the effects across Power 5 ("Haves") and non-Power 5 ("Have-Nots") programs. Contrary to many initial concerns about NIL worsening competitive imbalance, our data demonstrates that NIL has enhanced competitive balance and improved player performance, especially in "Have-Nots" teams.</p>
+            
+            <p>Our methodology employs a difference-in-differences (DiD) approach comparing player performance metrics before and after NIL implementation across both conference tiers. We've constructed a comprehensive panel dataset (2015-2024) containing player-level statistics, transfer patterns, and game outcomes. Using standardized performance metrics and controlling for player, team, position, and conference fixed effects, we isolate the causal impact of NIL policies while accounting for pre-existing trends. The Noll-Scully Index provides an objective measure of competitive balance changes within conferences.</p>
+            
+            <div class="researchFindings">
+                <h4>Key Findings:</h4>
+                <ul>
+                    <li>Transfers increased substantially across all conferences, with a surprising distribution pattern that didn't solely benefit traditional powerhouses</li>
+                    <li>Player performance metrics improved in the NIL era, with Have-Not players seeing the greatest performance improvements</li>
+                    <li>Games have become more competitive during the NIL period, with tighter point spreads and fewer blowouts</li>
+                    <li>Using the Noll-Scully Index, we've demonstrated increased competitive parity in most conferences</li>
+                </ul>
+            </div>
+            
+            <p>This research was presented at the 2nd Annual Sports Economics Conference, hosted by the University of Maryland, Baltimore County in April 2025. The project is a collaboration with Dr. Alejandro Abarca, Jurrien Loftin, and Calvin Vinson from the Department of Economics at Texas Tech University.</p>
+            
+            <div>
+                <span class="tag tagNew">Current Research</span>
+                <span class="tag">Sports Economics</span>
+                <span class="tag">NIL Policy</span>
+                <span class="tag">Competitive Balance</span>
+            </div>
+        </div>
+        
+        
+        <div class="projectItem">
+            <h3>TrUE Scholars Program Faculty Mentor</h3>
+            <p>As a faculty mentor for Texas Tech's Undergraduate Research Experience (TrUE) Scholars Program, I work closely with talented undergraduates to develop their research skills and academic potential. Each student identifies a research topic, designs appropriate methodologies, collects and analyzes data, and presents their findings at the annual Texas Tech University Undergraduate Research Conference (URC).</p>
+     
+            <p>Working with these promising researchers has been tremendously rewarding. The URC presentations showcase not just their individual accomplishments but also highlight the value of undergraduate research in developing critical thinking and analytical capabilities that extend well beyond the classroom.</p>
+            
+            <div>
+        
+                <h4>2025 TrUE Scholars:</h4>
+                <ul>
+                    <div class="researchFindings">
+                    <li><a href="https://www.depts.ttu.edu/true/urc/2025/directory/abstract.php?id=C283283"><strong>Jenna Necaise</strong></a> - Investigated "Aging America: The Intersection of Healthcare Costs and Telehealth Adoption" focusing on West Texas's growing elderly population. Her research analyzed economic challenges of healthcare access in rural communities and evaluated how telemedicine can provide cost-effective solutions to reduce expenses, decrease travel burdens, and improve access for seniors in underserved areas. Using data from the U.S. Census, Federal Reserve, and American Community Surveys, she developed compelling insights into telehealth's potential role in addressing healthcare disparities.</li>
+                    </div>
+                    
+                    <div class="researchFindings">
+                    <li><a href="https://www.depts.ttu.edu/true/urc/2025/directory/abstract.php?id=A014014"><strong>Affan Anas</strong></a> - Tackled the "Parking Predicament: A Microeconomic Analysis of Tech's Parking Shortage" after observing campus parking challenges. His study revealed Commuter North and West permits were oversold by almost double the capacity in 2023, leading to overflow parking problems in residential areas. Through analysis of over 95,000 parking violations and application of game theory, he examined decision-making patterns among drivers unable to find parking in their designated lots, providing a fascinating application of microeconomic principles to an everyday campus issue.</li>
+                    </div>
+                    
+                    <div class="researchFindings">
+                     <li><a href="https://www.depts.ttu.edu/true/urc/2025/directory/abstract.php?id=B134134"><strong>Joseph Garcia</strong></a> - Explored "Economic Tourism in Japan: The Dual Impact of Tokyo 2020 and COVID-19" by analyzing how the pandemic disrupted anticipated Olympic tourism benefits. His research tracked Japan's tourism collapse from 31 million visitors in 2019 to just 220,000 in 2021 and identified strategies Japan employed to enhance economic resilience. The study offers valuable insights for policymakers, economists, and event organizers on navigating economic uncertainties and maximizing financial benefits of sporting events despite external disruptions.</li>
+                    </div>
+                </ul>
 
-    darkModeButton.addEventListener('click', function() {
-        isDarkMode = !isDarkMode;
-        if (isDarkMode) {
-            darkModeStyle.innerHTML = `
-                body, nav, .navLinks a, .headerContent, .welcomeSection, .mainContent, footer,
-                .contactInfo, .contactInfo a, a, button, h1, h2, h3 {
-                    background-color: #121212 !important; 
-                    color: #ffffff !important;
-                }
-                .headerContent h1, .headerContent h2, .headerContent h3 {
-                    color: #ffffff !important;
-                }
-                a { color: #4A90E2 !important; } 
-                button { border: 1px solid #ffffff !important; }
-            `;
-            darkModeButton.textContent = 'Light Mode';
-        } else {
-            darkModeStyle.innerHTML = '';
-            darkModeButton.textContent = 'Dark Mode';
+                <span class="tag">Student Mentorship</span>
+                <span class="tag">Undergraduate Research</span>
+                <span class="tag">TrUE Scholars Program</span>
+            </div>
+        </div>
+        
+        <div class="projectItem">
+            <h3>NCAA Basketball Game Outcome Prediction Model</h3>
+            <p>The <a href="https://www.myweb.ttu.edu/jkemper/about_NCAA_odds.html">WRECKEM Model</a>, named in honor of Texas Tech University, is a sophisticated predictive analytics system that forecasts outcomes of NCAA Men's Basketball games. This model leverages advanced statistical methodologies, including machine learning algorithms and historical performance metrics, to generate accurate game predictions.</p>
+            
+            <p>Updated for the 2025 season, the model now incorporates enhanced player efficiency ratings, team momentum factors, and adjusted venue impact variables. The WRECKEM Model has demonstrated consistent predictive accuracy across multiple tournament seasons, outperforming many commercial alternatives in blind testing.</p>
+            
+            <p>This project represents the intersection of sports analytics and economic modeling while serving as an educational tool for students interested in applied statistics. The model's architecture and methodology have been presented at several sports analytics conferences and continue to evolve with each tournament season.</p>
+            
+            <div>
+                <span class="tag">Predictive Analytics</span>
+                <span class="tag">Sports Economics</span>
+                <span class="tag">Statistical Modeling</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>© James Kemper | Updated April 2025</footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            updateToggleIcon(true);
         }
-    });
-</script>
+        
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            updateToggleIcon(isDarkMode);
+        });
+        
+        function updateToggleIcon(isDarkMode) {
+            if (isDarkMode) {
+                themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+            } else {
+                themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+            }
+        }
+        
+        // Tag filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collect all tags from projects
+            const allTags = new Set();
+            const projectItems = document.querySelectorAll('.projectItem');
+            
+            projectItems.forEach(item => {
+                const tagElements = item.querySelectorAll('.tag');
+                tagElements.forEach(tag => {
+                    // Extract tag text and add to set
+                    const tagText = tag.textContent.trim();
+                    allTags.add(tagText);
+                });
+            });
+            
+            // Create filter tags
+            const tagFilter = document.getElementById('tagFilter');
+            const allTagsArray = Array.from(allTags).sort();
+            
+            // Add "All" filter first
+            const allFilter = document.createElement('div');
+            allFilter.className = 'filterTag active';
+            allFilter.textContent = 'All';
+            allFilter.setAttribute('data-tag', 'all');
+            tagFilter.appendChild(allFilter);
+            
+            // Add other tags
+            allTagsArray.forEach(tagText => {
+                const filterTag = document.createElement('div');
+                filterTag.className = 'filterTag';
+                filterTag.textContent = tagText;
+                filterTag.setAttribute('data-tag', tagText);
+                tagFilter.appendChild(filterTag);
+            });
+            
+            // Filter functionality
+            const filterTags = document.querySelectorAll('.filterTag');
+            
+            // Tag click event
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    // Remove active class from all tags
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tag
+                    this.classList.add('active');
+                    
+                    const selectedTag = this.getAttribute('data-tag');
+                    
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        if (selectedTag === 'all') {
+                            item.style.display = '';
+                            return;
+                        }
+                        
+                        const itemTags = Array.from(item.querySelectorAll('.tag'))
+                            .map(tag => tag.textContent.trim());
+                        
+                        if (itemTags.includes(selectedTag)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
 </html>
-
